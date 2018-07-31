@@ -1,0 +1,60 @@
+<ion-content class="text">
+  <div class="popup-wrapper">
+    <div class="popup-cnt">
+
+      <ion-row class="popup-heading">
+        <h2 class="h2-title font-r">Select-Hospital</h2>
+        <a class="popup-close" (click)="dismiss()">
+          <img src="assets/imgs/close-popup.png" alt="" />
+        </a>
+      </ion-row>
+
+      <ion-list radio-group [(ngModel)]="relationship" class="scroll">
+        <ion-item>
+          <ion-radio value="Pune" (click)="dismiss()"></ion-radio>
+          <ion-label>Pune Hospital</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="Sasun" checked (click)="dismiss()"></ion-radio>
+          <ion-label>Sasun Hospital Pune</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="Deenanath" (click)="dismiss()"></ion-radio>
+          <ion-label>Deenanath Mangeshkar Hospital Pune</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="Deenanath" (click)="dismiss()"></ion-radio>
+          <ion-label>Deenanath Mangeshkar Hospital Pune</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="Deenanath" (click)="dismiss()"></ion-radio>
+          <ion-label>Deenanath Mangeshkar Hospital Pune</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-radio value="Sahyadri" [disabled]="isDisabled" (click)="dismiss()"></ion-radio>
+          <ion-label>Sahyadri Super Speciality Hospital Pune</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8>
+          <button ion-button class="btn-save-popup font-r" (click)="addhospital()">
+            Add Hospital
+          </button>
+        </ion-col>
+        <ion-col col-2></ion-col>
+        <!-- <ion-col col-4>
+          <button ion-button class="btn-cancel-popup font-r" (click)="cancel()">
+            Cancel
+          </button>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button class="btn-cancel-popup font-r" (click)="ok()">
+            OK
+          </button>
+        </ion-col> -->
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

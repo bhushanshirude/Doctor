@@ -1,0 +1,94 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+a {
+color: #9c9090;
+font-size: 11px;
+margin-left: 0%;
+}
+.imgs {
+border-radius: 10%;
+overflow: hidden;
+width: 120px;
+height: 120px;
+// margin-left: -28%;
+margin: 10px auto 0px auto;;
+border-color: #00c0ef;
+border-width: 2px;
+border-style: solid;
+}
+.apple:hover{
+      margin: 13px 8px 13px 0px;
+      color: #00bfee;
+      cursor: pointer;
+      font-weight: 300;
+    }
+.toolbar-background {
+    background: #097a93;
+    }
+
+  .toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: whitesmoke;
+}
+h2 {
+  margin-top: 2%;
+  font-size: 14px;
+  font-weight: 200;
+  margin-bottom: 2%;
+}
+.change{
+  // margin-top: -5%;
+  font-size: 12px;
+  width: 50%;
+  margin: 0px auto;
+}
+.changes{
+  // margin-top: 0%;
+  font-size:10px;
+  // margin-left: 0%;
+  margin: 0px auto;
+  width: 40%;
+
+}
+.mohit{
+  // margin-top: 0%;
+  // margin-left: 5%;
+margin: 0px auto;
+width: 70%;
+}
+.apple img {
+    max-width: 7%;
+    border: 0;
+    width: 100%;
+}
+[col-12] {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  width: 70%;
+  max-width: 70%;
+}
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+$font-family-base: "Montserrat";
+$font-family-md-base: "Montserrat";
+$font-family-ios-base: "Montserrat";
+$font-family-wp-base: "Montserrat";
+* {font-family: 'Roboto', sans-serif; font-size: 14px;}

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    </button>
+    <ion-title> Urmila Prakash Deol</ion-title>
+  </ion-navbar>
+
+  <ion-label class="stabel">
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col col-9>
+        32 Years Female
+      </ion-col>
+      <ion-col col-2>
+        CABG
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <ion-col col-9>
+        Denanath Hospital
+      </ion-col>
+      <ion-col col-2>
+        Ward
+      </ion-col>
+    </ion-row>
+  </ion-label>
+</ion-header>
+
+
+
+
+<ion-content>
+  <super-tabs name="doctor" style="height: 100%; margin-top: 0%; color:white; font-size: 12px;" toolbarColor="light" toolbarBackground="#b82827"
+    indicatorColor="light" badgeColor="light" [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'">
+    <super-tab [root]="tab1Root" [title]="showTitles? 'PROFILE' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab2Root" [title]="showTitles? 'LAB' : ''" [icon]="showIcons? 'heart' : ''" badge="1"></super-tab>
+    <super-tab [root]="tab3Root" [title]="showTitles? 'DISCUSS' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab4Root" [title]="showTitles? 'DRUGS' : ''" [icon]="showIcons? 'heart' : ''" badge="1"></super-tab>
+    <super-tab [root]="tab5Root" [title]="showTitles? 'RECORD' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+  </super-tabs>
+</ion-content>

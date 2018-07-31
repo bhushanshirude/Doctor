@@ -1,0 +1,7 @@
+{
+  "name": "myDoc",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

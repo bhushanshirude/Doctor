@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>ADD NEW LAB</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+    <form class="form">
+        <ion-list>
+            <ion-item class="input-hospital">
+                <ion-input type="text" name="" placeholder="Patient Name"></ion-input>
+            </ion-item>
+            <!-- <ion-item class="input-hospital">
+                <ion-input type="text" name="" placeholder="Doctor Name"></ion-input>
+            </ion-item>
+            <ion-item class="input-hospital">
+                <ion-input type="text" name="" placeholder="PathlogyLab Name"></ion-input>
+            </ion-item>
+            <ion-item class="input-hospital">
+                <ion-input type="text" name="" placeholder="Report For"></ion-input>
+            </ion-item>
+            <ion-item class="input-hospital">
+                <ion-input type="text" name="" placeholder="Description"></ion-input>
+            </ion-item> -->
+            <ion-item class="input-hospital">
+                <ion-input type="text" name="" placeholder="Investigation Name"></ion-input>
+            </ion-item>
+            <ion-item class="input-hospital">
+                <ion-input type="text" name="" placeholder="Reference Range"></ion-input>
+            </ion-item>
+            <ion-item class="add-hospital-block">
+                <ion-input type="number" name="" placeholder="From" class="space"></ion-input>
+                <ion-input type="text" name="" placeholder="To"></ion-input>
+                <div class="clear"></div>
+            </ion-item>
+            <div class="clear"></div>
+
+            <ion-row>
+                <ion-col col-6>
+                    <button class="button-add"> Submit </button>
+                </ion-col>
+                <ion-col col-6>
+                    <button class="button-add" (click)="backHospitalList()"> Reset </button>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+    </form>
+    <ion-row>
+        <ion-col col-2>
+        </ion-col>
+        <ion-col col-10 text-center>
+            <img src="assets/icon/lab.png">
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+    </ion-row>
+</ion-content>

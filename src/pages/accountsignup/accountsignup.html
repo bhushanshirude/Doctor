@@ -1,0 +1,58 @@
+<ion-content class="signup-wrapper">
+  <a href="#." class="welcome-logo">
+    <img src="assets/new-img/logo.png" alt="" />
+  </a>
+  <h2 class="title-h2">Sign Up</h2>
+
+  <ion-card class="signup-card">
+    <form>
+      <ion-list class="signup-block">
+        <ion-item class="border-bottom">
+          <ion-label class="signup-label">
+            <ion-icon item-left name="person"></ion-icon>
+          </ion-label>
+          <ion-input type="email" placeholder="Enter Full Name"></ion-input>
+        </ion-item>
+        <ion-item class="border-bottom">
+          <ion-label class="signup-label">
+            <ion-icon item-left name="mail"></ion-icon>
+          </ion-label>
+          <ion-input type="email" placeholder="Enter Email"></ion-input>
+        </ion-item>
+        <ion-item class="border-bottom">
+          <ion-label class="signup-label">
+            <ion-icon item-left name="call"></ion-icon>
+          </ion-label>
+          <ion-input type="email" placeholder="Enter Mobile Number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="signup-label">
+            <ion-icon item-left name="lock"></ion-icon>
+          </ion-label>
+          <ion-input type="email" placeholder="Enter Password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <br />
+      <button class="btn-button">Sign Up</button>
+    </form>
+  </ion-card>
+  <br />
+  <br />
+  <p class="signup-text">Or Sign-up with your Facebook / Gmail Account</p>
+
+  <div class="signup-social">
+    <ion-row>
+      <ion-col col-6>
+        <a href="#." class="anch-facebook">Facebook</a>
+      </ion-col>
+      <ion-col col-6>
+        <a href="#." class="anch-gmail">Gmail</a>
+      </ion-col>
+    </ion-row>
+
+  </div>
+  <p class="signup-text" (click)="loginPage();">Already have an account?Sign In</p>
+  <br />
+  <br />
+
+</ion-content>

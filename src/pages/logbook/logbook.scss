@@ -1,0 +1,47 @@
+page-logbook {
+    .colors{
+        background:  #097a93;
+    }
+    .footer-md::before{
+        top: -2px;
+        bottom: auto;
+        background-position: left 0 top 0;
+        height: 0px;
+    }
+    .bottom{
+        margin: 0px;
+        padding: 0px 0;
+      }
+    .bottom a {
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        display: block;
+        padding: 8px 0;
+        margin: 0px;  
+      }
+       .bottom a img {
+        margin-right: 4px;
+        margin-left: 10px;
+        width: 8%;
+        margin-top: 0%;
+    }
+    .bor-right{
+      border-right: 0.1px solid #FFF;
+    }
+    .bottoms{
+        width: 10%;
+        margin-left: 85%;
+        cursor: pointer;
+    }
+    .date{
+        background-color: #efefef;
+    }
+    .row{
+        margin-top: 5%;
+    }
+    .tab-right-wrap{
+        background-color: #097a93;
+        color: #fff;
+      }
+}

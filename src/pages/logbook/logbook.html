@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" style="color: whitesmoke; font-size:25px;"></ion-icon>
+    </button>
+    <ion-title>Logbook</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <br>
+  <div class="tab-right-wrap">
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="kittens" style="color: #fff;">
+        HISTORY
+      </ion-segment-button>
+      <ion-segment-button value="puppies" style="color: #fff;">
+        EXAMINATION
+      </ion-segment-button>
+      <ion-segment-button value="ducklings" style="color: #fff;">
+        CUSTOM DATA
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <br>
+  <ion-row>
+    <ion-col col-3 class="date">
+      <h2>16 Jully 2018</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-3>
+      <h2>Santosh Pimpre</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-4 class="date">
+      <h2>Denanath Mangeshkar Hospital</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-2>
+      <h2>High Bp</h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-3 class="date">
+      <h2>16 Jully 2018</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-3>
+      <h2>Santosh Pimpre</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-4 class="date">
+      <h2>Denanath Mangeshkar Hospital</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-2>
+      <h2>High Bp</h2>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row>
+    <ion-col col-3 class="date">
+      <h2>16 Jully 2018</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-3>
+      <h2>Santosh Pimpre</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-4 class="date">
+      <h2>Denanath Mangeshkar Hospital</h2>
+      <p></p>
+    </ion-col>
+    <ion-col col-2>
+      <h2>High Bp</h2>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+
+<ion-footer>
+  <ion-row class="colors">
+    <ion-col col-6 text-center class="bottom">
+      <a class="bor-right" (click)="add()">
+        <img src="assets/icon/add1.png" /> Add New
+      </a>
+    </ion-col>
+
+    <ion-col col-6 text-center class="bottom">
+      <a (click)="clickUpdate()">
+        <img src="assets/icon/search.png" /> Search
+      </a>
+    </ion-col>
+  </ion-row>
+</ion-footer>

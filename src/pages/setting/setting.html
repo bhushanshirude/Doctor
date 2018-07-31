@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" style="color: whitesmoke; font-size:25px;"></ion-icon>
+    </button>
+    <ion-title>Setting</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="ba">
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <h2> General</h2>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+
+    <ion-item (click)="dashboard()">
+      <ion-col col-1></ion-col>
+      About US
+    </ion-item>
+    <ion-item (click)="dashboard()">
+      <ion-col col-1></ion-col>
+      Privacy
+    </ion-item>
+
+    <ion-item (click)="dashboard()">
+      <ion-col col-1></ion-col>
+      Share With friends and family
+    </ion-item>
+
+  </ion-list>
+
+  <ion-grid class="ba">
+    <ion-row>
+      <ion-col col-1></ion-col>
+      <h2> Account</h2>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item (click)="dashboard()">
+    <ion-col col-1></ion-col>
+    Change Password
+  </ion-item>
+</ion-content>

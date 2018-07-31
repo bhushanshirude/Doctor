@@ -1,0 +1,100 @@
+page-drownprofile {
+  .toolbar-background {
+    background: #097a93;
+    }
+    .item-md {
+        padding-left: 16px;
+        padding-right: 0;
+        position: relative;
+        font-size: 1.6rem;
+        font-weight: normal;
+        text-transform: none;
+        color: #000;
+        background-color: #efefef;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    // * {
+    //   font-family: 'Montserrat';
+    //   font-size: 14px;
+    //    font-weight: bold; 
+    //  }
+    .item-md h2 {
+      color: #000;
+      font-size: 14px;
+    }
+    
+    .item-md p {
+      font-size: 13px;
+      line-height: normal;
+      text-overflow: inherit;
+      color: #666;
+    }
+     .item-md ion-thumbnail img {
+      border-radius: 10%;
+      overflow: hidden;
+      width: 60px;
+      height: 60px;
+      border-color: #00c0ef;
+      border-width: 2px;
+      border-style: solid;
+    }
+    img {
+      border: 0;
+      width: 10px;
+      margin-left: 10px;
+    }   
+    .border-right{
+      border-right: 0.1px solid #b9b9b9;
+    }
+    .border-bottom{
+      border-bottom: 0.3px solid #b9b9b9;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 13px;
+    }
+    .border-bottom p{
+      font-size: 13px;
+      margin-top: -5px;
+      font-weight:200;
+    }
+    [col-4] {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 33.33333%;
+      -ms-flex: 0 0 33.33333%;
+      flex: 0 0 33.33333%;
+      width: 33.33333%;
+      margin-top: 20px;
+      max-width: 33.33333%;
+    }
+
+    .bottom{
+      margin: 0px;
+      padding: 0px 0;
+    }
+    .bottom a {
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      padding: 6px 0;
+      margin: 0px;  
+    }
+    .bottom a img{margin-right: 4px; margin-left: 10px;}
+    .bor-right{
+      border-right: 0.1px solid #FFF;
+    }
+    [col-8] {
+      margin-top: 2.3%;
+      font-size: 15px;
+      color: #fff;      
+  }
+  .colors{
+    background: #097a93 ;
+}
+}
+

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <!-- <button ion-button menuToggle>
+      <ion-icon name="menu"  style="color: whitesmoke"></ion-icon>
+    </button> -->
+    <ion-row>
+      <ion-col col-1>
+        <button ion-button menuToggle>
+          <ion-icon name="menu" style="color: whitesmoke; font-size:25px;"></ion-icon>
+        </button>
+      </ion-col>
+
+      <!-- <ion-title>Deenanath Hospital</ion-title> -->
+
+      <ion-col col-1></ion-col>
+
+      <ion-col col-8 class="cols myCustomSelect" (click)="click(Invoice)">
+        <ion-label>Pune Hospital</ion-label>
+      </ion-col>
+      <ion-buttons  class="ends" (click)="click(Invoice)">
+          <img src="assets/img/down.png">
+      </ion-buttons>
+
+      <!-- <ion-buttons end>
+        <button ion-button color="royal" (click)="presentPopover($event)">
+          <ion-icon ios="ios-more" md="md-more" style="color: whitesmoke;"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+<ion-content class="tops">
+  <!-- scrollTabs is used to scroll header tabs  -->
+  <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
+    [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'">
+    <super-tab [root]="tab1Root" [title]="showTitles? 'OPD' : ''" [icon]="showIcons? 'heart' : ''" badge="1">
+      <ion-badge>9</ion-badge>
+    </super-tab>
+    <super-tab [root]="tab2Root" [title]="showTitles? 'ICU' : ''" [icon]="showIcons? 'heart' : ''" badge="2"></super-tab>
+    <super-tab [root]="tab3Root" [title]="showTitles? 'WARD' : ''" [icon]="showIcons? 'heart' : ''" badge="3"></super-tab>
+    <super-tab [root]="tab4Root" [title]="showTitles? 'HDU' : ''" [icon]="showIcons? 'heart' : ''" badge="4"></super-tab>
+    <super-tab [root]="tab5Root" [title]="showTitles? 'OT' : ''" [icon]="showIcons? 'heart' : ''" badge="5"></super-tab>
+    <i class="icon ion-ios-paper badge-container">
+      <span class="badge badge-assertive">5</span>
+    </i>
+  </super-tabs>
+</ion-content>
+
+<!-- <ion-tabs>
+    <ion-tab tabIcon="call"  tabBadge="3" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab tabIcon="chatbubbles" [root]="tabTwo" tabBadge="14" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab tabIcon="musical-notes" [root]="tabThree"></ion-tab>
+</ion-tabs> -->

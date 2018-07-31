@@ -1,0 +1,101 @@
+page-add-hospital{
+    .toolbar-background {
+        background:#097a93;
+        }
+
+     .toolbar-title-md {
+            padding: 0 0px;
+            font-size: 15px;
+            font-weight: 500;
+            color: whitesmoke;
+        }
+    .item-md.item-block .item-inner{border: 0px;}
+    
+        .clear{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+    
+    .input-hospital{
+        margin: 0px auto;
+        padding: 0px;
+        width: 80%;
+    }
+     
+    .input-hospital input{ 
+        margin: 0px;
+        padding: 0px 0px 0px 40px;
+        height: 52px;
+        text-align: left;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .add-hospital-block{
+        margin: 0px auto;
+        padding: 0px;
+        display: block;
+        width: 80%;
+    }
+    .add-hospital-block ion-input{
+        margin: 0px;
+        padding: 0px 0px 0px 40px;
+        height: 52px;
+        text-align: left;
+        border-bottom: 1px solid #eeeeee;
+    }
+    ion-input {text-align: left;     
+          ::-webkit-input-placeholder {text-align: left; }
+      }
+    .add-hospital-block .space{
+        margin-right: 10px;
+    }
+    .form{
+        margin: 5% 0px 0px 0px;
+    }
+    .button-add{
+        margin: 15% 2% 10px 10%;
+        height: 36px;
+        width: 120px;
+        color:#fff;
+        font-size: 12px;
+        border-radius: 60px !important;
+        background: rgba(10,120,148,1);
+ }
+ .back-button.show-back-button {
+    display: inline-block;
+    color: whitesmoke;
+    // color:red
+}
+
+
+    @media only screen and (max-width: 480px) {
+     .input-hospital input{ 
+         padding-left: 10px;
+     }
+     .add-hospital-block ion-input{
+        padding-left: 4px;   
+     }
+    }
+
+    .item-cover {
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 10%;
+        height: 10%;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .text-id{
+        margin: 13px 8px 13px 0px;
+        color: #000;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 300;
+    }
+    
+}

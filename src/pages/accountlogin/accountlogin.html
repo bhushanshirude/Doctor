@@ -1,0 +1,41 @@
+<ion-content class="signup-wrapper">
+	<a href="#." class="welcome-logo">
+		<img src="assets/new-img/logo.png" alt="" />
+	</a>
+	<h2 class="title-h2">Sign In</h2>
+
+	<ion-card class="signup-card">
+		<form>
+			<ion-list class="signup-block">
+				<ion-item class="border-bottom">
+					<ion-label class="signup-label">
+						<ion-icon item-left name="person"></ion-icon>
+					</ion-label>
+					<ion-input type="email" placeholder="Enter Email/Mobile Number"></ion-input>
+				</ion-item>
+				<ion-item class="border-bottom">
+					<ion-label class="signup-label">
+						<ion-icon item-left name="mail"></ion-icon>
+					</ion-label>
+					<ion-input type="password" placeholder="Enter pssword"></ion-input>
+				</ion-item>
+				<!-- <ion-row responsive-sm>
+					<ion-col style="color:rgba(9,124,150,1)">
+						<ion-radio value="1" (ionSelect)="openDoctor()"></ion-radio> Doctor
+					</ion-col>
+					<ion-col style="color:rgba(9,124,150,1)">
+						<ion-radio value="2" (ionSelect)="openPatients()"></ion-radio> Patient
+					</ion-col>
+				</ion-row> -->
+			</ion-list>
+			<br />
+			<!-- <button class="btns-button" (click)="openPatients()">Sign In</button> -->
+			<button class="btn-button" (click)="openDoctor()">Doctor Sign In</button>
+		</form>
+	</ion-card>
+	<br />
+	<p class="signup-text" (click)="forgotPasswordPage()">Forgot Password</p>
+	<p class="signup-text" (click)="onSignup()">Don't have an Accounr?Sign up</p>
+	<br/>
+
+</ion-content>

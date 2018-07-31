@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-title>ADD Logbook</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+    <form class="form">
+        <ion-list>
+          <ion-item class="input-hospital">
+            <ion-input type="text" name="" placeholder="Name"></ion-input>
+          </ion-item>
+          <ion-item class="input-hospital">
+            <ion-input type="text" name="" placeholder="Address"></ion-input>
+          </ion-item>
+          <ion-item class="input-hospital">
+            <ion-input type="number" name="" placeholder="Mobile Number"></ion-input>
+          </ion-item>
+          <ion-item class="input-hospital">
+            <ion-input type="text" name="" placeholder="Email"></ion-input>
+          </ion-item>
+    
+          <ion-item class="input-hospital">
+            <ion-input type="text" name="" placeholder="Hospital Name"></ion-input>
+          </ion-item>
+    
+          <ion-item class="item-leave-height">
+            <ion-label>Select Hospital Status</ion-label>
+            <ion-select>
+                <ion-option value="CASUAL LEAVE">Active</ion-option>
+                <ion-option value="COMP OFF">Inactive</ion-option>
+            </ion-select>
+         </ion-item>
+    
+          <div class="clear"></div>
+    
+          <ion-row>
+            <ion-col col-6>
+              <button class="button-add"> Submit </button>
+            </ion-col>
+            <ion-col col-6>
+              <button class="button-add" (click)="backHospitalList()"> Reset </button>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+      </form>
+</ion-content>

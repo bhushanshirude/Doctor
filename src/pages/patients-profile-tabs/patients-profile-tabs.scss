@@ -1,0 +1,62 @@
+page-patients-profile-tabs {
+    .toolbar-background {
+        background: #097a93;
+        }
+      .toolbar-title-md {
+        font-size: 16px;
+        font-weight: 500;
+        margin-left: -8%;
+        color:whitesmoke;
+    }
+    .header-md::after{
+        background-position: left 0 top -2px;
+        width: 100%;
+        height: 0px;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAHBAMAAADzDtBxAAAAD1BMV…h/TXEAAAAaSURBVAjXYxCEAgY4UIICBmMogMsgFLtAAQCNSwXZKOdPxgAAAABJRU5ErkJggg==);
+        background-repeat: repeat-x;
+      }
+     
+      super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button .badge {
+        position: absolute;
+        top: 0;
+        right: 0px;
+    }
+
+     .stabel{
+        margin: 0px 0px 0px 0px;
+        color: #a2cdd6;
+        font-size: 13px;
+        font-weight: 500;
+        background-color:#097a93;
+      }
+   
+  super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button .badge {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 0%;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+.back-button.show-back-button {
+    display: inline-block;
+    color: whitesmoke;
+    // color:red
+}
+ion-badge {
+    padding: 3px 0px;
+    text-align: center;
+    display: inline-block;
+    min-width: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+.toolbar-md {
+    /* padding: 4px; */
+    min-height: 44px;
+}
+}

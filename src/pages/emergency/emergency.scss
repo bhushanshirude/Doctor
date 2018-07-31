@@ -1,0 +1,42 @@
+page-emergency {
+    .toolbar-title-md {
+        font-size: 14px;
+        font-weight: 500;
+        color: whitesmoke;
+        margin-left: -10%;
+    }
+    ion-card img {
+        display: block;
+        width: 50%;
+        text-align: center;
+        margin: 10% 10% 10% 24%;
+    }
+    .card-md p {
+        // margin: 0px 0px 14px 21%;
+        font-size: 10px;
+        font-weight: normal;
+        line-height: -0.5;
+        color: #0f7c95;
+    }
+    .card-md p:hover{
+        font-size: 10px;
+        font-weight: normal;
+        line-height: -0.5;
+        color: whitesmoke;
+    }
+
+    ion-card{
+        height: 100%;
+    }
+
+    ion-card:hover, ion-card:hover p{
+        background: linear-gradient(to right, #097a93 , #00c0e9);
+        cursor: pointer;
+        color:whitesmoke;
+    }
+    .back-button.show-back-button {
+        display: inline-block;
+        color: whitesmoke;
+        // color:red
+    }
+}

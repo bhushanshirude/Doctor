@@ -1,0 +1,72 @@
+<ion-header>
+
+	<ion-navbar>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Support</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-row>
+		<ion-col text-center>
+			<img src="assets/img/icon_health.png" center alt="App Logo">
+		</ion-col>
+	</ion-row>
+
+
+
+	<form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)">
+		<ion-list no-lines>
+			<ion-item>
+				<ion-label stacked color="primary">Enter your support message below</ion-label>
+				<ion-textarea placeholder="Send Your Queries" [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel"
+				 rows="6" required></ion-textarea>
+			</ion-item>
+		</ion-list>
+
+		<p ion-text [hidden]="supportQuestion.valid || submitted === false" color="danger" padding-left>
+			Support message is required
+		</p>
+
+		<div padding>
+			<button ion-button style="background: #b82827; color: #ffffff" type="submit">Submit</button>
+			<button ion-button style="background: #b82827; color: #ffffff" type="reset">Reset</button>
+		</div>
+	</form>
+	<br/>
+	<p ion-text  padding-center>
+		Help-Support Center
+		<br/>I have an issue with
+	</p>
+	<ion-list color="danger">
+		<ion-item class="item item-icon-left item-icon-right" href="#">
+			<i class="icon ion-male blueicon"></i>
+			Booking Appointments
+			<i class="icon ion-chevron-right"></i>
+		</ion-item>
+		<ion-item class="item item-icon-left item-icon-right" href="#">
+			<i class="icon ion-female blueicon"></i>
+			Online Consultations
+			<i class="icon ion-chevron-right"></i>
+		</ion-item>
+		<ion-item class="item item-icon-left item-icon-right" href="#">
+			<i class="icon ion-female blueicon"></i>
+			Medicine Orders
+			<i class="icon ion-chevron-right"></i>
+		</ion-item>
+		<ion-item class="item item-icon-left item-icon-right" href="#">
+			<i class="icon ion-female blueicon"></i>
+			My Account and Information
+			<i class="icon ion-chevron-right"></i>
+		</ion-item>
+		<ion-item class="item item-icon-left item-icon-right" href="#">
+			<i class="icon ion-female blueicon"></i>
+			Other issue
+			<i class="icon ion-chevron-right"></i>
+		</ion-item>
+	</ion-list>
+</ion-content>

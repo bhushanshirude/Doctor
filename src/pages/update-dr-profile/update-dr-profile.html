@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" style="color: whitesmoke; font-size:25px;"></ion-icon>
+    </button>
+    <ion-title text-center>Update Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>First Name:</ion-label>
+        <ion-input type="text" name="drname" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Last Name:</ion-label>
+        <ion-input type="text" name="drname" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sex</ion-label>
+        <ion-select>
+          <ion-option value="f">Female</ion-option>
+          <ion-option value="m">Male</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email id:</ion-label>
+        <ion-input type="text" name="address" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Website:</ion-label>
+        <ion-input type="text" name="education" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Registration No:</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label floating>Medical Council</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Year:</ion-label>
+        <ion-datetime required class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Additional Qualification:</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label floating>Graduation:</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Degree :</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>College :</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label floating>Year of Joining :</ion-label>
+        <ion-datetime required class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY"></ion-datetime>
+      </ion-item>
+
+
+
+      <ion-item>
+        <ion-label floating>Post Graduation:</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Degree :</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>College :</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label floating>Year of Joining :</ion-label>
+        <ion-datetime required class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Awards :</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Publication :</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Presentation :</ion-label>
+        <ion-input type="text" name="specification" required></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="colors">
+    <ion-col col-6 text-center class="bottom">
+      <a class="bor-right">
+        <img src="assets/icon/refresh1.png" /> Update Profile
+      </a>
+    </ion-col>
+
+    <ion-col col-6 text-center class="bottom" (click)="backDoctor()">
+      <a>
+        Back
+      </a>
+    </ion-col>
+  </ion-row>
+</ion-footer>
