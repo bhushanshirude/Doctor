@@ -97,5 +97,14 @@ page-add-hospital{
         font-size: 12px;
         font-weight: 300;
     }
+
+    // ios css
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 15px;
+        font-weight: 600;
+        color: whitesmoke;
+        pointer-events: auto;
+    }
     
 }

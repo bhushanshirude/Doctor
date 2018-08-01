@@ -8,6 +8,9 @@ page-hospital-dashboard {
     margin-left: 12%;
 }
 
+.imgss{
+  width: 80%;
+}
 .header-md::after{
   background-position: left 0 top -2px;
   width: 100%;
@@ -62,4 +65,11 @@ ion-badge {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+
+// ios css
+.label-ios {
+  margin: 14px 8px 11px 28px;
+  font-size: 14px;
+}
+
 }

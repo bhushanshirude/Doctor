@@ -24,13 +24,16 @@ import { AddLabPage } from '../pages/add-lab/add-lab';
 import { AddDrugsPage } from '../pages/add-drugs/add-drugs';
 import { AddDiscussionPage } from '../pages/add-discussion/add-discussion';
 import { AddeventPage } from '../pages/addevent/addevent';
+import { AdditionalqualificationPage } from '../pages/additionalqualification/additionalqualification';
 import { AlumniPage } from '../pages/alumni/alumni';
 import { DoctorDashboard } from '../pages/doctor-dashboard/doctor-dashboard';
 import { Data } from '../providers/data';
+import { DropPage } from '../pages/drop/drop'
 import { DoctorData } from '../providers/doctordata';
 import { DrownprofilePage } from '../pages/drownprofile/drownprofile';
 import { DatePickerModule } from 'ion-datepicker';
 import { EmergencyPage } from '../pages/emergency/emergency';
+import { GraduationPage } from '../pages/graduation/graduation'
 import { HospitalDashboard } from '../pages/hospital-dashboard/hospital-dashboard';
 import { HduPage } from '../pages/hdu/hdu';
 import { IcuPage } from '../pages/icu/icu';
@@ -39,6 +42,7 @@ import { OpdPage } from '../pages/opd/opd';
 import { OtPage } from '../pages/ot/ot';
 import { PopoverOptionPage } from '../pages/popover/popover';
 import { PopoverPatientPage } from '../pages/popover-patient/popover-patient';
+import { PostgraduationPage } from '../pages/postgraduation/postgraduation';
 import { PatientsProfileTabs } from '../pages/patients-profile-tabs/patients-profile-tabs';
 import { PatientpopoverPage } from '../pages/patientpopover/patientpopover';
 import { WardPage } from '../pages/ward/ward';
@@ -54,7 +58,6 @@ import { SupportPage } from '../pages/support/support';
 import { UpdateDrProfilePage } from '../pages/update-dr-profile/update-dr-profile';;
 import { PopoverPatients_menu } from '../pages/popover_patients_menu/popoverpatients_menu'
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
-import { DropPage } from '../pages/drop/drop'
 @NgModule({
   declarations: [
     MyApp,
@@ -67,6 +70,7 @@ import { DropPage } from '../pages/drop/drop'
     AccountloginPage,
     AccountsignupPage,
     AccountforgotpasswordPage,
+    AdditionalqualificationPage,
     AddPatientPage,
     AddeventPage,
     AddHospitalPage,
@@ -81,6 +85,7 @@ import { DropPage } from '../pages/drop/drop'
     DrugsPage,
     DropPage,
     EmergencyPage,
+    GraduationPage,
     HospitalDashboard,
     ImagePage,
     LabPage,
@@ -88,6 +93,7 @@ import { DropPage } from '../pages/drop/drop'
     MyteamPage,
     PopoverOptionPage,
     PopoverPatientPage,
+    PostgraduationPage,
     PatientsProfileTabs,
     PatientProfileDetailPage,
     PatientpopoverPage,
@@ -134,6 +140,7 @@ import { DropPage } from '../pages/drop/drop'
     AccountsignupPage,
     AddeventPage,
     AccountforgotpasswordPage,
+    AdditionalqualificationPage,
     AddPatientPage,
     AddHospitalPage,
     AddLabPage,
@@ -147,6 +154,7 @@ import { DropPage } from '../pages/drop/drop'
     DrugsPage,
     DropPage,
     EmergencyPage,
+    GraduationPage,
     HospitalDashboard,
     ImagePage,
     LabPage,
@@ -154,6 +162,7 @@ import { DropPage } from '../pages/drop/drop'
     MyteamPage,
     PopoverOptionPage,
     PopoverPatientPage,
+    PostgraduationPage,
     PatientsProfileTabs,
     PatientProfileDetailPage,
     PatientpopoverPage,

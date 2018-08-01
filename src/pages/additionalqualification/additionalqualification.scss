@@ -1,4 +1,4 @@
-page-drop {
+page-additionalqualification {
     .text{
         height: 100%;
         width: 100%; 
@@ -27,13 +27,13 @@ page-drop {
         position: relative;
     }
     .popup-heading .h2-title{
-        margin: 0px 0px 10px 0px;
+        margin: 0px 0px 10px -15px;
         padding: 0px;
         width: 100%;
         // text-align: center;
         font-weight: normal;
         color: #989898;
-        font-size: 20px;
+        font-size: 18px;
     }
     .popup-close{
         display: inline-block;
@@ -79,7 +79,7 @@ page-drop {
         margin: 15px auto ;
         padding: 0px;
         width: 100%;
-        height: 45px;
+        height: 40px;
         text-align: center;
         display: inline-block;
         background-color: #0f7c95;
@@ -90,21 +90,7 @@ page-drop {
         border-radius: 44px;
         cursor: pointer;
     }
-    .btn-cancel-popup{
-        margin: 20px auto;
-        padding: 0px;
-        width: 100%;
-        height: 45px;
-        text-align: center;
-        display: inline-block;
-        background-color: #0f7c95;
-        color: #fff;
-        box-shadow: inherit;
-        font-size: 26px;
-        text-transform: capitalize;
-        border-radius: 44px;
-        cursor: pointer;
-    }
+   
     .scroll{
         height: 160px;
         overflow-y: scroll;
@@ -113,5 +99,13 @@ page-drop {
         -ms-flex: 0 0 66.66667%;
         width: 10%;
         height: 60px;
+    }
+
+    // ios css
+    .list-ios > .item-block:first-child {
+        border-top: 0px solid #c8c7cc; 
+    }
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+        border-bottom: 0px solid #c8c7cc; 
     }
 }

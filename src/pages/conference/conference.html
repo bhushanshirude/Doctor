@@ -128,18 +128,22 @@
     <ion-list *ngSwitchCase="'kittens'">
       <div class="calendar-header" style="background-color: rgb(202, 202, 202); cursor: pointer;">
         <ion-row class="calendar-month" ion-datepicker [(value)]="initDate" locale="en-US" clear class="ScheduleDate">
+        
           <ion-col col-2>
             <ion-icon name="arrow-back"></ion-icon>
           </ion-col>
+
           <ion-col col-9 text-center>
             <span>{{initDate | date}}
             </span>
           </ion-col>
+
           <ion-col col-1>
             <ion-icon name="arrow-forward"></ion-icon>
           </ion-col>
         </ion-row>
       </div>
+
       <ion-row class="rows">
         <ion-col col-3 class="date">
           <h2>{{initDate | date}}</h2>
@@ -149,6 +153,7 @@
           <p>A quick and simplified answer is that Lorem Ipsum refers to text that</p>
         </ion-col>
       </ion-row>
+
     </ion-list>
   </div>
 </ion-content>

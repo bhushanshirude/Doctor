@@ -10,30 +10,31 @@ import { EmergencyPage } from '../emergency/emergency';
   templateUrl: 'hdu.html',
 })
 export class HduPage {
-
+  [x: string]: any;
   constructor(public navCtrl: NavController, public appCtrl: App, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HduPage');
   }
-  pagePatients() {
-    // this.navCtrl.setRoot(ProfilePage);
-    this.appCtrl.getRootNavs()[0].push(PatientsProfileTabs);
-  }
-  addpatient() {
-    this.navCtrl.push(AddPatientPage);
-  }
+
   patient() {
     this.appCtrl.getRootNavs()[0].push(PatientsProfileTabs);
   }
-  sort(){
+
+  emergency() {
+    this.appCtrl.getRootNavs()[0].push(EmergencyPage);
+  }
+  add() {
     console.log("Sort is working")
     this.appCtrl.getRootNavs()[0].push(AddPatientPage)
   }
-  search(){
+  search() {
     console.log("Search is working")
+    this.value = 'search';
   }
-  emergency() {
-    this.appCtrl.getRootNavs()[0].push(EmergencyPage);}
+  sea() {
+    this.value = 'search !=search';
+  }
 }
+

@@ -10,6 +10,9 @@ page-accountlogin {
     background-repeat: no-repeat;
     background-size: contain;
     background-color: #ffffff;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    //  background-size: cover;
 }
 .welcome-logo{
     display: block;
@@ -146,4 +149,11 @@ img {
   border: 0;
 }
 
+// ios css
+.list-ios > .item-block:first-child {
+     border-top: 0px solid #c8c7cc; 
+}
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+     border-bottom: 0px solid #c8c7cc; 
+ }
 }

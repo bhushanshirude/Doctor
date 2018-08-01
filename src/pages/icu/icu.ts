@@ -11,7 +11,7 @@ import { EmergencyPage } from '../emergency/emergency';
   templateUrl: 'icu.html',
 })
 export class IcuPage {
-
+  [x: string]: any;
   constructor(public navCtrl: NavController, public appCtrl: App, public navParams: NavParams, public popoverCtrl: PopoverController) {
   }
 
@@ -22,27 +22,25 @@ export class IcuPage {
     let popover = this.popoverCtrl.create(PopoverOptionPage);
     popover.present({ ev: event });
   }
-  pagePatients() {
-    // this.navCtrl.setRoot(ProfilePage);
-    this.appCtrl.getRootNavs()[0].push(PatientsProfileTabs);
-  }
-  addpatient() {
-    this.navCtrl.push(AddPatientPage);
-  }
+
   patient() {
     this.appCtrl.getRootNavs()[0].push(PatientsProfileTabs);
-  }
-  sort() {
-    console.log("Sort is working")
-    // this.navCtrl.push(AddPatientPage);
-    this.appCtrl.getRootNavs()[0].push(AddPatientPage)
-  }
-  search() {
-    console.log("Search is working")
   }
   emergency() {
     // this.navCtrl.push(EmergencyPage)
     this.appCtrl.getRootNavs()[0].push(EmergencyPage);
+  }
+  add() {
+    console.log("Sort is working")
+    this.appCtrl.getRootNavs()[0].push(AddPatientPage)
+  }
+
+  search() {
+    console.log("Search is working")
+    this.value = 'search';
+  }
+  sea() {
+    this.value = 'search !=search';
   }
 
 }

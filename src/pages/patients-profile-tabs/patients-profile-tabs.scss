@@ -59,4 +59,13 @@ ion-badge {
     /* padding: 4px; */
     min-height: 44px;
 }
+
+// ios css
+.toolbar-title-ios {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: whitesmoke;
+    pointer-events: auto;
+}
 }

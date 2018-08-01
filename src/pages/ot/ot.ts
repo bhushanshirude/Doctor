@@ -10,32 +10,29 @@ import { EmergencyPage } from '../emergency/emergency';
   templateUrl: 'ot.html',
 })
 export class OtPage {
-
+  [x: string]: any;
   constructor(public navCtrl: NavController, public appCtrl: App, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OtPage');
   }
-  pagePatients() {
-    // this.navCtrl.setRoot(ProfilePage);
-    this.appCtrl.getRootNavs()[0].push(PatientsProfileTabs);
-  }
-  
-  addpatient() {
-    this.navCtrl.push(AddPatientPage);
-  }
+
   patient() {
     this.appCtrl.getRootNavs()[0].push(PatientsProfileTabs);
   }
-  sort(){
+  add() {
     console.log("Sort is working")
     this.appCtrl.getRootNavs()[0].push(AddPatientPage)
   }
-  search(){
+  search() {
     console.log("Search is working")
+    this.value = 'search';
   }
   emergency() {
     this.appCtrl.getRootNavs()[0].push(EmergencyPage);
-}
+  }
+  sea() {
+    this.value = 'search !=search';
+  }
 }

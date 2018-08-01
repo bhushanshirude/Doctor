@@ -1,0 +1,40 @@
+<ion-content class="text">
+    <div class="popup-wrapper">
+      <div class="popup-cnt">
+  
+        <ion-row class="popup-heading">
+          <h2 class="h2-title">Additional Qualification</h2>
+          <a class="popup-close" (click)="dismiss()">
+            <img src="assets/imgs/close-popup.png" alt="" />
+          </a>
+        </ion-row>
+  
+        <ion-list class="scroll">
+          <ion-item>
+            <ion-label floating>Degree :</ion-label>
+            <ion-input type="text" name="specification" required></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label floating>College :</ion-label>
+            <ion-input type="text" name="specification" required></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label floating>Year of Joining :</ion-label>
+            <ion-datetime required class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY"></ion-datetime>
+          </ion-item>
+        </ion-list>
+  
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-8>
+            <button ion-button class="btn-save-popup" (click)="Submit()">
+              Submit
+            </button>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </ion-content>

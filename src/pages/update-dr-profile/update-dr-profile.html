@@ -29,11 +29,31 @@
         </ion-select>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Date</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
-      </ion-item>
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col col-7 style="color: #837e7e; margin-left: -5%;">
+          <ion-label>Date Of Birth</ion-label>
+        </ion-col>
+        <ion-col col-4>
+          <div ion-datepicker [(value)]="initDate" locale="en-US" clear class="ScheduleDate" style="cursor: pointer;">
+            <span>{{initDate | date}} </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <hr>
 
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col col-7 style="color: #837e7e; margin-left: -5%;">
+          <ion-label>Start Date</ion-label>
+        </ion-col>
+        <ion-col col-4>
+          <div ion-datepicker [(value)]="initDate" locale="en-US" clear class="ScheduleDate" style="cursor: pointer;">
+            <span>{{initDate | date}} </span>
+          </div>
+        </ion-col>
+      </ion-row>
+      <hr>
       <ion-item>
         <ion-label floating>Email id:</ion-label>
         <ion-input type="text" name="address" required></ion-input>
@@ -60,57 +80,67 @@
         <ion-datetime required class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY"></ion-datetime>
       </ion-item>
 
-      <ion-item>
-        <ion-label floating>Additional Qualification:</ion-label>
-        <ion-input type="text" name="specification" required></ion-input>
-      </ion-item>
+      <ion-row style="margin-top: 0%;">
+        <ion-col col-8 style="color: #837e7e; margin-top: 5%;  margin-left: 4%;">
+          <ion-label>Additional Qualification:</ion-label>
+        </ion-col>
+        <ion-col col-3 style="border-radius: 50px;">
+          <button ion-button class="add" (click)="Additional(Invoice)">ADD</button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+      <ion-row style="margin-top: 0%;">
+        <ion-col col-8 style="color: #837e7e; margin-top: 5%;  margin-left: 4%;">
+          <ion-label>Graduation:</ion-label>
+        </ion-col>
+        <ion-col col-3 style="border-radius: 50px;">
+          <button ion-button class="add" (click)="Graduation(Invoice)">ADD</button>
+        </ion-col>
+      </ion-row>
+      <hr>
+
+      <ion-row style="margin-top: 0%;">
+        <ion-col col-8 style="color: #837e7e; margin-top: 5%;  margin-left: 4%;">
+          <ion-label>Post Graduation:</ion-label>
+        </ion-col>
+        <ion-col col-3 style="border-radius: 50px;">
+          <button ion-button class="add" (click)="Post(Invoice)">ADD</button>
+        </ion-col>
+      </ion-row>
+      <hr>
 
 
-      <ion-item>
-        <ion-label floating>Graduation:</ion-label>
-        <ion-input type="text" name="specification" required></ion-input>
-      </ion-item>
+      <ion-row style="margin-top: 0%;">
+        <ion-col col-8 style="color: #837e7e; margin-top: 5%;  margin-left: 4%;">
+          <ion-label>Awards:</ion-label>
+        </ion-col>
+        <ion-col col-3 style="border-radius: 50px;">
+          <button ion-button class="add" (click)="Awards(Invoice)">ADD</button>
+        </ion-col>
+      </ion-row>
+      <hr>
 
-      <ion-item>
-        <ion-label floating>Degree :</ion-label>
-        <ion-input type="text" name="specification" required></ion-input>
-      </ion-item>
+      <ion-row style="margin-top: 0%;">
+        <ion-col col-8 style="color: #837e7e; margin-top: 5%;  margin-left: 4%;">
+          <ion-label>Publication:</ion-label>
+        </ion-col>
+        <ion-col col-3 style="border-radius: 50px;">
+          <button ion-button class="add" (click)="Publication(Invoice)">ADD</button>
+        </ion-col>
+      </ion-row>
+      <hr>
 
-      <ion-item>
-        <ion-label floating>College :</ion-label>
-        <ion-input type="text" name="specification" required></ion-input>
-      </ion-item>
-
-
-      <ion-item>
-        <ion-label floating>Year of Joining :</ion-label>
-        <ion-datetime required class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY"></ion-datetime>
-      </ion-item>
-
-
-
-      <ion-item>
-        <ion-label floating>Post Graduation:</ion-label>
-        <ion-input type="text" name="specification" required></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Degree :</ion-label>
-        <ion-input type="text" name="specification" required></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>College :</ion-label>
-        <ion-input type="text" name="specification" required></ion-input>
-      </ion-item>
-
-
-      <ion-item>
-        <ion-label floating>Year of Joining :</ion-label>
-        <ion-datetime required class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
+      <ion-row style="margin-top: 0%;">
+        <ion-col col-8 style="color: #837e7e; margin-top: 5%;  margin-left: 4%;">
+          <ion-label>Presentation:</ion-label>
+        </ion-col>
+        <ion-col col-3 style="border-radius: 50px;">
+          <button ion-button class="add" (click)="Presentation(Invoice)">ADD</button>
+        </ion-col>
+      </ion-row>
+      <hr>
+      <!-- <ion-item>
         <ion-label floating>Awards :</ion-label>
         <ion-input type="text" name="specification" required></ion-input>
       </ion-item>
@@ -123,7 +153,7 @@
       <ion-item>
         <ion-label floating>Presentation :</ion-label>
         <ion-input type="text" name="specification" required></ion-input>
-      </ion-item>
+      </ion-item> -->
 
     </ion-list>
   </form>
