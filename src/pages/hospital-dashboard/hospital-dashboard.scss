@@ -9,7 +9,9 @@ page-hospital-dashboard {
 }
 
 .imgss{
-  width: 80%;
+  width: 60%;
+  height: 60%;
+  margin-top: 80%;
 }
 .header-md::after{
   background-position: left 0 top -2px;
@@ -49,11 +51,9 @@ ion-badge {
   vertical-align: baseline;
 }
 .label-md {
-  margin: 7% 0px 0px 15%;
+  margin: 6% 0px 0px 15%;
   cursor: pointer;
-}
-.ends{
-  margin-top: 4%;
+  font-size: 16px;
 }
 .row {
   cursor: pointer;
@@ -66,6 +66,23 @@ ion-badge {
   flex-wrap: wrap;
 }
 
+.notification{
+  color: whitesmoke;
+  margin-top: 35%;
+  margin-left: 100%;
+  font-size: 25px;
+  margin-left: 150%
+}
+
+#notifications-badge {
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  right: -100%;
+  width: 50%;
+  height: 40%;
+  border-radius: 50%;
+}
 // ios css
 .label-ios {
   margin: 14px 8px 11px 25%;

@@ -5,6 +5,9 @@ import { DatePickerDirective } from 'ion-datepicker';
 import { GraduationPage } from '../graduation/graduation';
 import { PostgraduationPage } from '../postgraduation/postgraduation';
 import { AdditionalqualificationPage } from '../additionalqualification/additionalqualification';
+import { AwardsPage } from '../awards/awards';
+import { PublicationPage } from '../publication/publication';
+import { PresentationPage } from '../presentation/presentation';
 
 
 @Component({
@@ -51,12 +54,15 @@ export class UpdateDrProfilePage {
       .present();
   }
   Awards() {
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    this.modalCtrl.create(AwardsPage, null, { cssClass: 'inset-modal' })
+    .present();
   }
   Publication() {
-    console.log("PPPPPPPPPPPPPPuuuuuuuuuuuu")
+    this.modalCtrl.create(PublicationPage, null, { cssClass: 'inset-modal' })
+    .present();
   }
   Presentation() {
-    console.log("PPPPPPPPPPPPPTTTTTTTTTT")
+    this.modalCtrl.create(PresentationPage, null, { cssClass: 'inset-modal' })
+    .present();
   }
 }

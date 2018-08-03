@@ -16,12 +16,12 @@ border-color: #00c0ef;
 border-width: 2px;
 border-style: solid;
 }
-.apple:hover{
-      margin: 13px 8px 13px 0px;
-      color: #00bfee;
-      cursor: pointer;
-      font-weight: 300;
-    }
+// .apple:hover{
+//       margin: 20px 8px 20px 0px;
+//       color: #00bfee;
+//       cursor: pointer;
+//       font-weight: 300;
+//     }
 .toolbar-background {
     background: #097a93;
     }
@@ -91,4 +91,23 @@ ion-icon {
   display: inline-block;
   font-size: 1.2em;
   margin-right: 20px;
+}
+
+// .apple:hover{
+//       margin: 20px 8px 20px 0px;
+//       color: #00bfee;
+//       cursor: pointer;
+//       font-weight: 300;
+//     }
+    
+    .input-wrapper {
+      margin: 0px 8px 0px 0px;
+      cursor: pointer;
+  }
+
+  .input-wrapper:hover
+   {
+    color: #00bfee;
+    margin: 0px 8px 0px 0px;
+    cursor: pointer;
 }

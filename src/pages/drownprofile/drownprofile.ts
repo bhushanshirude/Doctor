@@ -30,66 +30,66 @@ export class DrownprofilePage {
   }
 
 
-  btnClick() {
-    let alert = this.alertCtrl.create({
-      title: 'Health Capitol App',
-      subTitle: 'Doctor ' + this.name1,
-      buttons: ['Done!']
-    });
-    alert.present();
+  // btnClick() {
+  //   let alert = this.alertCtrl.create({
+  //     title: 'Health Capitol App',
+  //     subTitle: 'Doctor ' + this.name1,
+  //     buttons: ['Done!']
+  //   });
+  //   alert.present();
 
-  }
+  // }
 
-  Logout() {
-    this.storage.set('usertype', '');
-    this.appCtrl.getRootNavs()[0].push(AccountloginPage)
-  }
+  // Logout() {
+  //   this.storage.set('usertype', '');
+  //   this.appCtrl.getRootNavs()[0].push(AccountloginPage)
+  // }
+
   edit() {
-    this.navCtrl.push(UpdateDrProfilePage);
+    this.appCtrl.getRootNavs()[0].push(UpdateDrProfilePage)
 
   }
-  ionViewDidLoad() {
-    let person = JSON.parse(localStorage.getItem('PERSON'));
-    if (person) {
-      this.person = person;
-      this.age = this.getAge(this.person.birthdate);
-      this.dob = new Date(this.person.birthdate).toISOString();
-    }
-    this.person.name = "Dr joshi";
-    this.person.address = "VImannagar Pune";
-    this.person.education = "MBBS";
-    this.person.company = "Deenanath Mangeshkar Hospital";
-    this.person.birthdate = 31;
-    localStorage.setItem('PERSON', JSON.stringify(this.person));
-  }
+  // ionViewDidLoad() {
+  //   let person = JSON.parse(localStorage.getItem('PERSON'));
+  //   if (person) {
+  //     this.person = person;
+  //     this.age = this.getAge(this.person.birthdate);
+  //     this.dob = new Date(this.person.birthdate).toISOString();
+  //   }
+  //   this.person.name = "Dr joshi";
+  //   this.person.address = "VImannagar Pune";
+  //   this.person.education = "MBBS";
+  //   this.person.company = "Deenanath Mangeshkar Hospital";
+  //   this.person.birthdate = 31;
+  //   localStorage.setItem('PERSON', JSON.stringify(this.person));
+  // }
 
-  reset() {
-    this.person = { name: null, address: undefined, education: undefined, company: null, birthdate: null };
-    this.dob = null;
-    this.showProfile = false;
-  }
+  // reset() {
+  //   this.person = { name: null, address: undefined, education: undefined, company: null, birthdate: null };
+  //   this.dob = null;
+  //   this.showProfile = false;
+  // }
 
-  save() {
-    this.person.birthdate = new Date(this.dob).getTime();
-    this.age = this.getAge(this.person.birthdate);
-    this.showProfile = true;
-    localStorage.setItem('PERSON', JSON.stringify(this.person));
-  }
+  // save() {
+  //   this.person.birthdate = new Date(this.dob).getTime();
+  //   this.age = this.getAge(this.person.birthdate);
+  //   this.showProfile = true;
+  //   localStorage.setItem('PERSON', JSON.stringify(this.person));
+  // }
 
-  getAge(birthdate) {
-    let currentTime = new Date().getTime();
-    return ((currentTime - birthdate) / 31556952000).toFixed(0);
-  }
+  // getAge(birthdate) {
+  //   let currentTime = new Date().getTime();
+  //   return ((currentTime - birthdate) / 31556952000).toFixed(0);
+  // }
 
-  // only inclde that and share the social file but you ca't check on mobile not pc.
+  // only inclde that and share the social file but you ca't check on pc you can check on mobile.
   sharing() {
     this.socialSharing.share(this.message, this.file, this.subject, this.link).then(() => {
-
     }).catch(() => { });
   }
-  presentPopover(event: Event) {
-    let popover = this.popoverCtrl.create(PopoverOptionPage);
-    popover.present({ ev: event });
-  }
+  // presentPopover(event: Event) {
+  //   let popover = this.popoverCtrl.create(PopoverOptionPage);
+  //   popover.present({ ev: event });
+  // }
 
 }

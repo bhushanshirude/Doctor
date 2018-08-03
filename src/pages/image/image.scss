@@ -214,11 +214,9 @@ h3 {
 
 .c100.green .bar,
 .c100.green .fill {
-//   border-color: #4db53c !important;
   border-color: red !important;
 }
 .c100.green:hover > span {
-//   color: #4db53c;
   color: red;
 }
 
@@ -266,7 +264,7 @@ h4 {
 .tab-right-wrap{
   color: #fff;
   margin: 0px;
-  padding: 15px 0px 0px 0px;
+  padding: 13px 0px 0px 0px;
   height: 100%;
   width: 10%;
   float: right;

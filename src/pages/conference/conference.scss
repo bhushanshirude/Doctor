@@ -1,4 +1,10 @@
 page-conference {
+    .toolbar-title-md {
+        padding: 0 12px;
+        font-size: 16px;
+        font-weight: 500;
+        color: whitesmoke;
+    }
     .colors{
         background:  #097a93 ;
     }
@@ -45,7 +51,6 @@ page-conference {
          border-bottom-style: none; 
         border-bottom-color: rgba(0, 0, 0, 0.1);
         font-size: 1.2rem;
-        /* font-weight: 500; */
         line-height: 4rem;
         text-transform: uppercase;
         color: whitesmoke;

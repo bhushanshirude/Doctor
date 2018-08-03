@@ -26,18 +26,23 @@ import { AddDiscussionPage } from '../pages/add-discussion/add-discussion';
 import { AddeventPage } from '../pages/addevent/addevent';
 import { AdditionalqualificationPage } from '../pages/additionalqualification/additionalqualification';
 import { AlumniPage } from '../pages/alumni/alumni';
+import { AwardsPage } from '../pages/awards/awards';
 import { DoctorDashboard } from '../pages/doctor-dashboard/doctor-dashboard';
 import { Data } from '../providers/data';
 import { DropPage } from '../pages/drop/drop'
 import { DoctorData } from '../providers/doctordata';
 import { DrownprofilePage } from '../pages/drownprofile/drownprofile';
 import { DatePickerModule } from 'ion-datepicker';
+import { DiscussionPage } from '../pages/discussion/discussion';
+import { DrugsPage } from '../pages/drugs/drugs';
 import { EmergencyPage } from '../pages/emergency/emergency';
 import { GraduationPage } from '../pages/graduation/graduation'
 import { HospitalDashboard } from '../pages/hospital-dashboard/hospital-dashboard';
 import { HduPage } from '../pages/hdu/hdu';
 import { IcuPage } from '../pages/icu/icu';
 import { MyteamPage } from '../pages/myteam/myteam';
+import { LabPage } from '../pages/lab/lab';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { OpdPage } from '../pages/opd/opd';
 import { OtPage } from '../pages/ot/ot';
 import { PopoverOptionPage } from '../pages/popover/popover';
@@ -45,25 +50,26 @@ import { PopoverPatientPage } from '../pages/popover-patient/popover-patient';
 import { PostgraduationPage } from '../pages/postgraduation/postgraduation';
 import { PatientsProfileTabs } from '../pages/patients-profile-tabs/patients-profile-tabs';
 import { PatientpopoverPage } from '../pages/patientpopover/patientpopover';
-import { WardPage } from '../pages/ward/ward';
-import { DiscussionPage } from '../pages/discussion/discussion';
-import { DrugsPage } from '../pages/drugs/drugs';
+import { QrcodePage } from '../pages/qrcode/qrcode';
 import { PatientProfileDetailPage } from '../pages/patient-profile/patient-profile';
-import { LabPage } from '../pages/lab/lab';
+import { PopoverPatients_menu } from '../pages/popover_patients_menu/popoverpatients_menu';
+import { PresentationPage } from '../pages/presentation/presentation';
+import { PublicationPage } from '../pages/publication/publication'
 import { ImagePage } from '../pages/image/image';
 import { ConferencePage } from '../pages/conference/conference';
 import { LogbookPage } from '../pages/logbook/logbook';
 import { SettingPage } from '../pages/setting/setting';
 import { SupportPage } from '../pages/support/support';
-import { UpdateDrProfilePage } from '../pages/update-dr-profile/update-dr-profile';;
-import { PopoverPatients_menu } from '../pages/popover_patients_menu/popoverpatients_menu'
-import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { UpdateDrProfilePage } from '../pages/update-dr-profile/update-dr-profile';
+import { WardPage } from '../pages/ward/ward';
+
 @NgModule({
   declarations: [
     MyApp,
     SwipeTabDirective,
     AboutPage,
     AddPage,
+    AwardsPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -98,6 +104,9 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
     PatientProfileDetailPage,
     PatientpopoverPage,
     PopoverPatients_menu,
+    PresentationPage,
+    PublicationPage,
+    QrcodePage,
     OpdPage,
     IcuPage,
     HduPage,
@@ -133,6 +142,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
     MyApp,
     AboutPage,
     AddPage,
+    AwardsPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -167,6 +177,9 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
     PatientProfileDetailPage,
     PatientpopoverPage,
     PopoverPatients_menu,
+    PresentationPage,
+    PublicationPage,
+    QrcodePage,
     OpdPage,
     IcuPage,
     HduPage,

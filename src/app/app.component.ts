@@ -7,7 +7,6 @@ import { AccountloginPage } from '../pages/accountlogin/accountlogin';
 import { SupportPage } from '../pages/support/support';
 import { DoctorDashboard } from '../pages/doctor-dashboard/doctor-dashboard';
 import { App } from 'ionic-angular/components/app/app';
-import { UpdateDrProfilePage } from '../pages/update-dr-profile/update-dr-profile';
 import { DrownprofilePage } from '../pages/drownprofile/drownprofile';
 import { HospitalDashboard } from '../pages/hospital-dashboard/hospital-dashboard';
 import { MyteamPage } from '../pages/myteam/myteam';
@@ -15,6 +14,7 @@ import { LogbookPage } from '../pages/logbook/logbook';
 import { AlumniPage } from '../pages/alumni/alumni';
 import { ConferencePage } from '../pages/conference/conference';
 import { SettingPage } from '../pages/setting/setting';
+import { QrcodePage } from '../pages/qrcode/qrcode';
 
 
 export interface PageInterface {
@@ -43,7 +43,6 @@ export class MyApp {
   ];
   constructor(
     public events: Events, public alertCtrl: AlertController, public appCtrl: App,
-    // public userData: UserData 
     platform: Platform, statusBar: StatusBar, public storage: Storage,
     public menu: MenuController, public app: App, splashScreen: SplashScreen, public popoverCtrl: PopoverController) {
 
@@ -55,7 +54,6 @@ export class MyApp {
 
       } if (val == "Patient") {
         this.usertype = 'Patient';
-        // this.rootPage = PatientsProfileOwnTabs;
 
       } else {
         this.usertype = '';
@@ -66,7 +64,7 @@ export class MyApp {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
-      console.log('Login User5:=>',  this.usertype);
+      console.log('Login User5:=>', this.usertype);
     });
   }
 
@@ -74,11 +72,6 @@ export class MyApp {
     this.nav.setRoot(SupportPage);
   }
 
-  // for logout section use this code 
-  logout() {
-    this.menu.close();
-    this.promptAlert();
-  }
   promptAlert() {
     let alert = this.alertCtrl.create({
       title: 'Do want to Logout',
@@ -111,36 +104,53 @@ export class MyApp {
 
 
   dashboard() {
-    this.storage.get('usertype').then((val) => {
-      console.log('Login User:=>', val);
-      if (val == "Doctor") {
-        this.appCtrl.getRootNavs()[0].setRoot(HospitalDashboard);
-        this.menu.close();
-      } if (val == "Patient") {
-        // this.appCtrl.getRootNavs()[0].setRoot(PatientsProfileOwnTabs);
-        this.menu.close();
-      } else {
-        this.menu.open();
-      }
-    });
+    // this.storage.get('usertype').then((val) => {
+    //   console.log('Login User:=>', val);
+    //   if (val == "Doctor") {
+    this.appCtrl.getRootNavs()[0].setRoot(HospitalDashboard);
+      this.menu.close();
+    // } if (val == "Patient") {
+    //   this.menu.close();
+    // } else {
+    //   this.menu.open();
+    // }
+    // }
+    // );
   }
+
   profile() {
     this.appCtrl.getRootNavs()[0].setRoot(DrownprofilePage);
     this.menu.close();
+  }
 
+  logout() {
+    this.menu.close();
+    this.promptAlert();
   }
-  support() {
-    // this.appCtrl.getRootNavs()[0].setRoot(SupportPage);
-    // this.menu.close();
-  }
-  clickUpdate() {
-    this.appCtrl.getRootNavs()[0].setRoot(UpdateDrProfilePage);
+
+  Code() {
+    console.log("ssqqrrr");
+    this.appCtrl.getRootNavs()[0].setRoot(QrcodePage)
     this.menu.close();
   }
+
+  Conference() {
+    this.appCtrl.getRootNavs()[0].setRoot(ConferencePage);
+    this.menu.close()
+  }
+
+  mydrugs() {
+    this.appCtrl.getRootNavs()[0].setRoot(DoctorDashboard);
+    this.menu.close()
+  }
+
   myteam() {
     this.appCtrl.getRootNavs()[0].setRoot(MyteamPage);
     this.menu.close();
   }
+
+  Group() { }
+
   logbook() {
     this.appCtrl.getRootNavs()[0].setRoot(LogbookPage);
     this.menu.close();
@@ -149,22 +159,27 @@ export class MyApp {
     this.appCtrl.getRootNavs()[0].setRoot(AlumniPage);
     this.menu.close();
   }
-  Conference() {
-    this.appCtrl.getRootNavs()[0].setRoot(ConferencePage);
-    this.menu.close()
+
+  support() {
+    // this.appCtrl.getRootNavs()[0].setRoot(SupportPage);
+    // this.menu.close();
   }
+
   Setting() {
     this.appCtrl.getRootNavs()[0].setRoot(SettingPage);
     this.menu.close()
   }
-  mydrugs(){
-    // this.appCtrl.getRootNavs()[0].setRoot(AddPage);
-    this.appCtrl.getRootNavs()[0].setRoot(DoctorDashboard);
-    this.menu.close()
-    
-  }
-  cv(){
-    
-  }
+
+  // clickUpdate() {
+  //   this.appCtrl.getRootNavs()[0].setRoot(UpdateDrProfilePage);
+  //   this.menu.close();
+  // }
+
+
+
+
+
+
+
 }
 
