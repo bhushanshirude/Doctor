@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, App, PopoverController } from 'ionic-angular';
-import { AccountloginPage } from '../accountlogin/accountlogin';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { UpdateDrProfilePage } from '../update-dr-profile/update-dr-profile';
-import { PopoverOptionPage } from '../popover/popover';
 
 
 @Component({
