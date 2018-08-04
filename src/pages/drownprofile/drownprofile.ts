@@ -28,6 +28,23 @@ export class DrownprofilePage {
   }
 
 
+  edit() {
+    this.appCtrl.getRootNavs()[0].push(UpdateDrProfilePage)
+
+  }
+
+
+  // only inclde that and share the social file but you ca't check on pc you can check on mobile.
+  sharing() {
+    this.socialSharing.share(this.message, this.file, this.subject, this.link).then(() => {
+    }).catch(() => { });
+  }
+
+
+}
+
+
+
   // btnClick() {
   //   let alert = this.alertCtrl.create({
   //     title: 'Health Capitol App',
@@ -42,12 +59,12 @@ export class DrownprofilePage {
   //   this.storage.set('usertype', '');
   //   this.appCtrl.getRootNavs()[0].push(AccountloginPage)
   // }
+  // presentPopover(event: Event) {
+  //   let popover = this.popoverCtrl.create(PopoverOptionPage);
+  //   popover.present({ ev: event });
+  // }
 
-  edit() {
-    this.appCtrl.getRootNavs()[0].push(UpdateDrProfilePage)
-
-  }
-  // ionViewDidLoad() {
+ // ionViewDidLoad() {
   //   let person = JSON.parse(localStorage.getItem('PERSON'));
   //   if (person) {
   //     this.person = person;
@@ -79,15 +96,3 @@ export class DrownprofilePage {
   //   let currentTime = new Date().getTime();
   //   return ((currentTime - birthdate) / 31556952000).toFixed(0);
   // }
-
-  // only inclde that and share the social file but you ca't check on pc you can check on mobile.
-  sharing() {
-    this.socialSharing.share(this.message, this.file, this.subject, this.link).then(() => {
-    }).catch(() => { });
-  }
-  // presentPopover(event: Event) {
-  //   let popover = this.popoverCtrl.create(PopoverOptionPage);
-  //   popover.present({ ev: event });
-  // }
-
-}
