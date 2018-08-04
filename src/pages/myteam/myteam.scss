@@ -1,21 +1,21 @@
 page-myteam {
     .row h2{
         margin-top: 6px;
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 15px;
+        font-weight: 400;
     }
     .row h1{
         margin-top: 6px;
-        font-size: 12px;
-        font-weight: 100;
+        font-size: 14px;
+        font-weight: 300;
     }
     .row{
         margin-top: 1%;
     }
-    .color{
-        background-color: #efefef
+    // .color{
+    //     background-color: #efefef
 
-    }
+    // }
     .rights{
         margin-top: 2%;
         margin-left: 11%;
@@ -55,4 +55,8 @@ page-myteam {
         margin-left: 85%;
         cursor: pointer;
     }
+    ion-searchbar {text-align: left;     
+        ::-webkit-input-placeholder {text-align: left; }
+    }
+   
 }

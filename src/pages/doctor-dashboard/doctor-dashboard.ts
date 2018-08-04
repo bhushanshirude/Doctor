@@ -4,7 +4,6 @@ import { NavController, NavParams, PopoverController } from 'ionic-angular';
 import { App } from 'ionic-angular/components/app/app';
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { PopoverOptionPage } from '../popover/popover';
-import { AddHospitalPage } from '../add-hospital/AddHospitalPage';
 import { PopoverPatients_menu } from '../popover_patients_menu/popoverpatients_menu';
 import { HospitalDashboard } from '../hospital-dashboard/hospital-dashboard';
 import { EmergencyPage } from '../emergency/emergency';
@@ -69,13 +68,16 @@ export class DoctorDashboard {
   pageHospital() {
     this.appCtrl.getRootNavs()[0].push(HospitalDashboard);
   }
+
   ionViewDidLoad() {
     console.log("aaaaaaaaaaaaaaaaaa")
   }
+
   ionViewWillEnter() {
     console.log("BBBBBBBBBBBBBBBBBBBB")
     // this.value ="Sasun Hospital"
   }
+
   ionViewDidLeave() {
     console.log("CCCCCCCCCCCCCCCCCCCC")
   }
@@ -84,14 +86,18 @@ export class DoctorDashboard {
     console.log("DDDDDDDDDDDDDDDDDDDDDD")
   }
 
-  addHospital() {
-    this.navCtrl.push(AddHospitalPage);
-  }
   emergency() {
     this.appCtrl.getRootNavs()[0].push(EmergencyPage);
     // this.navCtrl.push(EmergencyPage)
   }
-  sort() {
+  add() {
     this.appCtrl.getRootNavs()[0].push(AddPage)
+  }
+  search() {
+    console.log("Search is working")
+    this.value = 'search';
+  }
+  sea() {
+    this.value = 'search !=search';
   }
 }

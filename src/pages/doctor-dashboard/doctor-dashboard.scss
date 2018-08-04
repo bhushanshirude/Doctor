@@ -126,4 +126,8 @@ page-doctor-dashboard {
         font-size: 15px;
         color: #fff;      
     }
+    ion-searchbar {text-align: left;     
+        ::-webkit-input-placeholder {text-align: left; }
+    }
+   
 }
