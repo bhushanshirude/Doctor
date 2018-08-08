@@ -36,7 +36,9 @@ import { DatePickerModule } from 'ion-datepicker';
 import { DiscussionPage } from '../pages/discussion/discussion';
 import { DrugsPage } from '../pages/drugs/drugs';
 import { EmergencyPage } from '../pages/emergency/emergency';
-import { GraduationPage } from '../pages/graduation/graduation'
+import { ForumPage } from '../pages/forum/forum';
+import { GraduationPage } from '../pages/graduation/graduation';
+import { GroupPage } from '../pages/group/group';
 import { HospitalDashboard } from '../pages/hospital-dashboard/hospital-dashboard';
 import { HduPage } from '../pages/hdu/hdu';
 import { IcuPage } from '../pages/icu/icu';
@@ -62,6 +64,25 @@ import { SettingPage } from '../pages/setting/setting';
 import { SupportPage } from '../pages/support/support';
 import { UpdateDrProfilePage } from '../pages/update-dr-profile/update-dr-profile';
 import { WardPage } from '../pages/ward/ward';
+
+import { AskPage } from '../pages/ask/ask';
+import { DnbPage } from '../pages/dnb/dnb';
+import { CarrerPage } from '../pages/carrer/carrer';
+import { NeetPage } from '../pages/neet/neet';
+import { FellowshipPage } from '../pages/fellowship/fellowship';
+
+
+import { NeetsPage } from '../pages/neets/neets';
+import { DnbsPage } from '../pages/dnbs/dnbs';
+import { UpscPage } from '../pages/upsc/upsc';
+import { AimsPage } from '../pages/aims/aims';
+import { OthersPage } from '../pages/others/others';
+
+import { UsPage } from '../pages/us/us';
+import { AusPage } from '../pages/aus/aus';
+import { AsiaPage } from '../pages/asia/asia';
+import { EuropePage } from '../pages/europe/europe';
+import { GulfPage } from '../pages/gulf/gulf';
 
 @NgModule({
   declarations: [
@@ -91,7 +112,9 @@ import { WardPage } from '../pages/ward/ward';
     DrugsPage,
     DropPage,
     EmergencyPage,
+    ForumPage,
     GraduationPage,
+    GroupPage,
     HospitalDashboard,
     ImagePage,
     LabPage,
@@ -115,6 +138,25 @@ import { WardPage } from '../pages/ward/ward';
     SupportPage,
     WardPage,
     UpdateDrProfilePage,
+    // group
+    AskPage,
+    DnbPage,
+    CarrerPage,
+    NeetPage,
+    FellowshipPage,
+    // group
+    NeetsPage,
+    DnbsPage,
+    UpscPage,
+    AimsPage,
+    OthersPage,
+    // group
+    UsPage,
+    AusPage,
+    AsiaPage,
+    EuropePage,
+    GulfPage,
+
   ],
   imports: [
     BrowserModule,
@@ -164,7 +206,9 @@ import { WardPage } from '../pages/ward/ward';
     DrugsPage,
     DropPage,
     EmergencyPage,
+    ForumPage,
     GraduationPage,
+    GroupPage,
     HospitalDashboard,
     ImagePage,
     LabPage,
@@ -188,6 +232,21 @@ import { WardPage } from '../pages/ward/ward';
     SupportPage,
     WardPage,
     UpdateDrProfilePage,
+    AskPage,
+    DnbPage,
+    CarrerPage,
+    NeetPage,
+    FellowshipPage,
+    NeetsPage,
+    DnbsPage,
+    UpscPage,
+    AimsPage,
+    OthersPage,
+    UsPage,
+    AusPage,
+    AsiaPage,
+    EuropePage,
+    GulfPage,
   ],
   providers: [
     SocialSharing,

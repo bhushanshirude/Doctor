@@ -20,4 +20,6 @@ export class AddPatientPage {
   backDashboard() {
     this.appCtrl.getRootNavs()[0].setRoot(DoctorDashboard);
   }
+  Reset(){}
+  Submit(){}
 }

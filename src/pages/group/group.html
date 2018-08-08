@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row>
+      <ion-col col-1>
+        <button ion-button menuToggle>
+          <ion-icon name="menu" style="color: whitesmoke; font-size:25px;"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col col-1></ion-col>
+      <ion-col col-8 class="cols myCustomSelect" (click)="click(Invoice)">
+        <ion-label>{{this.value}}</ion-label>
+      </ion-col>
+
+      <ion-col col-1></ion-col>
+      <div (click)="click(Invoice)">
+        <ion-buttons>
+          <img class="imgss" src="assets/img/down.png">
+        </ion-buttons>
+      </div>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="tops" >
+  <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
+    [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'" *ngIf="value=='Cardiology'">
+    <super-tab [root]="tab1Root" [title]="showTitles? 'NEET ' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab2Root" [title]="showTitles? 'DNB' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab3Root" [title]="showTitles? 'FELLOWSHIP' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab4Root" [title]="showTitles? 'CAREER' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab5Root" [title]="showTitles? 'ASK?' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+  </super-tabs>
+
+  <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
+    [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'" *ngIf="value=='WORLD PG EXAMS FORUM'">
+
+    <super-tab [root]="tab6Root" [title]="showTitles? 'Us/Can  ' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab7Root" [title]="showTitles? 'AUS/NZ' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab8Root" [title]="showTitles? 'AS/A' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab9Root" [title]="showTitles? 'EUROPE' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab10Root" [title]="showTitles? 'GULF/AF' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+  </super-tabs>
+
+  <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
+    [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'" *ngIf="value=='INDIA PG EXAMS FORUM'">
+
+    <super-tab [root]="tab11Root" [title]="showTitles? 'NEET ' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab12Root" [title]="showTitles? 'DNB' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab13Root" [title]="showTitles? 'UPSC' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab14Root" [title]="showTitles? 'AIMS' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab15Root" [title]="showTitles? 'OTHERS' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+  </super-tabs>
+</ion-content>

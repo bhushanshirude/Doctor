@@ -6,7 +6,6 @@ import { WardPage } from '../ward/ward';
 import { HduPage } from '../hdu/hdu';
 import { OtPage } from '../ot/ot';
 import { IonicStorageModule, Storage } from '@ionic/storage';
-// import { PopoverOptionPage } from '../popover/popover';
 import { PopoverPatientPage } from '../popover-patient/popover-patient';
 import { DropPage } from '../drop/drop';
 
@@ -40,11 +39,6 @@ export class HospitalDashboard {
     popover.present({ ev: event });
   }
 
-  //Show popover menu
-  // optionsPopover(event: Event) {
-  //   let popover = this.popoverCtrl.create(PopoverOptionPage);
-  //   popover.present({ ev: event });
-  // }
   click(pageName) {
     console.log('pop ckick SavereportPage');
     this.modalCtrl.create(DropPage, null, { cssClass: 'inset-modal' })

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
- 
- 
+import { NavController, NavParams } from 'ionic-angular';
+
+
 @Component({
   selector: 'page-add-lab',
   templateUrl: 'add-lab.html',
@@ -14,5 +14,6 @@ export class AddLabPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddLabPage');
   }
-
+  Reset() { }
+  Submit() { }
 }

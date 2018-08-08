@@ -30,7 +30,6 @@ export class DoctorDashboard {
     this.pageTitle += ' - Titles only';
     this.mySelectedIndex = navParams.data.tabIndex || 0;
     this.value = "Please Select Hospital";
-    // console.log(this.value)
   }
 
   presentPopover(event: Event) {

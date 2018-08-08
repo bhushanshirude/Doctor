@@ -25,4 +25,5 @@ export class DrugsPage {
     this.appCtrl.getRootNavs()[0].push(AddDrugsPage)
     // this.navCtrl.push(AddDrugsPage)
   }
+  Delete() { }
 }

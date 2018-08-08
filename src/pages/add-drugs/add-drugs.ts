@@ -15,5 +15,6 @@ export class AddDrugsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddDrugsPage');
   }
-
+  Reset() { }
+  submit() { }
 }

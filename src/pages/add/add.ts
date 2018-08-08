@@ -21,5 +21,6 @@ export class AddPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPage');
   }
-
+  Reset(){}
+  submit(){}
 }

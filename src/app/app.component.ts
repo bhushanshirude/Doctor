@@ -15,6 +15,7 @@ import { AlumniPage } from '../pages/alumni/alumni';
 import { ConferencePage } from '../pages/conference/conference';
 import { SettingPage } from '../pages/setting/setting';
 import { QrcodePage } from '../pages/qrcode/qrcode';
+import { GroupPage } from '../pages/group/group';
 
 
 export interface PageInterface {
@@ -104,18 +105,8 @@ export class MyApp {
 
 
   dashboard() {
-    // this.storage.get('usertype').then((val) => {
-    //   console.log('Login User:=>', val);
-    //   if (val == "Doctor") {
     this.appCtrl.getRootNavs()[0].setRoot(HospitalDashboard);
-      this.menu.close();
-    // } if (val == "Patient") {
-    //   this.menu.close();
-    // } else {
-    //   this.menu.open();
-    // }
-    // }
-    // );
+    this.menu.close();
   }
 
   profile() {
@@ -149,7 +140,10 @@ export class MyApp {
     this.menu.close();
   }
 
-  Group() { }
+  Group() {
+    this.appCtrl.getRootNavs()[0].setRoot(GroupPage);
+    this.menu.close();
+  }
 
   logbook() {
     this.appCtrl.getRootNavs()[0].setRoot(LogbookPage);
