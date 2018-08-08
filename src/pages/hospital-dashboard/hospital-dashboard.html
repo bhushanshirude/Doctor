@@ -9,11 +9,11 @@
 
       <ion-col col-1></ion-col>
       <ion-col col-8 class="cols myCustomSelect" (click)="click(Invoice)">
-        <ion-label>Pune Hospital</ion-label>
+        <ion-label>{{this.value}}</ion-label>
       </ion-col>
 
       <div (click)="click(Invoice)">
-        <ion-buttons >
+        <ion-buttons>
           <img class="imgss" src="assets/img/down.png">
         </ion-buttons>
       </div>
@@ -29,15 +29,14 @@
 </ion-header>
 
 <ion-content class="tops">
-  <!-- scrollTabs is used to scroll header tabs  -->
   <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
     [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'">
-    
+
     <super-tab [root]="tab1Root" [title]="showTitles? 'OPD' : ''" [icon]="showIcons? 'heart' : ''" badge="1"></super-tab>
     <super-tab [root]="tab2Root" [title]="showTitles? 'ICU' : ''" [icon]="showIcons? 'heart' : ''" badge="2"></super-tab>
     <super-tab [root]="tab3Root" [title]="showTitles? 'WARD' : ''" [icon]="showIcons? 'heart' : ''" badge="3"></super-tab>
     <super-tab [root]="tab4Root" [title]="showTitles? 'HDU' : ''" [icon]="showIcons? 'heart' : ''" badge="4"></super-tab>
     <super-tab [root]="tab5Root" [title]="showTitles? 'OT' : ''" [icon]="showIcons? 'heart' : ''" badge="5"></super-tab>
-  
+
   </super-tabs>
 </ion-content>

@@ -17,8 +17,6 @@ export class AccountforgotpasswordPage {
     console.log('ionViewDidLoad AccountforgotpasswordPage');
   }
 
-
-
   dashboardPage() {
     this.navCtrl.setRoot(DoctorDashboard);
   }
@@ -31,6 +29,9 @@ export class AccountforgotpasswordPage {
   onSignup() {
     console.log("Button Click :onSignup");
     this.navCtrl.push(AccountsignupPage);
+  }
+  send(form:any ,event:Event){
+    console.log("send forgot password")
   }
 
 }

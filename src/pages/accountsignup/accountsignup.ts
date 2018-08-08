@@ -148,7 +148,8 @@ export class AccountsignupPage {
       // this.navCtrl.push(TabsPage);
     }
   }
-
-
+  sign(form: any, event: Event) {
+    console.log("sssssssaaaaaaaaaaaaaa")
+  }
 
 }

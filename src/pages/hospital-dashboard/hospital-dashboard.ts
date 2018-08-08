@@ -25,8 +25,16 @@ export class HospitalDashboard {
   pageTitle: string = 'Partial Home';
   type = "titles-only";
   mySelectedIndex: number;
+  data;
+  value = "";
+  constructor(public navParams: NavParams, public navCtrl: NavController, public modalCtrl: ModalController, public alertCtrl: AlertController, public popoverCtrl: PopoverController, public storage: Storage, public localStorage: IonicStorageModule) {
+    this.data = navParams.get('data');
+    if (this.data != "" && this.data != null) {
+      this.value = this.data;
+    } else {
+      this.value = 'Pune Hospital';
 
-  constructor(public navParams: NavParams, public navCtrl: NavController,public modalCtrl:ModalController, public alertCtrl: AlertController, public popoverCtrl: PopoverController, public storage: Storage, public localStorage: IonicStorageModule) {
+    }
     this.showTitles = true;
     this.showIcons = false;
     this.pageTitle += ' - Titles only';
