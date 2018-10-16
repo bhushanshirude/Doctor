@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>CHANGE PASSWORD</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <form #changeform="ngForm" (ngSubmit)="change(changeform)">
+    <div>
+      <input type="password" class="change-box" placeholder="New Password" [(ngModel)]="change_data.newpassword" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div [hidden]="(!isSubmitted) || (change_data.newpassword!='')" class="err_danger">
+      Enter New Password
+    </div>
+    <div>
+      <input type="password" class="change-box" placeholder="Confirm New Password" [(ngModel)]="change_data.confirmpassword" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div [hidden]="(!isSubmitted) || (change_data.confirmpassword!='')" class="err_danger">
+      Enter Confirm Password
+    </div>
+    <div class="err_danger">
+      {{error_msg}}
+    </div>
+    <button class="button-add" type="submit"> Submit </button>
+  </form>
+</ion-content>

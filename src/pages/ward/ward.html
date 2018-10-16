@@ -1,8 +1,8 @@
 <ion-content>
-  
+
   <ion-row *ngIf="value=='search'">
     <ion-col col-11>
-      <ion-searchbar>
+      <ion-searchbar [(ngModel)]="terms">
       </ion-searchbar>
     </ion-col>
     <ion-col col-1 (click)="sea()">
@@ -10,81 +10,21 @@
     </ion-col>
   </ion-row>
 
-  <ion-row (click)="patient()" class="color" style="margin-top: 3%">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <!-- <ion-col class="rights">
-            <ion-icon ios="ios-more" md="md-more" click="show()"></ion-icon>
-          </ion-col> -->
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-row (click)="patient()" class="color">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <!-- <ion-col class="rights">
-              <ion-icon ios="ios-more" md="md-more" click="show()"></ion-icon>
-            </ion-col> -->
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-row (click)="patient()" class="color">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <!-- <ion-col class="rights">
-                <ion-icon ios="ios-more" md="md-more" click="show()"></ion-icon>
-              </ion-col> -->
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-row (click)="patient()" class="color">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <!-- <ion-col class="rights">
-                  <ion-icon ios="ios-more" md="md-more" click="show()"></ion-icon>
-                </ion-col> -->
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-row (click)="patient()" class="color">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <!-- <ion-col class="rights">
-                    <ion-icon ios="ios-more" md="md-more" click="show()"></ion-icon>
-                  </ion-col> -->
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
+  <form #wardform="ngForm" (ngSubmit)="ward(wardform)" style="margin-top: 3%">
+    <ion-row class="color border-bottom" *ngFor="let ward of array | search: terms">
+      <ion-col col-1 (click)="view_patient(ward.User.id)"></ion-col>
+      <ion-col col-5 (click)="view_patient(ward.User.id)">
+        <h2>{{ward.User.first_name}} {{ward.User.last_name}}</h2>
+      </ion-col>
+      <ion-col col-1 (click)="view_patient(ward.User.id)"></ion-col>
+      <ion-col col-4 (click)="view_patient(ward.User.id)">
+        <h1>{{ward.User.diagnosis_procidure}}</h1>
+      </ion-col>
+      <ion-col col-1 (click)="presentPopover($event,ward.User.id)">
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </form>
 
   <ion-fab right bottom class="bottoms" (click)="emergency()">
     <img src="assets/icon/Emergency.png">

@@ -100,6 +100,12 @@ page-awards {
         width: 10%;
         height: 60px;
     }
+    .err_danger{
+        color: red;
+        text-align: center;
+        font-size: 12px;
+        margin-top: 5px;
+    }
      // ios css
     .list-ios > .item-block:first-child {
         border-top: 0px solid #c8c7cc; 

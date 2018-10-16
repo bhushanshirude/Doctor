@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Notification Message</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form style="margin-top: 3%">
+    <div *ngFor="let msg of array">
+      <ion-list>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="this.src='assets/imgs/sharing.png'" onError="this.src='assets/imgs/sharing.png'">
+          </ion-avatar>
+          <h2>{{msg.notifications.message}}</h2>
+          <p>{{msg.notifications.created}}</p>
+          <button ion-button clear item-end (click)="view()">View</button>
+        </ion-item>
+      </ion-list>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-content class="text">
+  <div class="popup-wrapper">
+
+    <form #sendform="ngForm" (ngSubmit)="send(sendform)">
+
+      <div class="popup-cnt">
+
+        <ion-row>
+          <ion-col col-9>
+            Move patient
+          </ion-col>
+          <ion-col col-2 (click)="dismiss()">
+            <a class="popup-close">
+              <img src="assets/imgs/close-popup.png" />
+            </a>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+
+        <select class="select-add" [(ngModel)]="cust_data.question" value="{{cust_data.question}}" [ngModelOptions]="{standalone: true}">
+          <option value="" disabled selected>Select Option</option>
+          <option value="2">OPD</option>
+          <option value="3">ICU</option>
+          <option value="1">Ward</option>
+          <option value="4">HDU</option>
+          <option value="5">OT</option>
+          <option value="6">ITU</option>
+          <option value="7">ICCU</option>
+          <option value="8">GW</option>
+          <option value="9">PW</option>
+          <option value="10">SPW</option>
+          <option value="11">SD ICU</option>
+          <option value="12">REF</option>
+          <option value="13">EXTRA</option>
+          <option value="14">ER</option>
+          <option value="15">Death</option>
+          <option value="16">Discharge</option>
+        </select>
+
+        <ion-row text-center>
+          <button ion-button type="submit">Move</button>
+        </ion-row>
+      </div>
+    </form>
+  </div>
+</ion-content>

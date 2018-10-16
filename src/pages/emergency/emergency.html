@@ -10,30 +10,29 @@
 
 <ion-content>
   <ion-row style="margin-top:10%;">
-    <ion-col col-6>
-      <ion-card>
-        <img src="assets/icon/blood.png">
-        <p text-center>BLOOD BANK</p>
-      </ion-card>
-    </ion-col>
-
-    <ion-col col-6 center>
+    <ion-col col-6 center (click)="ambulance('ambulance_contact')" value="ambulance_contact">
       <ion-card class="card">
         <img src="assets/icon/ambulance.png">
         <p text-center>AMBULANCE</p>
       </ion-card>
     </ion-col>
+    <ion-col col-6 (click)="blood('blood_bank_contact')" value="blood_bank_contact">
+      <ion-card>
+        <img src="assets/icon/blood.png">
+        <p text-center>BLOOD BANK</p>
+      </ion-card>
+    </ion-col>
   </ion-row>
 
   <ion-row>
-    <ion-col col-6>
+    <ion-col col-6 (click)="casulty('consultancy_contact')" value="consultancy_contact">
       <ion-card>
         <img src="assets/icon/doctor.png">
         <p text-center>CASUALTY</p>
       </ion-card>
     </ion-col>
 
-    <ion-col col-6 center>
+    <ion-col col-6 center (click)="funds('fundraiser_contact')" value="fundraiser_contact">
       <ion-card class="card">
         <img src="assets/icon/funds.png">
         <p text-center>FUNDS</p>

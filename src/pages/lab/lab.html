@@ -1,56 +1,33 @@
 <ion-content>
 
-  <ion-row class="color">
+  <ion-row *ngIf="value=='search'">
+    <ion-col col-11>
+      <ion-searchbar [(ngModel)]="terms">
+      </ion-searchbar>
+    </ion-col>
+    <ion-col col-1 (click)="sea()">
+      <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="color" *ngFor="let lab of arrays | labsearch:terms">
     <ion-col col-4>
-      <h2>Himoglobin</h2>
+      <h2>{{lab.pathlab_reports.investigation_id}}</h2>
     </ion-col>
 
     <ion-col col-7>
-      <h1>12.6mg/dl</h1>
-      <p>Normal Range 12 to 14 mg/dl</p>
+      <h1>{{lab.pathlab_reports.report_value}} {{lab.pathlab_reports.test_unit}}</h1>
+      <p>Normal Range {{lab.pathlab_reports.min_range}} to {{lab.pathlab_reports.max_range}} mg/dl</p>
     </ion-col>
     <ion-col col-1>
-      <img src="assets/icon/up.png">
+      <p class="arrow" [innerHTML]="lab.pathlab_reports.arrows"></p>
     </ion-col>
-    <!-- <ion-col class="rights">
-      <ion-icon ios="ios-more" md="md-more" click="show()"></ion-icon>
-    </ion-col> -->
   </ion-row>
-  <hr>
-  <ion-row class="color">
-    <ion-col col-4>
-      <h2>Himoglobin</h2>
-    </ion-col>
 
-    <ion-col col-7>
-      <h1>12.6mg/dl</h1>
-      <p>Normal Range 12 to 14 mg/dl</p>
-    </ion-col>
-    <ion-col col-1>
-      <img src="assets/icon/down.png">
-    </ion-col>
-    <!-- <ion-col class="rights">
-      <ion-icon ios="ios-more" md="md-more" click="show()"></ion-icon>
-    </ion-col> -->
-  </ion-row>
-  <hr>
-  <ion-row class="color">
-    <ion-col col-4>
-      <h2>Himoglobin</h2>
-    </ion-col>
+  <ion-fab right bottom class="bottoms" (click)="emergency()">
+    <img class="bott" src="assets/icon/Emergency.png">
+  </ion-fab>
 
-    <ion-col col-7>
-      <h1>12.6mg/dl</h1>
-      <p>Normal range to 12 to 14 mg/dl</p>
-    </ion-col>
-    <ion-col col-1>
-      <img src="assets/icon/N.png">
-    </ion-col>
-    <!-- <ion-col class="rights">
-      <ion-icon ios="ios-more" md="md-more" click="show()"></ion-icon>
-    </ion-col> -->
-  </ion-row>
-  <hr>
 </ion-content>
 
 <ion-footer>
@@ -62,8 +39,8 @@
     </ion-col>
 
     <ion-col col-6 text-center class="bottom">
-      <a (click)="clickUpdate()">
-        <img src="assets/icon/share1.png" /> Share
+      <a (click)="search()">
+        <img src="assets/icon/search.png" /> Search
       </a>
     </ion-col>
   </ion-row>

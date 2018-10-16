@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title *ngIf="value !='searchbar'">CASUALTY CONTACTS</ion-title>
+        <ion-toolbar *ngIf="value =='searchbar'">
+            <ion-searchbar (search)="getItems($event)"></ion-searchbar>
+        </ion-toolbar>
+        <ion-buttons end *ngIf="value !=='searchbar'">
+            <button ion-button (click)="search()" class="imga">
+                <img src="assets/icon/search.png" />
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-row *ngIf="value=='search'">
+        <ion-searchbar (search)="getItems($event)" placeholder="Enter pincode or city name"></ion-searchbar>
+    </ion-row> -->
+    <ion-row style="background-color:#097a93">
+        <ion-col col-6>
+            <h4> Service Provider</h4>
+        </ion-col>
+        <ion-col col-6>
+            <h4> Contact Number</h4>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let amb of array">
+        <ion-col col-6>
+            <h3> {{amb.EmergencyContact.casualty_service_provider}}</h3>
+        </ion-col>
+        <ion-col col-6>
+            <a href="tel:{{amb.EmergencyContact.casualty_contact}}"><h3> {{amb.EmergencyContact.casualty_contact}}</h3></a>
+            <!-- <h3> {{amb.EmergencyContact.blood_bank_contact}}</h3> -->
+        </ion-col>
+    </ion-row>
+</ion-content>
+
+
+<!-- <ion-footer>
+    <ion-row class="colors">
+        <ion-col col-6 text-center class="bottom">
+            <a class="bor-right" (click)="add()">
+                <img src="assets/icon/add1.png" /> Add
+            </a>
+        </ion-col>
+
+        <ion-col col-6 text-center class="bottom">
+            <a (click)="search()">
+                <img src="assets/icon/search.png" /> Search
+            </a>
+        </ion-col>
+    </ion-row>
+</ion-footer> -->

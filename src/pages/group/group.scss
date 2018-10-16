@@ -83,7 +83,9 @@ page-group {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
       }
-      
+      .border-bottom{
+        border-bottom: 0.1px solid #eeeeee; 
+      }
       .notification{
         color: whitesmoke;
         margin-top: 35%;
@@ -101,10 +103,104 @@ page-group {
         height: 40%;
         border-radius: 50%;
       }
+      h6{
+        font-size: 13px;
+        margin-left: 5%;
+      }
+      .item-md h2 {
+        margin: 0px;
+        color: #000;
+        font-size: 12px;
+        font-weight: 500;
+    }
+      .item-md {
+        text-transform: none;
+        background-color: #eeeeee;
+        min-height: 10px !important;
+        margin-top: 5px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
       // ios css
       .label-ios {
         margin: 14px 8px 11px 25%;
         font-size: 14px;
       }
       .header-ios .toolbar-background-ios{ border: 0px;} 
+
+      .segment-md .segment-button {
+        overflow: inherit !important;
+        color: #fff;
+        background-color: #097a93;
+        opacity: 1;
+        height: 40px;
+     }
+
+     .segment-md .segment-button:hover{
+      font-weight: 500;
+      border-bottom:3px whitesmoke solid; 
+      opacity: 1;
+   }
+
+
+      .segment-md .segment-button.segment-activated {
+        border-color: red;
+        opacity: 1;
+    }
+      
+// .segment-md .segment-button {
+//   -webkit-box-flex: 1;
+//   -webkit-flex: 1;
+//   -ms-flex: 1;
+//   flex: 1;
+//   width: 0;
+//   height: 4.2rem;
+//   border-bottom-width: 2px;
+//   border-bottom-style: solid;
+//   border-bottom-color: rgba(0, 0, 0, 0.1);
+//   font-size: 1.2rem;
+//   font-weight: 500;
+//   line-height: 4rem;
+//   text-transform: uppercase;
+//   color: #165d6d;
+//   background-color: transparent;
+//   opacity: 0.7;
+//   -webkit-transition: 100ms all linear;
+//   transition: 100ms all linear;
+//   padding: 0 6px;
+// }
+// .segment-button {
+//   margin-left: 0;
+//   margin-right: 0;
+//   text-align: center;
+//   position: relative;
+//   display: block;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   cursor: pointer;
+// }
+      .scroll-content {
+          // display: flex;
+          // left: -3px;
+          // right: 0;
+          top: 5px;
+      }
+    .SwipedTabs-tabs ion-segment-button {
+        // color: #fff;
+        // padding: 0 10px;
+    }
+    .badge,.w3-tag{
+      background-color:#a0a0a0;
+      color:#fff;
+      display:inline-block;
+      padding-left:5px;
+      padding-right:5px;
+      text-align:center
+    }
+    .badge{
+      border-radius:50%
+    }
 }

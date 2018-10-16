@@ -1,0 +1,67 @@
+<ion-content class="text">
+  <div class="popup-wrapper">
+    <div class="popup-cnt">
+
+      <ion-row class="popup-heading">
+        <h2 class="h2-title">Fellowship</h2>
+        <a class="popup-close" (click)="dismiss()">
+          <img src="assets/imgs/close-popup.png" alt="" />
+        </a>
+      </ion-row>
+
+      <form #diplomaform="ngForm" (ngSubmit)="submit(diplomaform)">
+        <ion-list class="scroll">
+
+          <!-- <label class="item item-input item-select">
+            <div class="input-label"> &nbsp;</div>
+            <select class="select-add" [(ngModel)]="fellowship_data.Degree" [ngModelOptions]="{standalone: true}">
+              <option value="" disabled selected>Select Degree Name</option>
+              <option *ngFor="let list of degree">{{list.Degree.degree_name}}</option>
+            </select>
+          </label> -->
+
+          <ion-item>
+            <ion-label floating>Degree :</ion-label>
+            <ion-input type="text" name="Degree" [(ngModel)]="fellowship_data.Degree" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+          <div [hidden]="(!isSubmitted) || (fellowship_data.Degree!='')" class="err_danger">
+            Enter Degree Name
+          </div>
+
+          <label class="item item-input item-select">
+            <div class="input-label"> &nbsp;</div>
+            <select class="select-add" [(ngModel)]="fellowship_data.College" [ngModelOptions]="{standalone: true}">
+              <option value="" disabled selected>Select College Name</option>
+              <option *ngFor="let list of college">{{list.College.college_name}}</option>
+            </select>
+          </label>
+
+          <!--  <ion-item>
+            <ion-label floating>College :</ion-label>
+            <ion-input type="text" name="College" [(ngModel)]="fellowship_data.College" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+          <div [hidden]="(!isSubmitted) || (fellowship_data.College!='')" class="err_danger">
+            Enter College Name
+          </div> -->
+          <ion-item>
+            <ion-label floating>Year of Joining :</ion-label>
+            <ion-datetime class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY" [(ngModel)]="fellowship_data.Joining"
+              [ngModelOptions]="{standalone: true}"></ion-datetime>
+          </ion-item>
+        </ion-list>
+        <div [hidden]="(!isSubmitted) || (fellowship_data.Joining!='')" class="err_danger">
+          Enter Year of Joining
+        </div>
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-8>
+            <button ion-button class="btn-save-popup" (click)="Submit()">
+              Submit
+            </button>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </form>
+    </div>
+  </div>
+</ion-content>

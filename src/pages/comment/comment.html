@@ -1,0 +1,25 @@
+<ion-content class="text">
+  <div class="popup-wrapper">
+
+    <form #commentform="ngForm" (ngSubmit)="send(commentform)">
+
+      <div class="popup-cnt">
+        <ion-row>
+          <ion-col col-9>
+            <a style="font-size:15px;">Comment</a>
+          </ion-col>
+          <ion-col col-2 (click)="dismiss()">
+            <a class="popup-close">
+              <img src="assets/imgs/close-popup.png" />
+            </a>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+        <ion-textarea placeholder="Enter Comment message here...!" [(ngModel)]="comm_data.message" [ngModelOptions]="{standalone: true}"></ion-textarea>
+        <ion-row text-center>
+          <button ion-button type="submit">Comment</button>
+        </ion-row>
+      </div>
+    </form>
+  </div>
+</ion-content>

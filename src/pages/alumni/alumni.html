@@ -1,20 +1,31 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu" style="color: whitesmoke; font-size:25px;"></ion-icon>
-    </button>
-    <ion-title>Alumni</ion-title>
+    <ion-row>
+      <ion-col col-2>
+        <button ion-button menuToggle>
+          <ion-icon name="menu" style="color: whitesmoke;"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-8>
+        <ion-title>Alumni</ion-title>
+      </ion-col>
+      <ion-col col-2 (click)="Notification()">
+        <ion-icon ios="ios-notifications" md="md-notifications" class="notification">
+          <ion-badge id="notifications-badge">{{notifiction_count}}</ion-badge>
+        </ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-  <ion-row>
+  <ion-row class="rows">
     <ion-col col-1></ion-col>
-    <ion-col col-5>
+    <ion-col col-4>
       <h2>NAME</h2>
     </ion-col>
-    <ion-col col-2>
+    <ion-col col-3>
       <h2>BATCH</h2>
     </ion-col>
     <ion-col col-4>
@@ -26,50 +37,47 @@
     <ion-grid class="grids">
       <ion-col col-1></ion-col>
       <ion-col col-11>
+        <h3>DIPLOMA</h3>
+      </ion-col>
+    </ion-grid>
+  </ion-row>
+  <!-- class="rows" -->
+  <ion-row *ngFor="let grad of graduation" class="border-bottom">
+    <ion-col col-1></ion-col>
+    <ion-col col-5 class="border-right">
+      {{grad.a.first_name}} {{grad.a.last_name}}
+    </ion-col>
+    <ion-col col-2 class="border-right">
+      {{grad.a.medical_council_year}}
+    </ion-col>
+    <ion-col col-4>
+      {{grad.a.doctor_specialization}}
+    </ion-col>
+  </ion-row>
+  <br>
+
+  <ion-row>
+    <ion-grid class="grids">
+      <ion-col col-1></ion-col>
+      <ion-col col-11>
         <h3>GRADUATION</h3>
       </ion-col>
     </ion-grid>
   </ion-row>
 
-  <ion-row class="rows">
+  <ion-row class="border-bottom" *ngFor="let grad of graduation">
     <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
+    <ion-col col-5 class="border-right">
+      {{grad.a.first_name}} {{grad.a.last_name}}
     </ion-col>
-    <ion-col col-2>
-      2011
+    <ion-col col-2 class="border-right">
+      {{grad.a.medical_council_year}}
     </ion-col>
     <ion-col col-4>
-      Cardiologist
+      {{grad.a.doctor_specialization}}
     </ion-col>
   </ion-row>
-
-  <ion-row class="rows">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
-    </ion-col>
-    <ion-col col-2>
-      2011
-    </ion-col>
-    <ion-col col-4>
-      Cardiologist
-    </ion-col>
-  </ion-row>
-
-  <ion-row class="rows">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
-    </ion-col>
-    <ion-col col-2>
-      2011
-    </ion-col>
-    <ion-col col-4>
-      Cardiologist
-    </ion-col>
-  </ion-row>
-
+  <br>
   <ion-row>
     <ion-grid class="grids">
       <ion-col col-1></ion-col>
@@ -79,45 +87,19 @@
     </ion-grid>
   </ion-row>
 
-  <ion-row class="rows">
+  <ion-row class="border-bottom" *ngFor="let post of postgraduation">
     <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
+    <ion-col col-5 class="border-right">
+      {{post.a.first_name}} {{post.a.last_name}}
     </ion-col>
-    <ion-col col-2>
-      2011
+    <ion-col col-2 class="border-right">
+      {{post.a.medical_council_year}}
     </ion-col>
     <ion-col col-4>
-      Cardiologist
+      {{post.a.doctor_specialization}}
     </ion-col>
   </ion-row>
-
-  <ion-row class="rows">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
-    </ion-col>
-    <ion-col col-2>
-      2011
-    </ion-col>
-    <ion-col col-4>
-      Cardiologist
-    </ion-col>
-  </ion-row>
-
-  <ion-row class="rows">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
-    </ion-col>
-    <ion-col col-2>
-      2011
-    </ion-col>
-    <ion-col col-4>
-      Cardiologist
-    </ion-col>
-  </ion-row>
-
+  <br>
   <ion-row>
     <ion-grid class="grids">
       <ion-col col-1></ion-col>
@@ -126,43 +108,21 @@
       </ion-col>
     </ion-grid>
   </ion-row>
-
-  <ion-row class="rows">
+  <!-- class=""  -->
+  <ion-row *ngFor="let fell of fellowship" class="border-bottom">
     <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
+    <ion-col col-5 class="border-right">
+      {{fell.a.first_name}} {{fell.a.last_name}}
     </ion-col>
-    <ion-col col-2>
-      2011
+    <ion-col col-2 class="border-right">
+      {{fell.a.medical_council_year}}
     </ion-col>
     <ion-col col-4>
-      Cardiologist
+      {{fell.a.doctor_specialization}}
     </ion-col>
   </ion-row>
 
-  <ion-row class="rows">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
-    </ion-col>
-    <ion-col col-2>
-      2011
-    </ion-col>
-    <ion-col col-4>
-      Cardiologist
-    </ion-col>
-  </ion-row>
-
-  <ion-row class="rows">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      Doctor Name
-    </ion-col>
-    <ion-col col-2>
-      2011
-    </ion-col>
-    <ion-col col-4>
-      Cardiologist
-    </ion-col>
-  </ion-row>
+  <ion-fab right bottom class="bottoms" (click)="emergency()">
+    <img src="assets/icon/Emergency.png">
+  </ion-fab>
 </ion-content>

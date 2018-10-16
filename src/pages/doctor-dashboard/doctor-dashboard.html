@@ -8,23 +8,20 @@
       </ion-col>
       <ion-col col-1></ion-col>
       <ion-col col-8> My Drugs
-        <!-- <ion-select class="myCustomSelect" [(ngModel)]="value" color="royal" (ionChange)="onSelectChange($event)">
-          <ion-option selected="true">Please Select Hospital</ion-option>
-          <ion-option value="Pune Hospital">Pune Hospital</ion-option>
-          <ion-option value="Sasun Hospital">Sasun Hospital Pune</ion-option>
-          <ion-option value="Deenanath Hospital">Deenanath Mangeshkar Hospital Pune</ion-option>
-          <ion-option value="Sahyadri Hospital">Sahyadri Super Speciality Hospital Pune</ion-option>
-        </ion-select> -->
+      </ion-col>
+      <ion-col col-2 (click)="Notification()">
+        <ion-icon ios="ios-notifications" md="md-notifications" class="notification">
+          <ion-badge id="notifications-badge">{{notifiction_count}}</ion-badge>
+        </ion-icon>
       </ion-col>
     </ion-row>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  
   <ion-row *ngIf="value=='search'">
     <ion-col col-11>
-      <ion-searchbar>
+      <ion-searchbar [(ngModel)]="term">
       </ion-searchbar>
     </ion-col>
     <ion-col col-1 (click)="sea()">
@@ -32,10 +29,42 @@
     </ion-col>
   </ion-row>
 
+  <ion-row class="back c">
+    <ion-col col-4>
+      <h4 class="m">Name</h4>
+    </ion-col>
+    <ion-col col-1></ion-col>
+    <ion-col col-3>
+      <h4>Content</h4>
+    </ion-col>
+    <ion-col col-1></ion-col>
+    <ion-col col-3>
+      <h4>Strength</h4>
+    </ion-col>
+  </ion-row>
+
+  <form #mydrugsform="ngForm" (ngSubmit)="drugs(mydrugsform)" style="margin-top: 3%">
+    <ion-row class="color border-bottom" *ngFor="let med of arrays | sear :term">
+      <!-- | search: terms -->
+      <ion-col col-4>
+        <h2 class="m">{{med.Medicines.name}}</h2>
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-3>
+        <h2>{{med.Medicines.content}}</h2>
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-3>
+        <h2>{{med.Medicines.strength}}</h2>
+      </ion-col>
+    </ion-row>
+
+  </form>
 
   <ion-fab right bottom class="bottoms" (click)="emergency()">
     <img src="assets/icon/Emergency.png">
   </ion-fab>
+
 </ion-content>
 
 

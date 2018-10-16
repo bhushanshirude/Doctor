@@ -68,13 +68,6 @@ page-add-drugs {
         font-size: 12px;
         border-radius: 60px !important;
         background: rgba(10,120,148,1);
-        // background: -moz-linear-gradient(left, rgba(10,120,148,1) 0%, rgba(1,190,232,1) 100%);
-        // background: -webkit-gradient(left top, right top, color-stop(0%, rgba(10,120,148,1)), color-stop(100%, rgba(1,190,232,1)));
-        // background: -webkit-linear-gradient(left, rgba(10,120,148,1) 0%, rgba(1,190,232,1) 100%);
-        // background: -o-linear-gradient(left, rgba(10,120,148,1) 0%, rgba(1,190,232,1) 100%);
-        // background: -ms-linear-gradient(left, rgba(10,120,148,1) 0%, rgba(1,190,232,1) 100%);
-        // background: linear-gradient(to right, rgba(10,120,148,1) 0%, rgba(1,190,232,1) 100%);
-        // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a7894', endColorstr='#01bee8', GradientType=1 );
     }
         
     img {
@@ -83,7 +76,36 @@ page-add-drugs {
         width: 50%;
         margin: 10% 0% 0% 0%;
     }
-
+    .select-add{
+        width: 90%;
+        padding: 13px 8px 13px 0px;
+        height: 50px;
+        border: 0px;
+        border-bottom: 1px solid #eeeeee;
+        color: #868585;
+        margin: 10px auto;
+    }
+    .list{
+        text-align:center; 
+        width:100%; 
+        display:block;
+    }
+    input[type="radio"] {
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        height: 50px;
+        text-align: center;
+    }
+    .test{
+        width: 50%;
+    }
+    .ion{
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        bottom: 16px;
+    }
     //ios css
     .toolbar-title-ios {
         text-align: left;
@@ -92,4 +114,4 @@ page-add-drugs {
         color: whitesmoke;
         pointer-events: auto;
     }
-}
+    }

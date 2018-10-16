@@ -1,68 +1,188 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <!-- <button ion-button menuToggle>
       <ion-icon name="menu" style="color: whitesmoke; font-size:25px;"></ion-icon>
     </button>
-    <ion-title>Logbook</ion-title>
+    <ion-title>Logbook</ion-title> -->
+    <ion-row>
+      <ion-col col-1>
+        <button ion-button menuToggle>
+          <ion-icon name="menu" style="color: whitesmoke; font-size:25px;"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-8>
+        <ion-title>Logbook</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <ion-icon ios="ios-notifications" md="md-notifications" class="notification">
+          <ion-badge id="notifications-badge">5</ion-badge>
+        </ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content>
-  <ion-row>
-    <ion-col col-3 class="date">
-      <h2>16 Jully 2018</h2>
-      <p></p>
+  <ion-row *ngIf="value=='search'">
+    <ion-col col-11>
+      <ion-searchbar [(ngModel)]="terms">
+      </ion-searchbar>
     </ion-col>
-    <ion-col col-3>
-      <h2>Santosh Pimpre</h2>
-      <p></p>
-    </ion-col>
-    <ion-col col-4 class="date">
-      <h2>Denanath Mangeshkar Hospital</h2>
-      <p></p>
-    </ion-col>
-    <ion-col col-2>
-      <h2>High Bp</h2>
+    <ion-col col-1 (click)="sea()">
+      <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
     </ion-col>
   </ion-row>
 
-  <ion-row>
-    <ion-col col-3 class="date">
-      <h2>16 Jully 2018</h2>
-      <p></p>
-    </ion-col>
-    <ion-col col-3>
-      <h2>Santosh Pimpre</h2>
-      <p></p>
-    </ion-col>
-    <ion-col col-4 class="date">
-      <h2>Denanath Mangeshkar Hospital</h2>
-      <p></p>
-    </ion-col>
-    <ion-col col-2>
-      <h2>High Bp</h2>
-    </ion-col>
-  </ion-row>
+  <div class="logbook">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sr.No</th>
+            <th>Patient ID</th>
+            <th>Patient Name</th>
+            <th>Mothers Name</th>
+            <th>Fathers Name</th>
+            <th class="extra-width">Date of birth (Age)</th>
+            <th>Gender</th>
+            <th>Education</th>
+            <th>Profession</th>
+            <th>Eating Habit</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Blood Group</th>
+            <th>Allergic to</th>
+            <th>Pin Code</th>
+            <th>Area/Locality</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th class="extra-width">Email address</th>
+            <th>Phone/ Mobile No</th>
+            <th class="extra-width">Emergency / Alternate Mobile No</th>
+            <th class="extra-width">Aadhaar No</th>
+            <th>Body Mass Index (BMI)</th>
+            <th>Exercise</th>
+            <th>Languages</th>
+            <th>Hobbies_One</th>
+            <th>Hobbies_Two</th>
+            <th>Hobbies_Three</th>
+            <th>Alcohol</th>
+            <th>Smoking </th>
+            <th>Paan</th>
+            <th>Tobacco </th>
+            <th>Asthma </th>
+            <th>Asthma_Since </th>
+            <th class="extra-width">BP (Blood Pressure Problem)</th>
+            <th class="extra-width">Diabetes (Sugar Problem)</th>
+            <th>Thyroid Problem </th>
+            <th>Thyroid_since </th>
+            <th>Jaundice</th>
+            <th>Jaundice_Since</th>
+            <th>TB </th>
+            <th>TB_Since </th>
+            <th>Previous Surgery</th>
+            <th>Other Medications</th>
+            <th>Accidents </th>
+            <th>Accidents_Year</th>
+            <th>Dental Problems</th>
+            <th>Consciousness </th>
+            <th>Orientation </th>
+            <th>Built </th>
+            <th>Deformity </th>
+            <th>Urine </th>
+            <th>Bowel </th>
+            <th>Sleep </th>
+            <th>Vitals</th>
+            <th>Marital Status</th>
+            <th>Previous Name</th>
+            <th>Temperature</th>
+            <th>Systolic</th>
+            <th>Diastolic</th>
+            <th>Respiration</th>
+            <th>Rate</th>
+            <th>Pulse</th>
+          </tr>
+        </thead>
+        <br>
 
 
-  <ion-row>
-    <ion-col col-3 class="date">
-      <h2>16 Jully 2018</h2>
-      <p></p>
-    </ion-col>
-    <ion-col col-3>
-      <h2>Santosh Pimpre</h2>
-      <p></p>
-    </ion-col>
-    <ion-col col-4 class="date">
-      <h2>Denanath Mangeshkar Hospital</h2>
-      <p></p>
-    </ion-col>
-    <ion-col col-2>
-      <h2>High Bp</h2>
-    </ion-col>
-  </ion-row>
+        <tbody *ngFor="let data of logbook; index as i" style="margin-top:5px;">
+          <tr>
+            <td>{{i+1}}</td>
+            <td>{{data.Userprofile.user_id}}</td>
+            <td>{{data.User.first_name}}</td>
+            <td>{{data.Userprofile.mothers_name}}</td>
+            <td>{{data.Userprofile.fathers_name}}</td>
+            <td class="extra-width">{{data.Userprofile.date_of_birth}}</td>
+            <td>{{data.Userprofile.gender}}</td>
+            <td>{{data.Userprofile.education}}</td>
+            <td>{{data.Userprofile.profession}}</td>
+            <td>{{data.Userprofile.eating_habit}}</td>
+            <td>{{data.Userprofile.height}}</td>
+            <td>{{data.Userprofile.weight}}</td>
+            <td>{{data.Userprofile.blood_group}}</td>
+            <td>{{data.Userprofile.allergic_to}}</td>
+            <td>{{data.Userprofile.pin_code}}</td>
+            <td>{{data.Userprofile.area_locality}}</td>
+            <td>{{data.Userprofile.city}}</td>
+            <td>{{data.Userprofile.state}}</td>
+            <td>{{data.Userprofile.country}}</td>
+            <td class="extra-width">{{data.User.email}}</td>
+            <td>{{data.User.mobile_no}}</td>
+            <td class="extra-width">{{data.Userprofile.emergency_mobile_no}}</td>
+            <td class="extra-width">{{data.Userprofile.aadhaar_no}}</td>
+            <td>{{data.Userprofile.body_mass_index_bmi}}</td>
+            <td>{{data.Userprofile.exercise}}</td>
+            <td>{{data.Userprofile.known_languages}}</td>
+            <td>{{data.Userprofile.hobbies}}</td>
+            <td>{{data.Userprofile.hobbies_one}}</td>
+            <td> {{data.Userprofile.hobbies_two}}</td>
+            <td>{{data.Userprofile.alcohol}}</td>
+            <td>{{data.Userprofile.smoking}} </td>
+            <td>{{data.Userprofile.paan}}</td>
+            <td>{{data.Userprofile.tobacco}} </td>
+            <td>{{data.Userprofile.asthma}}</td>
+            <td>{{data.Userprofile.asthma_since}}</td>
+            <td class="extra-width">{{data.Userprofile.blood_pressure_problem}}</td>
+            <td class="extra-width">{{data.Userprofile.diabetes_sugar_problem}}</td>
+            <td>{{data.Userprofile.thyroid_problem}} </td>
+            <td>{{data.Userprofile.thyroid_since}}</td>
+            <td>{{data.Userprofile.jaundice}}</td>
+            <td>{{data.Userprofile.jaundice_year}}</td>
+            <td>{{data.Userprofile.tb}}</td>
+            <td>{{data.Userprofile.tb_year}} </td>
+            <td>{{data.Userprofile.previous_surgery}}</td>
+            <td>{{data.Userprofile.other_medications}}</td>
+            <td>{{data.Userprofile.accidents}} </td>
+            <td>{{data.Userprofile.accidents_year}}</td>
+            <td>{{data.Userprofile.dental_problems}}</td>
+            <td>{{data.Userprofile.consciousness}} </td>
+            <td>{{data.Userprofile.orientation}} </td>
+            <td>{{data.Userprofile.built}} </td>
+            <td>{{data.Userprofile.deformity}} </td>
+            <td>{{data.Userprofile.urine}}</td>
+            <td>{{data.Userprofile.bowel}} </td>
+            <td>{{data.Userprofile.sleep}} </td>
+            <td>{{data.Userprofile.vitals}}</td>
+            <td>{{data.Userprofile.marital_status}}</td>
+            <td>{{data.Userprofile.previou_name}}</td>
+            <td>{{data.Userprofile.temperature}}</td>
+            <td>{{data.Userprofile.systolic}}</td>
+            <td>{{data.Userprofile.diastolic}}</td>
+            <td>{{data.Userprofile.respiration}}</td>
+            <td>{{data.Userprofile.rate}}</td>
+            <td>{{data.Userprofile.pulse}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <ion-fab right bottom class="bottoms" (click)="emergency()">
+    <img src="assets/icon/Emergency.png">
+  </ion-fab>
 </ion-content>
 
 
@@ -75,9 +195,48 @@
     </ion-col>
 
     <ion-col col-6 text-center class="bottom">
-      <a (click)="clickUpdate()">
+      <a (click)="search()">
         <img src="assets/icon/search.png" /> Search
       </a>
     </ion-col>
   </ion-row>
 </ion-footer>
+
+<!-- Date Patient ID Patient Name Hospital Name Procedure Mothers Name Fathers Name Date of birth (Age) Gender Education Profession
+Eating Habit Height Weight Blood Group Allergic to Pin Code Area/Locality City State Country Email address Phone/ Mobile
+No Emergency / Alternate Mobile No Aadhaar No Body Mass Index (BMI) Exercise Known Languages Hobbies Alcohol Smoking Paan
+Tobacco Asthma BP (Blood Pressure Problem) Diabetes (Sugar Problem) Thyroid Problem Jaundice TB Previous Surgery Other Medications
+Accidents Dental Problems Consciousness Orientation Built Deformity Urine Bowel Sleep Vitals NYHA Class Sr Creatinine(mg/dl)
+Total Bilirubin(mg/dl) Sr Albumin(g/dl) HbA1c(%) HIV HbSAg INR CAG LVEF(%) Procedure CPB Grafts Shifted to ICU (Time) Extubated
+(Time) On ventilator (Hrs) SpO2(%) Oxygen(Litres) 1st Post operative day(CXR) 1st Post operative day (avg Urine Output/hr
+) ml 1st Post operative day (Intake/Output Balance) ml 1st Post operative day (Total Drain) ml Post OP ICU Stay (days) IABP
+Dialysis Date of Admission Date of Surgery Oxygen(Litres) Date of Discharge -->
+
+
+
+<!-- <td>Type</td>
+                               
+                                    
+                                
+                                    <td>Marital Status</td>
+                                    <td>Known Languages One</td>
+                                    <td>Known Languages Two</td>
+                                    <td>Hobbies One</td>
+                                    <td>Hobbies Two</td>
+                                    <td>Asthma Since</td>
+                                    <td>Bp Since</td>
+                                    <td>Diabetes Since</td>
+                                    <td>Thyroid Since</td>
+                                    <td>Jaundice Year</td>
+                                    <td>Tb Year</td>
+                                    <td>Previous Surgery</td>
+                                    <td>Previous Year</td>
+                                    <td>Previous Name</td>
+                                    <td>Other Medications</td>
+                                    <td>Accidents Year</td>
+                                    <td>Temperature</td>
+                                    <td>Systolic</td>
+                                    <td>Diastolic</td>
+                                    <td>Respiration</td>
+                                    <td>Rate</td>
+                                    <td>Pulse</td> -->

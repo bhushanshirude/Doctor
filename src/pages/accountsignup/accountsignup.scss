@@ -140,6 +140,13 @@ page-accountsignup {
         text-align: center;
         color:#828282;
     }
+    .err_danger{
+        color: red;
+        text-align: center;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    
         //   ios css
     .list-ios > .item-block:first-child {
         border-top: 0px solid #c8c7cc; 
@@ -147,4 +154,85 @@ page-accountsignup {
    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
         border-bottom: 0px solid #c8c7cc; 
     }
+// css drop down 
+    .custom-select {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        display: block;
+      }
+      .custom-select  select{
+        width: 100%;
+        margin: 0px;
+        padding: 5px;
+        display: block;
+        border:1px solid #cccccc;
+        color:#828282;
+      }
+     
+      .select-selected {
+        background-color: DodgerBlue;
+      }
+      /*style the arrow inside the select element:*/
+      .select-selected:after {
+        position: absolute;
+        content: "";
+        top: 14px;
+        right: 0px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #fff transparent transparent transparent;
+      }
+      /*point the arrow upwards when the select box is open (active):*/
+      .select-selected.select-arrow-active:after {
+        border-color: transparent transparent #fff transparent;
+        top: 7px;
+      }
+      /*style the items (options), including the selected item:*/
+      .select-items div,.select-selected {
+        color: #ffffff;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+      }
+      /*style items (options):*/
+      .select-items {
+        position: absolute;
+        background-color: DodgerBlue;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+      }
+      /*hide the items when the select box is closed:*/
+      .select-hide {
+        display: none;
+      }
+      .select-items div:hover, .same-as-selected {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .input-wrapper:hover {
+        /* color: #00bfee; */
+        margin: 0px 8px 0px 0px;
+        cursor: pointer;
+    }
+    ion-input {text-align: left;     
+        ::-webkit-input-placeholder {text-align: left; }
+    }
+  
+  .select-add{
+      margin: 0 auto;
+      padding: 0;
+      width: 100%;
+      display: block;
+      height: 40px;
+      border: 0px solid #ccc;
+      border-bottom: 1px solid #eeeeee;
+      color: #a2a2a2;
+      // text-indent: 
+  }
 }
+

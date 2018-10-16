@@ -1,0 +1,37 @@
+<ion-content class="text">
+  <div class="popup-wrapper">
+    <div class="popup-cnt">
+
+      <ion-row class="popup-heading">
+        <h2 class="h2-title">Share Profile</h2>
+        <a class="popup-close" (click)="dismiss()">
+          <img src="assets/imgs/close-popup.png" alt="" />
+        </a>
+      </ion-row>
+
+      <form #diplomaform="ngForm" (ngSubmit)="submit(diplomaform)">
+        <ion-list>
+          <label class="item item-input item-select">
+            <div class="input-label"> &nbsp;</div>
+            <select class="select-add" [(ngModel)]="diploma_data.doctor" [ngModelOptions]="{standalone: true}">
+              <option value="" disabled selected>Select Doctor Name</option>
+              <option *ngFor="let list of array" value="{{list.User.id}}">{{list.User.first_name}} {{list.User.last_name}}
+                <!-- (ionChange)="onChange(list.User.id)" -->
+              </option>
+            </select>
+          </label>
+        </ion-list>
+
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-8>
+            <button ion-button class="btn-save-popup" type="submit">
+              Submit
+            </button>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </form>
+    </div>
+  </div>
+</ion-content>

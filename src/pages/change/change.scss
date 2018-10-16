@@ -1,0 +1,62 @@
+    page-change {
+        .back-button.show-back-button {
+            display: inline-block;
+            color: whitesmoke;
+        }
+        .change-box{
+            margin: 20px auto;
+            padding: 14px 10px;
+            width: 90%;
+            border: 1px solid #cacaca;
+            display: block;
+            text-align: left;
+        }
+        .toolbar-title-md {
+            padding: 0 12px;
+            font-size: 15px;
+            font-weight: 500;
+            color: whitesmoke;
+        }
+          input {text-align: left;     
+            ::-webkit-input-placeholder {text-align: left; }
+        }
+    
+    
+        input::-moz-placeholder {
+            text-align: left;    
+            ::-webkit-input-placeholder {text-align: left; } 
+          }
+          
+        input:-ms-input-placeholder {
+            text-align: left;   
+            ::-webkit-input-placeholder {text-align: left; }  
+          }
+          
+        input::-webkit-input-placeholder {
+            ::-webkit-input-placeholder {text-align: left; }
+            text-align: left;     
+          }
+          .item-inner{
+              box-shadow:0px !important;
+            }
+    
+            input-cover {
+             position: initial; 
+            }    
+            .button-add{
+                margin: 5% 20% 0px 30%;
+                height: 36px;
+                width: 120px;
+                color:#fff;
+                font-size: 12px;
+                border-radius: 60px !important;
+                background: #d60403;
+        }    
+        .err_danger{
+            color: red;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    }
+    

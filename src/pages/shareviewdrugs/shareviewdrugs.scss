@@ -1,0 +1,63 @@
+page-shareviewdrugs {
+    .row h2{
+        margin-top: 6px;
+        font-size: 14px;
+        margin-left: 5%;
+        font-weight: 500;
+    }
+     .row p {
+        font-size: 10px;
+        font-weight: 100;
+        margin-top: 0px;
+        margin-left: 5%;
+    }
+    .row{
+        margin-top: 3%;
+    }
+    .bottoms{
+        width: 10%;
+        margin-left: 85%;
+        cursor: pointer;
+    }
+    .color{
+        background-color: #fff;
+
+    }
+    .rights{
+        margin-top: 2%;
+    }
+
+    .colors{
+        background: #097a93;
+      }
+      .footer-md::before{
+        top: -2px;
+        bottom: auto;
+        background-position: left 0 top 0;
+        height: 0px;
+      }
+      .bottom{
+        margin: 0px;
+        padding: 0px 0;
+      }
+      .bottom a {
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        display: block;
+        padding: 8px 0;
+        margin: 0px;  
+      }
+       .bottom a img {
+        margin-right: 4px;
+        margin-left: 10px;
+        width: 8%;
+        margin-top: 0%;
+      }
+      .bor-right{
+      border-right: 0.1px solid #FFF;
+      }
+      .cols{
+          margin-left: 0%;
+      }
+}

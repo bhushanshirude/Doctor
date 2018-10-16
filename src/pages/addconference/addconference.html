@@ -1,0 +1,257 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="add">ADD CONFERENCE</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <form #conferenceform="ngForm" (ngSubmit)="submit(conferenceform)">
+    <ion-list>
+      <ion-label class="title">ADD CONFERENCE FORM</ion-label>
+      <!-- class="input-hospital" -->
+      <ion-item>
+        <ion-label floating>Conference Title</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_Title" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_Title!='')" class="err_danger">
+        Enter Conference Title
+      </div>
+
+      <ion-item>
+        <ion-label floating>Conference Abbreviation</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_Abbreviation" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_Abbreviation!='')" class="err_danger">
+        Enter Conference Abbreviation
+      </div>
+
+      <ion-item class="input-hospital">
+        <ion-label>Start Date:</ion-label>
+        <ion-input type="date" name="Start" [(ngModel)]="conference_data.Start_Date" [ngModelOptions]="{standalone: true}"></ion-input>
+        <!-- /*value="{{date_of_birth}}"*/ -->
+      </ion-item>
+
+      <ion-item class="input-hospital">
+        <ion-label>End Date:</ion-label>
+        <ion-input type="date" name="Date" [(ngModel)]="conference_data.End_Date" [ngModelOptions]="{standalone: true}"></ion-input>
+        <!-- /*value="{{date_of_birth}}"*/ -->
+      </ion-item>
+
+      <ion-item class="input-hospital">
+        <ion-label>Abstract Deadline (optional):</ion-label>
+        <ion-input type="date" name="Deadline" [(ngModel)]="conference_data.Abstract_Deadline" [ngModelOptions]="{standalone: true}"></ion-input>
+        <!-- /*value="{{date_of_birth}}"*/ -->
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Conference Cme Accrediated Yes/No</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.cme_accrediated" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.cme_accrediated!='')" class="err_danger">
+        Enter Conference Cme Accrediated
+      </div>
+
+
+      <ion-item>
+        <ion-label floating>Conference Website Address</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_Website_Address" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_Website_Address!='')" class="err_danger">
+        Enter Conference Website Address
+      </div>
+
+      <ion-item>
+        <ion-label floating>Conference Venue</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_Venue" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_Venue!='')" class="err_danger">
+        Enter Conference Venue
+      </div>
+
+      <ion-item>
+        <ion-label floating>Conference Street</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_Street" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_Street!='')" class="err_danger">
+        Enter Conference Street
+      </div>
+
+      <ion-item>
+        <ion-label floating>Conference City</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_City" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_City!='')" class="err_danger">
+        Enter Conference City
+      </div>
+
+      <ion-item>
+        <ion-label floating>Conference State</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_County_State" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_County_State!='')" class="err_danger">
+        Enter Conference County State
+      </div>
+
+      <ion-item>
+        <ion-label floating>Conference Postcode / ZIP</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_Postcode_ZIP" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_Postcode_ZIP!='')" class="err_danger">
+        Enter Conference Postcode ZIP
+      </div>
+
+      <ion-item>
+        <ion-label floating>Conference Country</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Conference_Country" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Conference_Country!='')" class="err_danger">
+        Enter Conference Country
+      </div>
+
+      <ion-item>
+        <ion-label floating>Number of Places Available</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Number_of_Places_Available" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Number_of_Places_Available!='')" class="err_danger">
+        Enter Number of Places Available
+      </div>
+
+      <ion-item>
+        <ion-label floating>Speciality</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Speciality" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Speciality!='')" class="err_danger">
+        Enter Conference Speciality
+      </div>
+
+      <ion-item>
+        <ion-label floating>Keywords</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Keywords" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Keywords!='')" class="err_danger">
+        Enter Conference Keywords
+      </div>
+      <!-- ************************************************************* -->
+      <ion-label class="title">Conference Organiser</ion-label>
+
+      <ion-item>
+        <ion-label floating>Organiser First name</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Organiser_First_name" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Organiser_First_name!='')" class="err_danger">
+        Enter Organiser First name
+      </div>
+
+      <ion-item>
+        <ion-label floating>Organiser Last name</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Organiser_Last_name" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Organiser_Last_name!='')" class="err_danger">
+        Enter Organiser Last name
+      </div>
+
+      <ion-item>
+        <ion-label floating>Organiser Email</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Organiser_Email" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Organiser_Email!='')" class="err_danger">
+        Enter Organiser Email
+      </div>
+
+      <ion-item>
+        <ion-label floating>Organiser Phone number</ion-label>
+        <ion-input type="text" name="" minlength="10" maxlength="10" placeholder="" [(ngModel)]="conference_data.Organiser_Phone"
+          [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Organiser_Phone!='')" class="err_danger">
+        Enter Organiser Phone
+      </div>
+
+      <ion-item>
+        <ion-label floating>Organiser URL</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Organiser_URL" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Organiser_URL!='')" class="err_danger">
+        Enter Organiser URL
+      </div>
+
+      <ion-label class="title">Hotel Details:</ion-label>
+
+      <ion-item>
+        <ion-label floating>Hotel Name</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Hotel_Name" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Hotel_Name!='')" class="err_danger">
+        Enter Hotel Name
+      </div>
+
+      <ion-item>
+        <ion-label floating>Hotel Street</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Hotel_Street" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Hotel_Street!='')" class="err_danger">
+        Enter Hotel Street
+      </div>
+
+      <ion-item>
+        <ion-label floating>Hotel City</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Hotel_City" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Hotel_City!='')" class="err_danger">
+        Enter Hotel City
+      </div>
+
+      <ion-item>
+        <ion-label floating>Hotel County</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Hotel_County" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Hotel_County!='')" class="err_danger">
+        Enter Hotel County
+      </div>
+
+      <ion-item>
+        <ion-label floating>Hotel Postcode / ZIP</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Hotel_Postcode_ZIP" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Hotel_Postcode_ZIP!='')" class="err_danger">
+        Enter Hotel Postcode ZIP
+      </div>
+
+      <ion-item>
+        <ion-label floating>Hotel Web Address</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Hotel_Web_Address" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Hotel_Web_Address!='')" class="err_danger">
+        Enter Hotel Web Address
+      </div>
+
+      <ion-item>
+        <ion-label floating>Hotel Email Address</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Hotel_Email_Address" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Hotel_Email_Address!='')" class="err_danger">
+        Enter Hotel Email Address
+      </div>
+
+      <ion-item>
+        <ion-label floating>Discount Code</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="conference_data.Discount_Code" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (conference_data.Discount_Code!='')" class="err_danger">
+        Enter Discount Code
+      </div>
+
+      <div class="clear"></div>
+    </ion-list>
+
+    <ion-row>
+      <ion-col col-6>
+        <button class="button-add" type="submit"> Submit </button>
+      </ion-col>
+      <ion-col col-6>
+        <button class="button-add" type="reset" (click)="Reset()"> Reset </button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

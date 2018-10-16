@@ -9,32 +9,43 @@
         </a>
       </ion-row>
 
-      <ion-list class="scroll">
-        <ion-item>
-          <ion-label floating>Award Name :</ion-label>
-          <ion-input type="text" name="specification" required></ion-input>
-        </ion-item>
+      <form #diplomaform="ngForm" (ngSubmit)="submit(diplomaform)">
+        <ion-list class="scroll">
+          <ion-item>
+            <ion-label floating>Name :</ion-label>
+            <ion-input type="text" name="Name" [(ngModel)]="award_data.Name" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+          <div [hidden]="(!isSubmitted) || (award_data.Name!='')" class="err_danger">
+            Enter Name
+          </div>
+          <ion-item>
+            <ion-label floating>Place :</ion-label>
+            <ion-input type="text" name="Place" [(ngModel)]="award_data.Place" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+          <div [hidden]="(!isSubmitted) || (award_data.Place!='')" class="err_danger">
+            Enter Place Name
+          </div>
 
-        <ion-item>
-          <ion-label floating>Date:</ion-label>
-          <ion-input type="text" name="specification" required></ion-input>
-        </ion-item>
+          <ion-item>
+            <ion-label floating>Date :</ion-label>
+            <ion-input type="date" name="Date" [(ngModel)]="award_data.Date" [ngModelOptions]="{standalone: true}"></ion-input>
+          </ion-item>
+          <div [hidden]="(!isSubmitted) || (award_data.Date!='')" class="err_danger">
+            Enter Award Date
+          </div>
+        </ion-list>
 
-        <ion-item>
-          <ion-label floating>Place:</ion-label>
-          <ion-input type="text" name="specification" required></ion-input>
-        </ion-item>
-      </ion-list>
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-8>
+            <button ion-button class="btn-save-popup" (click)="Submit()">
+              Submit
+            </button>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </form>
 
-      <ion-row>
-        <ion-col col-2></ion-col>
-        <ion-col col-8>
-          <button ion-button class="btn-save-popup" (click)="Submit()">
-            Submit
-          </button>
-        </ion-col>
-        <ion-col col-2></ion-col>
-      </ion-row>
     </div>
   </div>
 </ion-content>

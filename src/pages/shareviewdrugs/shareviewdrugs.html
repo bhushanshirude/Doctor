@@ -1,0 +1,19 @@
+<ion-content>
+  <ion-row class="color" *ngFor="let drug of drugs">
+    <ion-col col-4>
+      <h2>{{drug.patient_drugs.medicine_id}}</h2>
+    </ion-col>
+    <ion-col col-1></ion-col>
+    <ion-col col-2>
+      <h2>{{drug.patient_drugs.breakfast}}-{{drug.patient_drugs.lunch}}-{{drug.patient_drugs.dinner}}</h2>
+    </ion-col>
+    <ion-col col-1></ion-col>
+    <ion-col col-4>
+      <h2>{{drug.patient_drugs.before_after_food}}</h2>
+    </ion-col>
+  </ion-row>
+
+  <ion-fab right bottom class="bottoms" (click)="emergency()">
+    <img src="assets/icon/Emergency.png">
+  </ion-fab>
+</ion-content>

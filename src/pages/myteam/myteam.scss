@@ -1,4 +1,11 @@
 page-myteam {
+    .toolbar-title-md {
+        font-size: 15px;
+        font-weight: 400;
+        color: whitesmoke;
+        text-align: left;
+        margin-top: 3%;
+    }
     .row h2{
         margin-top: 6px;
         font-size: 15px;
@@ -12,10 +19,19 @@ page-myteam {
     .row{
         margin-top: 1%;
     }
-    // .color{
-    //     background-color: #efefef
+   [col-6]{
+       text-align: center;
+   }
+    .row h4{
+        margin-top: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        color:whitesmoke;
+    }
+    .border-bottom{
+        border-bottom: 0.1px solid #eeeeee; 
+    }
 
-    // }
     .rights{
         margin-top: 2%;
         margin-left: 11%;
@@ -58,5 +74,72 @@ page-myteam {
     ion-searchbar {text-align: left;     
         ::-webkit-input-placeholder {text-align: left; }
     }
-   
+    
+    .back{
+        background-color: #097a93;
+    }
+    .c{
+        color: whitesmoke;
+        font-size: 15px;
+    }
+    .segment-md .segment-button {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 0;
+        height: 4.2rem;
+        border-bottom-width: 2px;
+         border-bottom-style: none; 
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+        font-size: 1.2rem;
+        line-height: 4rem;
+        text-transform: uppercase;
+        color: whitesmoke;
+        background-color: transparent;
+        opacity: 0.7;
+        -webkit-transition: 100ms all linear;
+        transition: 100ms all linear;
+        padding: 0 6px;
+    }
+    .notification{
+        color: whitesmoke;
+        margin-top: 17%;
+        font-size: 25px;
+      }
+      
+      #notifications-badge {
+        background-color: red;
+        position: absolute;
+        top: 0px;
+        // width: 35%;
+        // height: 40%;
+        margin-left: 10%;
+        border-radius: 50%;
+      }
+    
+    //   ios css
+    .segment-ios .segment-button {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        /* width: 0; */
+        height: 3.2rem;
+        border-width: 0px; 
+        border-style: solid; 
+        border-color: #488aff; 
+        font-size: 1.3rem; 
+        line-height: 3rem; 
+        color: whitesmoke;
+        background-color: transparent;
+    }
+    .segment-ios .segment-button.segment-activated {
+        color: #fff;
+        background-color: #0e7e97;
+        // border-bottom-color: red;
+        opacity: 1;
+        -webkit-transition: 100ms all linear;
+        transition: 100ms all linear;
+    }
 }

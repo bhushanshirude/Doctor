@@ -1,31 +1,58 @@
 <ion-content class="text">
-    <div class="popup-wrapper">
-      <div class="popup-cnt">
-  
-        <ion-row class="popup-heading">
-          <h2 class="h2-title">Additional Qualification</h2>
-          <a class="popup-close" (click)="dismiss()">
-            <img src="assets/imgs/close-popup.png" alt="" />
-          </a>
-        </ion-row>
-  
+  <div class="popup-wrapper">
+    <div class="popup-cnt">
+
+      <ion-row class="popup-heading">
+        <h2 class="h2-title">Additional Qualification</h2>
+        <a class="popup-close" (click)="dismiss()">
+          <img src="assets/imgs/close-popup.png" alt="" />
+        </a>
+      </ion-row>
+
+      <form #diplomaform="ngForm" (ngSubmit)="submit(diplomaform)">
         <ion-list class="scroll">
-          <ion-item>
+
+          <label class="item item-input item-select">
+            <div class="input-label"> &nbsp;</div>
+            <select class="select-add" [(ngModel)]="additional_data.Degree" [ngModelOptions]="{standalone: true}">
+              <option value="" disabled selected>Select Degree Name</option>
+              <!-- <option *ngFor="let list of degree">{{list.Degree.degree_name}}</option> -->
+              <option>Ph.D</option>
+            </select>
+          </label>
+
+          <label class="item item-input item-select">
+            <div class="input-label"> &nbsp;</div>
+            <select class="select-add" [(ngModel)]="additional_data.College" [ngModelOptions]="{standalone: true}">
+              <option value="" disabled selected>Select College Name</option>
+              <option *ngFor="let list of college">{{list.College.college_name}}</option>
+            </select>
+          </label>
+
+          <!-- <ion-item>
             <ion-label floating>Degree :</ion-label>
-            <ion-input type="text" name="specification" required></ion-input>
+            <ion-input type="text" name="Degree" [(ngModel)]="additional_data.Degree" [ngModelOptions]="{standalone: true}"></ion-input>
           </ion-item>
-  
+          <div [hidden]="(!isSubmitted) || (additional_data.Degree!='')" class="err_danger">
+            Enter Degree Name
+          </div>
           <ion-item>
             <ion-label floating>College :</ion-label>
-            <ion-input type="text" name="specification" required></ion-input>
+            <ion-input type="text" name="College" [(ngModel)]="additional_data.College" [ngModelOptions]="{standalone: true}"></ion-input>
           </ion-item>
-  
+          <div [hidden]="(!isSubmitted) || (additional_data.College!='')" class="err_danger">
+            Enter College Name
+          </div> -->
+
           <ion-item>
             <ion-label floating>Year of Joining :</ion-label>
-            <ion-datetime required class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY"></ion-datetime>
+            <ion-datetime class="none" name="birthdate" displayFormat=" YYYY" pickerFormat=" YYYY" [(ngModel)]="additional_data.Joining"
+              [ngModelOptions]="{standalone: true}"></ion-datetime>
           </ion-item>
         </ion-list>
-  
+        <div [hidden]="(!isSubmitted) || (additional_data.Joining!='')" class="err_danger">
+          Enter Year of Joining
+        </div>
         <ion-row>
           <ion-col col-2></ion-col>
           <ion-col col-8>
@@ -35,6 +62,7 @@
           </ion-col>
           <ion-col col-2></ion-col>
         </ion-row>
-      </div>
+      </form>
     </div>
-  </ion-content>
+  </div>
+</ion-content>

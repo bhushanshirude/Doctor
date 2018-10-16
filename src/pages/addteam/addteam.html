@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ADD Member</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+  <form #addform="ngForm" (ngSubmit)="Submit(addform)">
+    <ion-list>
+
+      <label class="item item-input item-select">
+        <div class="input-label"> &nbsp;</div>
+        <select class="select-add" [(ngModel)]="doctor_data.Profession" [ngModelOptions]="{standalone: true}">
+          <option value="" disabled selected>Select Profession</option>
+          <!-- <option value="6">Admin</option> -->
+          <option value="1">Doctor</option>
+          <!-- <option value="2">Nurse</option>
+              <option value="4">Pharmacist</option>
+              <option value="3">Physiotherapist</option>
+              <option value="5">Technician</option> -->
+        </select>
+      </label>
+
+      <ion-item>
+        <ion-label floating>Enter Name</ion-label>
+        <ion-input type="text" name="" [(ngModel)]="doctor_data.Name" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <div [hidden]="(!isSubmitted) || (doctor_data.Name!='')" class="err_danger">
+        Enter Name
+      </div>
+
+      <!-- <ion-item class="input-hospital">
+        <ion-input type="text" name="" placeholder="Profession" [(ngModel)]="doctor_data.Profession" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (doctor_data.Profession!='')" class="err_danger">
+        Enter Profession
+      </div> -->
+      <!-- <h6>Select Profession</h6> -->
+
+      <ion-item>
+        <ion-label floating>Email_Address</ion-label>
+        <ion-input type="text" name="" [(ngModel)]="doctor_data.Email" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item class="input-hospital">
+        <ion-input type="text" name="" placeholder="Email" [(ngModel)]="doctor_data.Email" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item> -->
+
+      <div [hidden]="(!isSubmitted) || (doctor_data.Email!='')" class="err_danger">
+        Enter Email
+      </div>
+      <!-- class="input-hospital" -->
+      <ion-item>
+        <ion-label floating>Enter Mobile Number</ion-label>
+        <ion-input type="text" name="" minlength="10" maxlength="10" [(ngModel)]="doctor_data.Mobileno" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (doctor_data.Mobileno!='')" class="err_danger">
+        Enter Doctor Mobile Number
+      </div>
+
+      <div class="clear"></div>
+      <ion-row>
+        <ion-col col-6>
+          <button class="button-add" type="submit"> Submit </button>
+        </ion-col>
+        <ion-col col-6>
+          <button class="button-add" type="reset" (click)="Reset()"> Reset </button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,42 @@
+page-popover{
+
+    .item-md {
+        padding-left: 10px ;
+        padding-right: 0;
+        position: relative;
+        font-size: 15px ;
+        font-weight: normal;
+        text-transform: none;
+        color: #000;
+        background-color: #fff;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .item-block {
+        margin: 0 ;
+        padding: 0 ;
+        text-align: initial;
+        display: flex;
+        overflow: hidden;
+        width: 100% ;
+        max-height: 0px ;
+        border: 0;
+        font-weight:10px ;
+        line-height: 15px;
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    // .popover-content
+    // {}
+    .popover {
+        height:140px !important; 
+        //   width: 100% !important; 
+        $popover-md-width: 320px !important; 
+        $popover-ios-width: 320px !important;
+        $popover-wp-width: 320px !important;
+    }
+}

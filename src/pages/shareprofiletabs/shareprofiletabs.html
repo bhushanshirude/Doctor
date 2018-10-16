@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row>
+      <ion-col col-2></ion-col>
+      <ion-col col-8>
+        <ion-title> {{first_name}} {{last_name}}</ion-title>
+      </ion-col>
+      <ion-col col-2>
+        <ion-icon ios="ios-notifications" md="md-notifications" class="notification">
+          <ion-badge id="notifications-badge">5</ion-badge>
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content>
+  <super-tabs name="doctor" style="height: 100%; margin-top: 0%; color:white; font-size: 12px;" toolbarColor="light" toolbarBackground="#b82827"
+    indicatorColor="light" badgeColor="light" [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'">
+    <super-tab [root]="tab1Root" [title]="showTitles? 'PROFILE' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab2Root" [title]="showTitles? 'LAB' : ''" [icon]="showIcons? 'heart' : ''" badge="{{pathlab_reports}}"></super-tab>
+    <super-tab [root]="tab3Root" [title]="showTitles? 'Drugs' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+  </super-tabs>
+</ion-content>

@@ -5,8 +5,9 @@ page-patients-profile-tabs {
       .toolbar-title-md {
         font-size: 16px;
         font-weight: 500;
-        margin-left: -8%;
-        color:whitesmoke;
+        margin-left: -42%;
+        margin-top: 6%;
+        color: whitesmoke;
     }
     .header-md::after{
         background-position: left 0 top -2px;
@@ -21,13 +22,29 @@ page-patients-profile-tabs {
         top: 0;
         right: 0px;
     }
-
+   
      .stabel{
         margin: 0px 0px 0px 0px;
         color: #a2cdd6;
         font-size: 13px;
         font-weight: 500;
         background-color:#097a93;
+      }
+      .notification{
+        color: whitesmoke;
+        margin-top: 35%;
+        font-size: 25px;
+      }
+      
+      #notifications-badge {
+        background-color: red;
+        position: absolute;
+        top: 0px;
+        width: 40%;
+        height: 35%;
+        margin-top: 10%;
+        margin-left: 15%;
+        border-radius: 50%;
       }
    
   super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button .badge {

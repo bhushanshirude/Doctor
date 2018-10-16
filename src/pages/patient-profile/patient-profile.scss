@@ -2,20 +2,15 @@ page-patient-profile {
 	.starts{
 		margin-top:10px;
 	}
-	// .item-md ion-thumbnail img {
-	// 	border-radius: 10%;
-	// 	overflow: hidden;
-	// 	// margin-left: 10%;
-	// 	margin: 0 auto ;
-	// 	width: 140px;
-	// 	height: 140px;
-	// 	border-color: #00c0ef;
-	// 	border-width: 2px;
-	// 	border-style: solid;
-	// }
+	.bottoms{
+        width: 10%;
+        margin-left: 85%;
+        cursor: pointer;
+    }
 	.imges{
 		margin: 0px;
 		padding: 0px;
+		margin-top: 1%;
 		width: 100%;
 		height: 100%;
 		text-align: center;
@@ -112,6 +107,27 @@ page-patient-profile {
 			margin-top: 0px; 
 			max-width: 33.33333%;
 		}
+		.bottom{
+			margin: 0px;
+			padding: 0px 0;
+		  }
+		  .bor-right{
+			border-right: 0.1px solid #FFF;
+		  }
+		  .bottom a {
+			color: #fff;
+			font-size: 14px;
+			cursor: pointer;
+			display: block;
+			padding: 8px 0;
+			margin: 0px;
+		  }
+		  .bottom a img {
+		  margin-right: 4px;
+		  margin-left: 10px;
+		  width: 7%;
+		  margin-top: 0%;
+		  }
 }
 
 

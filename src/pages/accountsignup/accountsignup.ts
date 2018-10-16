@@ -1,43 +1,95 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController } from 'ionic-angular';
-import { DoctorDashboard } from '../doctor-dashboard/doctor-dashboard';
-// import { UserData } from '../../providers/user-data';
+import { NavController, MenuController, LoadingController } from 'ionic-angular';
 import { UserOptions } from '../../interfaces/user-options';
 import { AccountloginPage } from '../accountlogin/accountlogin';
 import { AccountforgotpasswordPage } from '../accountforgotpassword/accountforgotpassword';
-import { NgForm } from '@angular/forms';
-
+import { ToastController } from 'ionic-angular';
+import { FormGroup, FormControl, Validators } from '../../../node_modules/@angular/forms';
+import { AllServiceProvider } from '../../providers/services';
+import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+import { Platform } from 'ionic-angular/platform/platform';
 
 @Component({
   selector: 'page-accountsignup',
   templateUrl: 'accountsignup.html',
 })
 export class AccountsignupPage {
-
+  error_mes: string;
+  speclialitys;
+  sign_data = { FirstName: '', LastName: '', Registration: '', Email: '', Speciality: '', MobileNo: '', Password: '', medical_council: '' }
   signup: UserOptions = { name: '', username: '', mobile: '', password: '' };
   submitted = false;
   page_name = " Signup Page ";
   cty;
   varible = "";
-
-
-  constructor(public navCtrl: NavController, public menuCtrl: MenuController,
-
-    // public userData: UserData
-  ) { }
-  ionViewDidLoad() {
-    console.log(this.page_name + " events :ionViewDidLoad");
+  isSubmitted: 'true';
+  cdRef;
+  Signupform: FormGroup;
+  Api_url = "";
+  userUDID: string;
+  constructor(public navCtrl: NavController, private platform: Platform, private uniqueDeviceID: UniqueDeviceID, public services: AllServiceProvider, public menuCtrl: MenuController, public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
+    this.Api_url = this.services.user_api;
+    this.sign_data = {
+      FirstName: '',
+      LastName: '',
+      Registration: '',
+      Email: '',
+      Speciality: '',
+      MobileNo: '',
+      Password: '',
+      medical_council: ''
+    }
+    this.specliality();
+    this.getUDID();
   }
 
-  submit() {
-    //  var link = 'http:/192.168.0.5/web_service/signup.php';
-    // var myData = JSON.stringify({ name: this.signup.name, username: this.data.username, pwd: this.signup.password, status: "1" });
 
-    // this.http.post(link, myData)
-    //   .subscribe(data => {
-    //     console.log("Responce!" + data);
-    //     this.data.response = data["_body"]; //https://stackoverflow.com/questions/39574305/property-body-does-not-exist-on-type-response
-    //   });
+  ngOnInit() {
+    let EMAILPATTERN = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+    this.Signupform = new FormGroup({
+      Name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(10)]),
+      Password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(50)]),
+      MobileNo: new FormControl('', [Validators.required, Validators.pattern('[0-9 ]*'), Validators.minLength(10), Validators.maxLength(10)]),
+      Email: new FormControl('', [Validators.required, Validators.pattern(EMAILPATTERN)]),
+    });
+  }
+  async getUDID() {
+    try {
+      await this.platform.ready();
+      this.userUDID = await this.uniqueDeviceID.get();
+      // this.userUDID = "5";
+    }
+    catch (e) {
+      console.error(e)
+    }
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Registation successfully',
+      duration: 5000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+    toast.present();
+  }
+  presentToasts() {
+    let toast = this.toastCtrl.create({
+      message: 'Mobile Number or Email Already exist',
+      duration: 5000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+    toast.present();
+  }
+  ionViewDidLoad() {
+    console.log(this.page_name + " events :ionViewDidLoad");
   }
 
   ionViewWillEnter() {
@@ -51,105 +103,99 @@ export class AccountsignupPage {
     console.log(this.page_name + " events :ionViewDidLeave");
   }
 
-  validation_messages1 = {
-    'username': [
-      { type: 'required', message: 'Username is required.' },
-      { type: 'minlength', message: 'Username must be at least 5 characters long.' },
-      { type: 'maxlength', message: 'Username cannot be more than 25 characters long.' },
-      { type: 'pattern', message: 'Your username must contain only numbers and letters.' },
-      { type: 'validUsername', message: 'Your username has already been taken.' }
-    ],
-    'name': [
-      { type: 'required', message: 'Name is required.' }
-    ],
-    'lastname': [
-      { type: 'required', message: 'Last name is required.' }
-    ],
-    'email': [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Enter a valid email.' }
-    ],
-    'phone': [
-      { type: 'required', message: 'Phone is required.' },
-      { type: 'validCountryPhone', message: 'Phone incorrect for the country selected' }
-    ],
-    'password': [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' },
-      { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number.' }
-    ],
-    'confirm_password': [
-      { type: 'required', message: 'Confirm password is required' }
-    ],
-    'matching_passwords': [
-      { type: 'areEqual', message: 'Password mismatch' }
-    ],
-    'terms': [
-      { type: 'pattern', message: 'You must accept terms and conditions.' }
-    ],
-  };
-
-
-
-  loginPage() { this.navCtrl.push(AccountloginPage); }
-  forgotPage() { this.navCtrl.push(AccountforgotpasswordPage); }
-
-  onSignup(form: NgForm) {
-    //  this.submit();
-    // this.navCtrl.push(TabsPage);
-    this.submitted = true;
-
-
-    //   var ref = this.InAppBrowser.create('http://www.google.com','_self','_self');
-    //ref.show();
-    //  var ref = this.InAppBrowser.create('http://apache.org', '_blank', 'location=yes');
-    // this.ref.addEventListener('loadstart', function(event) { alert(event.url); });
-
-    //let browser = this.InAppBrowser.create('https://ionicframework.com/');
-    /* let regExp = /^[0-9]{10}$/;
- 
-     if (!regExp.test(this.signup.mobile)) {
-       console.log("Invalid Mobile no " + this.signup.mobile);
- 
-       return { "invalidMobile": true };
- 
-     } else {
-       console.log("Mobile no " + this.signup.mobile);
-     }*/
-    if (form.valid) {
-      // console.log("Signup Name:" + this.signup.name + " Email:" + this.signup.username + " Password:" + this.signup.password);
-      // this.userData.logindata(this.signup.name,this.signup.mobile,this.signup.username,this.signup.password);
-
-      // console.log("Click Signup Button");
-      this.navCtrl.push(DoctorDashboard);
-      // fetch('http://192.168.0.5/web_service/signup.php', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     "name":"" + this.signup.name,
-      //     "email":"" + this.signup.username,
-      //     "pwd":"" + this.signup.password,
-      //     "tags":"4"       
-      //   }),
-      //   headers: {
-      //       "Content-type": "application/json; charset=UTF-8",
-      //     'Content-Type': 'application/json',
-      //     'Accept': 'application/json'
-      //   }
-      // })
-      //   .then(response => response.json())
-      //   .then(data => {
-
-      //     console.log(data);
-      //     //  this.userData.login("Rahul1");
-      //     this.navCtrl.push(TabsPage);
-      //   });
-      // http://192.168.0.5/
-      // this.userData.signup(this.signup.username);
-      // this.navCtrl.push(TabsPage);
-    }
+  loginPage() {
+    this.navCtrl.push(AccountloginPage);
   }
-  sign(form: any, event: Event) {
-    console.log("sssssssaaaaaaaaaaaaaa")
+
+
+  forgotPage() {
+    this.navCtrl.push(AccountforgotpasswordPage);
+  }
+  specliality() {
+    fetch(this.Api_url + 'users/android_doctor_getspecialities', {
+      method: 'POST',
+      body: JSON.stringify({
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("specliality", data);
+        if (data.Status == "Success") {
+          for (let i = 0; i <= data.Results.length; i++) {
+            this.speclialitys = data.Results;
+          }
+        } else if (data.Status == "Failed") {
+          //   this.presentToasts();
+
+        }
+      })
+  }
+
+  sign(Signupform) {
+    console.log("sssssssssssssssssssssssss", this.userUDID)
+    this.isSubmitted = "true";
+    if (this.sign_data.FirstName == "") {
+    }
+    else if (this.sign_data.LastName == "") {
+    }
+    else if (this.sign_data.Registration == "") {
+    }
+    else if (this.sign_data.Email == "") {
+    }
+    else if (this.sign_data.Speciality == "") {
+    }
+    else if (this.sign_data.MobileNo == "") {
+    }
+    else if (this.sign_data.MobileNo.length != 10) {
+    }
+    else if (this.sign_data.Password == "") {
+    }
+    else if (this.sign_data.medical_council == "") {
+    }
+    else {
+      let loading = this.loadingCtrl.create({
+        spinner: 'hide',
+        content: 'Signup Account Please Wait...',
+        duration: 5000
+      });
+      loading.present();
+      fetch(this.Api_url + 'users/androidregister', {
+        method: 'POST',
+        body: JSON.stringify({
+          "FirstName": this.sign_data.FirstName,
+          "LastName": this.sign_data.LastName,
+          "Registration": this.sign_data.Registration,
+          "Email": this.sign_data.Email,
+          "Speciality": this.sign_data.Speciality,
+          "MobileNo": this.sign_data.MobileNo,
+          "Password": this.sign_data.Password,
+          "Medical-council": this.sign_data.medical_council,
+          "Device_Id": this.userUDID,
+          "User_Group_Id": "2",
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Register Data", data);
+          this.error_mes = data.error;
+          loading.dismiss();
+          console.log("After Login Server  Responding " + data.error);
+          if (data.Status == "Success") {
+            console.log("Checking")
+            this.presentToast();
+            this.navCtrl.push(AccountloginPage);
+          } else if (data.Status == "Failed") {
+            this.presentToasts();
+
+          }
+        })
+    }
   }
 
 }

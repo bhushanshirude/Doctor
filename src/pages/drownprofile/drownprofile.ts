@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavController, AlertController, App, PopoverController } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { UpdateDrProfilePage } from '../update-dr-profile/update-dr-profile';
+import { NavParams } from 'ionic-angular/navigation/nav-params';
+import { AllServiceProvider } from '../../providers/services';
 
 
 @Component({
@@ -10,89 +12,125 @@ import { UpdateDrProfilePage } from '../update-dr-profile/update-dr-profile';
   templateUrl: 'drownprofile.html',
 })
 export class DrownprofilePage {
-
+  @Input() src_path: string;
+  @Input() default: string;
   message: string = null;
   link: string = null;
   subject: string = null;
   file: string = null;
+  first_name;
+  last_name;
+  date_of_birth;
+  email;
+  contact_no;
+  sex;
+  website_url;
+  registration_no;
+  medical_council;
+  medical_council_year;
+  doctordata;
+  doctors;
+  diploma;
+  Dip;
+  pg;
+  ug;
+  fellow;
+  award;
+  additional;
+  publication;
+  publi;
+  awards;
+  fellows;
+  under;
+  post;
+  Api_url = "";
+  doctor_id;
+  array;
+  createdCode = "0";
+  image;
+  addquli;
 
-  section: string = 'two';
-  somethings: any = new Array(20);
-  name1: string; public person: { name: string, address: string, education: string, company: string, birthdate?: number };
-  dob: any;
-  age: any;
-  showProfile: boolean;
-  constructor(public alertCtrl: AlertController, public popoverCtrl: PopoverController, public navCtrl: NavController, public appCtrl: App, public storage: Storage, public localStorage: IonicStorageModule, private socialSharing: SocialSharing) {
-    this.person = { name: undefined, address: undefined, education: undefined, company: undefined, birthdate: undefined };
-    this.dob = undefined;
+  constructor(public alertCtrl: AlertController, public services: AllServiceProvider, public navParams: NavParams, public popoverCtrl: PopoverController, public navCtrl: NavController, public appCtrl: App, public storage: Storage, public localStorage: IonicStorageModule, private socialSharing: SocialSharing) {
+    this.Api_url = this.services.user_api;
+
+    this.storage.get('id').then((val) => {
+      this.doctor_id = val;
+      this.showqrcode(this.doctor_id);
+    });
+    this.doctordata = navParams.get('doctor');
+    this.doctors = this.doctordata;
+    // console.log("RRRRRRRRRRRRRRRR", this.doctordata)
+
+    this.diploma = navParams.get('dip')
+    this.Dip = this.diploma.alumni_data_diploma;
+
+    this.pg = navParams.get('postg')
+    this.post = this.pg.alumni_data_pg;
+
+    this.ug = navParams.get('underg')
+    this.under = this.ug.alumni_data_ug;
+
+    this.fellow = navParams.get('felow')
+    this.fellows = this.fellow.alumni_data_fellow;
+
+    this.award = navParams.get('awards')
+    this.awards = this.award.data_awards_presentations;
+
+    this.publication = navParams.get('pub')
+    this.publi = this.publication.data_publications;
+
+    this.additional = navParams.get('addqulification');
+    this.addquli = this.additional.alumni_data_additional;
+
+    this.storage.set('doctor_fname', this.doctordata.User.first_name);
+    this.storage.set('doctor_lname', this.doctordata.User.last_name);
+    this.storage.set('doctor_sname', this.doctordata.User.doctor_specialization);
+
+    this.image = this.Api_url + 'profile_pictures/' + this.doctordata.User.profile_picture;
+    this.src_path = "assets/imgs/doctor.png";
+    // console.log("Abhijeet", this.image)
+    this.storage.set('doctor_profile_image', this.doctordata.User.profile_picture);
   }
 
+  showqrcode(val) {
+    if (val != "" && val != null && val != undefined) {
+      // console.log("patient_showqrcode_id====>>>", val)
+      this.createdCode = val;
+    }
+  }
 
   edit() {
-    this.appCtrl.getRootNavs()[0].push(UpdateDrProfilePage)
-
+    fetch(this.Api_url + 'users/android_getdoctor_profile', {
+      method: 'POST',
+      body: JSON.stringify({
+        "Doctor_Id": this.doctor_id,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.Status == "Success") {
+          this.array = data.Results.User;
+          this.appCtrl.getRootNavs()[0].setRoot(UpdateDrProfilePage, {
+            drpro: this.array
+          })
+        } else if (data.Status == "Failed") {
+        }
+      });
   }
-
-
-  // only inclde that and share the social file but you ca't check on pc you can check on mobile.
   sharing() {
-    this.socialSharing.share(this.message, this.file, this.subject, this.link).then(() => {
-    }).catch(() => { });
+    var teUrl = "Playing on FantasyCraz is as easy as it gets, Download the app now and play with the best! & use my invite code:  " + " to get a Cash Bonus of Rs.30 Let the Games begin.\n http://fantasycraz.com/";
+    this.socialSharing.share(teUrl, 'Fantasy Craz', null, this.link)
+      .then(() => {
+      }).catch(() => {
+        setTimeout(() => {
+        }, 0);
+      });
   }
-
-
+  // sharing() {
+  //   this.socialSharing.share(this.message, this.file, this.subject, this.link).then(() => {
+  //   }).catch(() => { });
+  // }
 }
-
-
-
-  // btnClick() {
-  //   let alert = this.alertCtrl.create({
-  //     title: 'Health Capitol App',
-  //     subTitle: 'Doctor ' + this.name1,
-  //     buttons: ['Done!']
-  //   });
-  //   alert.present();
-
-  // }
-
-  // Logout() {
-  //   this.storage.set('usertype', '');
-  //   this.appCtrl.getRootNavs()[0].push(AccountloginPage)
-  // }
-  // presentPopover(event: Event) {
-  //   let popover = this.popoverCtrl.create(PopoverOptionPage);
-  //   popover.present({ ev: event });
-  // }
-
- // ionViewDidLoad() {
-  //   let person = JSON.parse(localStorage.getItem('PERSON'));
-  //   if (person) {
-  //     this.person = person;
-  //     this.age = this.getAge(this.person.birthdate);
-  //     this.dob = new Date(this.person.birthdate).toISOString();
-  //   }
-  //   this.person.name = "Dr joshi";
-  //   this.person.address = "VImannagar Pune";
-  //   this.person.education = "MBBS";
-  //   this.person.company = "Deenanath Mangeshkar Hospital";
-  //   this.person.birthdate = 31;
-  //   localStorage.setItem('PERSON', JSON.stringify(this.person));
-  // }
-
-  // reset() {
-  //   this.person = { name: null, address: undefined, education: undefined, company: null, birthdate: null };
-  //   this.dob = null;
-  //   this.showProfile = false;
-  // }
-
-  // save() {
-  //   this.person.birthdate = new Date(this.dob).getTime();
-  //   this.age = this.getAge(this.person.birthdate);
-  //   this.showProfile = true;
-  //   localStorage.setItem('PERSON', JSON.stringify(this.person));
-  // }
-
-  // getAge(birthdate) {
-  //   let currentTime = new Date().getTime();
-  //   return ((currentTime - birthdate) / 31556952000).toFixed(0);
-  // }

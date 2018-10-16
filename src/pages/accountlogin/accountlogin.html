@@ -1,39 +1,3 @@
-<!-- <ion-content class="signup-wrapper">
-	<a href="#." class="welcome-logo">
-		<img src="assets/new-img/logo.png" alt="" />
-	</a>
-	<h2 class="title-h2">Sign In</h2>
-
-	<ion-card class="signup-card">
-
-		<form #loginForm="ngForm" (ngSubmit)="login(loginForm ,$event)" novalidate>
-			<ion-list class="signup-block">
-				<ion-item class="border-bottom">
-					<ion-label class="signup-label">
-						<ion-icon item-left name="person"></ion-icon>
-					</ion-label>
-					<ion-input type="email" placeholder="Enter Email/Mobile Number" [(ngModel)]="Email"></ion-input>
-				</ion-item>
-				<ion-item class="border-bottom">
-					<ion-label class="signup-label">
-						<ion-icon item-left name="mail"></ion-icon>
-					</ion-label>
-					<ion-input type="password" placeholder="Enter pssword" [(ngModel)]="Password"></ion-input>
-				</ion-item>
-			</ion-list>
-			<br/>
-			<button class="btn-button" type="submit">Doctor Sign In</button>
-		</form>
-
-	</ion-card>
-	<br/>
-	<p class="signup-text" (click)="forgotPasswordPage()">Forgot Password</p>
-	<p class="signup-text" (click)="onSignup()">Don't have an Accounr?Sign up</p>
-	<br/>
-</ion-content> -->
-
-<!-- <button class="btn-button" (click)="Doctor()">Doctor Sign In</button> -->
-
 <ion-content class="signup-wrapper">
 	<a href="#." class="welcome-logo">
 		<img src="assets/new-img/logo.png" alt="" />
@@ -44,18 +8,28 @@
 
 		<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" novalidate>
 			<ion-list class="signup-block">
+
 				<ion-item class="border-bottom">
 					<ion-label class="signup-label">
 						<ion-icon item-left name="person"></ion-icon>
 					</ion-label>
-					<ion-input type="email" placeholder="Enter Email/Mobile Number" [(ngModel)]="Email"  [ngModelOptions]="{standalone: true}"></ion-input>
+					<ion-input type="email" placeholder="Enter Email/Mobile Number" [(ngModel)]="login_data.Email" [ngModelOptions]="{standalone: true}"></ion-input>
 				</ion-item>
+				<div [hidden]="(!isSubmitted) || (login_data.Email!='')" class="err_danger">
+					Enter Email Address
+				</div>
 				<ion-item class="border-bottom">
 					<ion-label class="signup-label">
-						<ion-icon item-left name="mail"></ion-icon>
+						<ion-icon item-left name="lock"></ion-icon>
 					</ion-label>
-					<ion-input type="password" placeholder="Enter pssword" [(ngModel)]="Password"  [ngModelOptions]="{standalone: true}"></ion-input>
+					<ion-input type="password" placeholder="Enter pssword" [(ngModel)]="login_data.Password" [ngModelOptions]="{standalone: true}"></ion-input>
 				</ion-item>
+				<div [hidden]="(!isSubmitted) || (login_data.Password!='')" class="err_danger">
+					Enter Password
+				</div>
+				<div class="err_danger">
+					{{error_mes}}
+				</div>
 			</ion-list>
 			<br/>
 			<button class="btn-button" type="submit">Doctor Sign In</button>

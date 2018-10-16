@@ -1,7 +1,7 @@
 <ion-content>
-  <ion-row *ngIf="value=='search'">
-    <ion-col col-11 >
-      <ion-searchbar>
+
+  <ion-col col-11>
+      <ion-searchbar [(ngModel)]="terms">
       </ion-searchbar>
     </ion-col>
     <ion-col col-1 (click)="sea()">
@@ -9,70 +9,27 @@
     </ion-col>
   </ion-row>
 
-  <ion-row (click)="patient()" class="color" style="margin-top: 3%">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-row (click)="patient()" class="color">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-row (click)="patient()" class="color">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-row (click)="patient()" class="color">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-row (click)="patient()" class="color">
-    <ion-col col-1></ion-col>
-    <ion-col col-5>
-      <h2>patient Name</h2>
-    </ion-col>
-    <ion-col col-3></ion-col>
-    <ion-col col-3>
-      <h1>CABG</h1>
-    </ion-col>
-    <ion-col col-1></ion-col>
-  </ion-row>
-  <hr>
-  <ion-fab right bottom class="bottoms" (click)="emergency()">
-    <img src="assets/icon/Emergency.png">
-  </ion-fab>
+  <form #opdform="ngForm" (ngSubmit)="opd(opdform)" style="margin-top: 3%">
+    <div *ngFor="let opd of array | search: terms">
+      <ion-row class="color border-bottom">
+        <ion-col col-1 (click)="view_patient(opd.User.id)"></ion-col>
+        <ion-col col-5 (click)="view_patient(opd.User.id)">
+          <h2>{{opd.User.first_name}} {{opd.User.last_name}}</h2>
+        </ion-col>
+        <ion-col col-1 (click)="view_patient(opd.User.id)"></ion-col>
+        <ion-col col-4 (click)="view_patient(opd.User.id)">
+          <h1>{{opd.User.diagnosis_procidure}}</h1>
+        </ion-col>
+        <ion-col col-1 (click)="presentPopover($event,opd.User.id)">
+          <ion-icon ios="ios-more" md="md-more"></ion-icon>
+        </ion-col>
+      </ion-row>
 
+    </div>
+    <ion-fab right bottom class="bottoms" (click)="emergency()">
+      <img src="assets/icon/Emergency.png">
+    </ion-fab>
+  </form>
 </ion-content>
 
 <ion-footer>
@@ -90,3 +47,6 @@
     </ion-col>
   </ion-row>
 </ion-footer>
+
+<!-- ion-long-press [interval]="400" (onPressStart)="pressed()"
+          (onPressing)="active()" (onPressEnd)="released()" -->

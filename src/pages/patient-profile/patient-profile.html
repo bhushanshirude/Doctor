@@ -2,22 +2,408 @@
 
   <ion-item>
     <ion-row class="imges">
-
       <ion-thumbnail class="img">
-        <img src="assets/img/mittal.jpg">
+        <img src="{{image}}" onError="this.src='assets/img/mittal.jpg'">
       </ion-thumbnail>
-      <ion-thumbnail class="img">
-        <img src="assets/img/qr_code.png">
+
+      <ion-thumbnail class="img" *ngIf="createdCode">
+        <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
       </ion-thumbnail>
     </ion-row>
-
   </ion-item>
+
+  <!-- <div *ngFor="let data of array">
+    <div class="tab-right-wrap">
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col col-7>
+          {{data.User.first_name}} {{data.User.last_name}}
+        </ion-col>
+        <ion-col col-4>
+          QR_Code
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-4 class="border-right">
+        <h2>
+          <a>{{data.Userprofile.age_of_patient}} years</a>
+        </h2>
+      </ion-col>
+      <ion-col col-4 class="border-right">
+        <h2>
+          <a> {{data.Userprofile.gender}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-4>
+        <h2>
+          <a>{{data.Userprofile.marital_status}}</a>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-4 class="border-right">
+        <h2>
+          <a>{{data.Userprofile.education}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-4 class="border-right">
+        <h2>
+          <a>{{data.Userprofile.profession}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-4>
+        <h2>
+          <a>{{data.Userprofile.eating_habit}}</a>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-3 class="border-right">
+        <h2>
+          <a>{{data.Userprofile.height}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-3 class="border-right">
+        <h2>
+          <a>{{data.Userprofile.weight}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>Blood Group:
+          <a>{{data.Userprofile.blood_group}}</a>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-2></ion-col>
+      <ion-col col-8 text-center>
+        <h2>
+          <b> Allergic to</b>
+          <a> {{data.Userprofile.allergic_to}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-7 class="border-right">
+        <h2>
+          <a>{{data.Userprofile.area_locality}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-5>
+        <h2>PIN Code :
+          <a> {{data.Userprofile.pin_code}} </a>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-4 class="border-right">
+        <h2>
+          <a>{{data.Userprofile.city}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-4 class="border-right">
+        <h2>
+          <a>{{data.Userprofile.state}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-4>
+        <h2>
+          <a>{{data.Userprofile.country}} </a>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-2>
+        <h2>
+          <a></a>
+        </h2>
+      </ion-col>
+      <ion-col col-8>
+        <h2>
+          <a>{{data.User.email}}</a>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-6 class="border-right">
+        <h2>
+          <b>{{data.User.contact_no}}</b>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.emergency_mobile_no}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+    <ion-row class="border-bottom" text-center>
+      <ion-col col-2></ion-col>
+      <ion-col col-8 text-center>
+        <h2>
+          <b>Aadhar No : </b>
+          <a>{{data.Userprofile.aadhaar_no}}</a>
+        </h2>
+      </ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+    <br>
+
+    <div class="tab-right-wrap">
+      <ion-row>
+        <ion-col col-12>
+          PERSONAL
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>BODY MASS INDEX (BMI)</a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.body_mass_index_bmi}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>EXERCISE</a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.exercise}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>KNOWN LANGUAGES</a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.known_languages}} <br> {{data.Userprofile.known_languages_one}} <br> {{data.Userprofile.known_languages_two}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>HOBBIES</a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.hobbies}} <br> {{data.Userprofile.hobbies_one}} <br> {{data.Userprofile.hobbies_two}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>ALCOHOL </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.alcohol}} </b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>SMOKING </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.smoking}} </b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>PAAN </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.paan}} </b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>TOBACCO </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.tobacco}} </b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <br>
+    <div class="tab-right-wrap">
+      <ion-row>
+        <ion-col col-12>
+          PAST HISTORY
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>ASTHMA </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.asthma}} {{data.Userprofile.asthma_since}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>BP </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.blood_pressure_problem}} {{data.Userprofile.bp_since}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>DIABETES </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.diabetes_sugar_problem}} {{data.Userprofile.diabetes_since}} </b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>THYROID </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.thyroid_problem}} {{data.Userprofile.thyroid_since}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>JAUNDICE </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.jaundice}} {{data.Userprofile.jaundice_year}} </b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>TB </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.tb}} {{data.Userprofile.tb_year}} </b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>PREVIOUS SURGERY </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.previous_surgery}} {{data.Userprofile.previous_year}} {{data.Userprofile.previou_name}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>OTHER MEDICATIONS </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.other_medications}} </b>
+        </h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom">
+      <ion-col col-6 class="border-right">
+        <h2>
+          <a>ACCIDENTS </a>
+        </h2>
+      </ion-col>
+      <ion-col col-6>
+        <h2>
+          <b>{{data.Userprofile.accidents}} {{data.Userprofile.accidents_year}}</b>
+        </h2>
+      </ion-col>
+    </ion-row>
+  </div> -->
 
   <div class="tab-right-wrap">
     <ion-row>
       <ion-col col-1></ion-col>
       <ion-col col-7>
-        Urmila Prakash Deol
+        {{this.first_name}} {{this.last_name}}
       </ion-col>
       <ion-col col-4>
         QR_Code
@@ -28,17 +414,17 @@
   <ion-row class="border-bottom" text-center>
     <ion-col col-4 class="border-right">
       <h2>
-        <a>32 years</a>
+        <a>{{this.age_of_patient}} years</a>
       </h2>
     </ion-col>
     <ion-col col-4 class="border-right">
       <h2>
-        <a>Female</a>
+        <a> {{this.gender}}</a>
       </h2>
     </ion-col>
     <ion-col col-4>
       <h2>
-        <a>Married</a>
+        <a>{{this.marital_status}}</a>
       </h2>
     </ion-col>
   </ion-row>
@@ -46,17 +432,17 @@
   <ion-row class="border-bottom" text-center>
     <ion-col col-4 class="border-right">
       <h2>
-        <a>Graduate</a>
+        <a>{{this.education}}</a>
       </h2>
     </ion-col>
     <ion-col col-4 class="border-right">
       <h2>
-        <a>HouseWife</a>
+        <a>{{this.profession}}</a>
       </h2>
     </ion-col>
     <ion-col col-4>
       <h2>
-        <a>Vegetarian</a>
+        <a>{{this.eating_habit}}</a>
       </h2>
     </ion-col>
   </ion-row>
@@ -64,17 +450,17 @@
   <ion-row class="border-bottom" text-center>
     <ion-col col-3 class="border-right">
       <h2>
-        <a>142 cm</a>
+        <a>{{this.height}}</a>
       </h2>
     </ion-col>
     <ion-col col-3 class="border-right">
       <h2>
-        <a>72 Kg</a>
+        <a>{{this.weight}}</a>
       </h2>
     </ion-col>
     <ion-col col-6>
       <h2>Blood Group:
-        <a>B positive</a>
+        <a>{{this.blood_group}}</a>
       </h2>
     </ion-col>
   </ion-row>
@@ -84,7 +470,7 @@
     <ion-col col-8 text-center>
       <h2>
         <b> Allergic to</b>
-        <a> Medicines</a>
+        <a> {{this.allergic_to}}</a>
       </h2>
     </ion-col>
     <ion-col col-2></ion-col>
@@ -93,12 +479,12 @@
   <ion-row class="border-bottom" text-center>
     <ion-col col-7 class="border-right">
       <h2>
-        <a>Saaki Naka, LBS Marg, Andheri</a>
+        <a> {{this.area_locality}}</a>
       </h2>
     </ion-col>
     <ion-col col-5>
       <h2>PIN Code :
-        <a> 400011 </a>
+        <a> {{this.pin_code}} </a>
       </h2>
     </ion-col>
   </ion-row>
@@ -106,17 +492,17 @@
   <ion-row class="border-bottom" text-center>
     <ion-col col-4 class="border-right">
       <h2>
-        <a>Mumbai</a>
+        <a>{{this.city}}</a>
       </h2>
     </ion-col>
     <ion-col col-4 class="border-right">
       <h2>
-        <a>Maharashtra</a>
+        <a>{{this.state}}</a>
       </h2>
     </ion-col>
     <ion-col col-4>
       <h2>
-        <a>India </a>
+        <a>{{this.country}} </a>
       </h2>
     </ion-col>
   </ion-row>
@@ -130,7 +516,7 @@
     </ion-col>
     <ion-col col-8>
       <h2>
-        <a>urmilaprakash@gmail.com </a>
+        <a> {{this.email}}</a>
       </h2>
     </ion-col>
   </ion-row>
@@ -138,12 +524,12 @@
   <ion-row class="border-bottom" text-center>
     <ion-col col-6 class="border-right">
       <h2>
-        <b>9822887766</b>
+        <b> {{this.contact_no}} </b>
       </h2>
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>9822887766</b>
+        <b>{{this.emergency_mobile_no}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -152,7 +538,7 @@
     <ion-col col-8 text-center>
       <h2>
         <b>Aadhar No : </b>
-        <a>3355 2588 2552</a>
+        <a> {{this.aadhaar_no}}</a>
       </h2>
     </ion-col>
     <ion-col col-2></ion-col>
@@ -175,10 +561,11 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>(35.70)Class II Obesity </b>
+        <b> {{this.body_mass_index_bmi}}</b>
       </h2>
     </ion-col>
   </ion-row>
+
 
   <ion-row class="border-bottom">
     <ion-col col-6 class="border-right">
@@ -188,7 +575,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>Weight reducing</b>
+        <b>{{this.exercise}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -201,9 +588,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>Marathi
-          <br> English
-          <br> Hindi </b>
+        <b> {{this.known_languages}} {{this.known_languages_one}} {{this.known_languages_two}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -216,8 +601,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>Painting
-          <br> Music </b>
+        <b>{{this.hobbies}} <br> {{this.hobbies_one}} <br> {{this.hobbies_two}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -230,7 +614,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>No </b>
+        <b>{{this.alcohol}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -243,7 +627,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>No </b>
+        <b> {{this.smoking}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -256,7 +640,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>Occasional </b>
+        <b>{{this.paan}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -269,7 +653,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>No </b>
+        <b>{{this.tobacco}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -291,7 +675,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>No </b>
+        <b>{{this.asthma}} {{this.asthma_since}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -304,7 +688,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>Since 12 years</b>
+        <b>{{this.blood_pressure_problem}} {{this.bp_since}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -317,7 +701,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>No </b>
+        <b>{{this.diabetes_sugar_problem}} {{this.diabetes_since}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -330,7 +714,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>Since 12 years </b>
+        <b>{{this.thyroid_problem}} {{this.thyroid_since}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -343,7 +727,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>No </b>
+        <b> {{this.jaundice}} {{this.jaundice_year}} </b>
       </h2>
     </ion-col>
   </ion-row>
@@ -357,7 +741,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>No </b>
+        <b>{{this.tb}} {{this.tb_year}} </b>
       </h2>
     </ion-col>
   </ion-row>
@@ -370,7 +754,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>Caesarian Section (2011) </b>
+        <b>{{this.previous_surgery}} {{this.previous_year}} {{this.previou_name}}</b>
       </h2>
     </ion-col>
   </ion-row>
@@ -383,7 +767,7 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>Ayurveda </b>
+        <b>{{this.other_medications}} </b>
       </h2>
     </ion-col>
   </ion-row>
@@ -396,8 +780,28 @@
     </ion-col>
     <ion-col col-6>
       <h2>
-        <b>No </b>
+        <b>{{this.accidents}} {{this.accidents_year}}</b>
       </h2>
     </ion-col>
   </ion-row>
+
+  <ion-fab right bottom class="bottoms" (click)="emergency()">
+    <img src="assets/icon/Emergency.png">
+  </ion-fab>
 </ion-content>
+
+<ion-footer>
+  <ion-row class="colors">
+    <ion-col col-6 text-center class="bottom">
+      <a class="bor-right" (click)="advice()">
+        <img src="assets/icon/advice.png" /> Advice
+      </a>
+    </ion-col>
+
+    <ion-col col-6 text-center class="bottom">
+      <a (click)="report()">
+        <img src="assets/icon/advice.png" /> Report
+      </a>
+    </ion-col>
+  </ion-row>
+</ion-footer>

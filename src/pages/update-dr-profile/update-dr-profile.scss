@@ -20,10 +20,27 @@ page-update-dr-profile {
         padding: 8px 0;
         margin: 0px;  
       }
+      .top{
+          margin-top: 5%;
+      }
+     .toolbar-title-md {
+        font-size: 15px;
+        font-weight: 500;
+        color: whitesmoke;
+        /* padding: 0px 12px; */
+        margin-left: -20%;
+    }
+      .border-bottom{border-bottom: 1px solid #eeeeee;}
+       .signup-label{
+        margin: 0px;
+        padding: 0px;
+        font-size: 14px;
+        color: #828282;
+    }
        .bottom a img {
         margin-right: 4px;
         margin-left: 10px;
-        width: 8%;
+        width: 3%;
         margin-top: 0%;
     }
     .bor-right{
@@ -42,8 +59,6 @@ page-update-dr-profile {
     }
     .back-button.show-back-button {
         display: none; 
-        // display: inline-block;
-        // color: whitesmoke
     }
     .toolbar-title-md {
         font-size: 16px;
@@ -58,4 +73,16 @@ page-update-dr-profile {
         background-color: #097a93;
         width: 100%;
     }
+    .err_danger{
+        color: red;
+        text-align: center;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    ion-input {text-align: left;     
+        color: #000000;
+        font-weight: 500;
+        ::-webkit-input-placeholder {text-align: left; }
+     }
 }

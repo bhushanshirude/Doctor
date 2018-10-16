@@ -4,50 +4,93 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="outer-content">
-  <form class="form">
+<ion-content class="outer-content" padding>
+  <form #hospitalform="ngForm" (ngSubmit)="submit(hospitalform)">
     <ion-list>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="Hospital Name"></ion-input>
+      <ion-item>
+        <ion-label floating>Hospital Name</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="hospital_data.Hospitalname" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="Address"></ion-input>
+      <div [hidden]="(!isSubmitted) || (hospital_data.Hospitalname!='')" class="err_danger">
+        Enter HospitalName
+      </div>
+
+      <!-- <ion-item class="input-hospital">
+        <ion-input type="text" name="" placeholder="Address" [(ngModel)]="hospital_data.Address" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="Phone Number"></ion-input>
+      <div [hidden]="(!isSubmitted) || (hospital_data.Address!='')" class="err_danger">
+        Enter Address
+      </div> -->
+
+      <ion-item>
+        <ion-label floating>Enter City</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="hospital_data.City" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="Emergency Number"></ion-input>
+      <div [hidden]="(!isSubmitted) || (hospital_data.City!='')" class="err_danger">
+        Enter City
+      </div>
+
+      <ion-item>
+        <ion-label floating>Enter State</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="hospital_data.State" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
-    
+      <div [hidden]="(!isSubmitted) || (hospital_data.State!='')" class="err_danger">
+        Enter State
+      </div>
+
+      <ion-item>
+        <ion-label floating>Enter Country</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="hospital_data.Country" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (hospital_data.Country!='')" class="err_danger">
+        Enter Country
+      </div>
+
+      <ion-item>
+        <ion-label floating>Phone Number</ion-label>
+        <ion-input type="text" name="" placeholder="" maxlength="10" minlength="10" [(ngModel)]="hospital_data.Phonenumber" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (hospital_data.Phonenumber!='')" class="err_danger">
+        Enter PhoneNumber
+      </div>
+
+      <ion-item>
+        <ion-label floating>Emergency Number</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="hospital_data.Emergencynumber" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+      <div [hidden]="(!isSubmitted) || (hospital_data.Emergencynumber!='')" class="err_danger">
+        Enter EmergencyNumber
+      </div>
+
+
       <div class="clear"></div>
+
       <ion-row>
         <ion-col col-6>
           <ion-item>
             <ion-label>ER</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.ER}}" value="1" (click)="er(isValidCheckbox.ER)"></ion-checkbox>
           </ion-item>
         </ion-col>
-
         <ion-col col-6>
           <ion-item>
             <ion-label>OPD</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.OPD}}" value="1" (click)="opd(isValidCheckbox.OPD)"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
+
       <ion-row>
         <ion-col col-6>
           <ion-item>
             <ion-label>ICU</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.ICU}}" value="1" (click)="icu(isValidCheckbox.ICU)"></ion-checkbox>
           </ion-item>
         </ion-col>
-
         <ion-col col-6>
           <ion-item>
             <ion-label>ITU</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.ITU}}" value="1" (click)="itu(isValidCheckbox.ITU)"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -56,14 +99,13 @@
         <ion-col col-6>
           <ion-item>
             <ion-label>HDU</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.HDU}}" value="1" (click)="hdu(isValidCheckbox.HDU)"></ion-checkbox>
           </ion-item>
         </ion-col>
-
         <ion-col col-6>
           <ion-item>
             <ion-label>ICCU</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.ICCU}}" value="1" (click)="iccu(isValidCheckbox.ICCU)"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -72,14 +114,14 @@
         <ion-col col-6>
           <ion-item>
             <ion-label>GW</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.GW}}" value="1" (click)="gw(isValidCheckbox.GW)"></ion-checkbox>
           </ion-item>
         </ion-col>
 
         <ion-col col-6>
           <ion-item>
             <ion-label>PW</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.PW}}" value="1" (click)="pw(isValidCheckbox.PW)"> </ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -88,14 +130,13 @@
         <ion-col col-6>
           <ion-item>
             <ion-label>SPW</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.SPW}}" value="1" (click)="spw(isValidCheckbox.SPW)"></ion-checkbox>
           </ion-item>
         </ion-col>
-
         <ion-col col-6>
           <ion-item>
             <ion-label>SD ICU</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.SDICU}}" value="1" (click)="sdicu(isValidCheckbox.SDICU)"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -104,21 +145,55 @@
         <ion-col col-6>
           <ion-item>
             <ion-label>OT</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.OT}}" value="1" (click)="ot(isValidCheckbox.OT)"></ion-checkbox>
           </ion-item>
         </ion-col>
         <ion-col col-6>
           <ion-item>
             <ion-label>WARD</ion-label>
-            <ion-checkbox color="dark" checked="false"></ion-checkbox>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.WARD}}" value="1" (click)="ward(isValidCheckbox.WARD)"></ion-checkbox>
           </ion-item>
         </ion-col>
       </ion-row>
-      <ion-label class="text-id" text-center> You can select minimum 1 and maximum 5</ion-label>
 
       <ion-row>
         <ion-col col-6>
-          <button class="button-add"> Submit </button>
+          <ion-item>
+            <ion-label>REF</ion-label>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.REF}}" value="1" (click)="ref(isValidCheckbox.REF)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+          <ion-item>
+            <ion-label>Extra</ion-label>
+            <ion-checkbox color="dark" checked="{{isValidCheckbox.EXTRA}}" value="1" (click)="extra(isValidCheckbox.EXTRA)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-label class="text-id" text-center> You can select minimum 1 and maximum 5</ion-label>
+
+      <div style="margin-left: 15%; color:#000; font-weight: 500; font-size: 15px;">
+        <h3 class="font"> ICU - Intensive Care Unit</h3>
+        <h3 class="font"> OPD - Out Patient Department</h3>
+        <h3 class="font"> ITU - Intensive Therapy Unit</h3>
+        <h3 class="font"> HDU - High Dependency Unit</h3>
+        <h3 class="font"> ICCU - Intensive Coronary Care Unit</h3>
+        <h3 class="font"> GW - General Ward</h3>
+        <h3 class="font"> PW - Private Ward</h3>
+        <h3 class="font"> SPW - Semi Private Ward</h3>
+        <h3 class="font"> SD ICU - Step Down Intensive Care Unit</h3>
+        <h3 class="font"> OT - Operation Theatre</h3>
+        <!-- <h3 class="font">WARD</h3>
+        <h3 class="font">REF</h3>
+        <h3 class="font">EXTRA</h3> -->
+      </div>
+
+      <p class="err_danger">{{error_mes}}</p>
+
+      <ion-row>
+        <ion-col col-6>
+          <button class="button-add" type="submit"> Submit </button>
         </ion-col>
         <ion-col col-6>
           <button class="button-add" (click)="backHospitalList()"> Reset </button>
@@ -126,5 +201,6 @@
       </ion-row>
 
     </ion-list>
+
   </form>
 </ion-content>

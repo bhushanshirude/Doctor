@@ -100,7 +100,27 @@ page-additionalqualification {
         width: 10%;
         height: 60px;
     }
-
+    .err_danger{
+        color: red;
+        text-align: center;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    ion-input {text-align: left;     
+        ::-webkit-input-placeholder {text-align: left; }
+    }
+  
+  .select-add{
+      margin: 0 auto;
+      padding: 0;
+      width: 90%;
+      display: block;
+      height: 40px;
+      border: 0px solid #ccc;
+      border-bottom: 1px solid #eeeeee;
+      color: #a2a2a2;
+      // text-indent: 
+  }
     // ios css
     .list-ios > .item-block:first-child {
         border-top: 0px solid #c8c7cc; 

@@ -8,77 +8,277 @@
       </ion-col>
       <ion-col col-1></ion-col>
       <ion-col col-8>
-        Dr.Marty Mcfly
+        Dr. {{ this.doctordata.User.first_name}} {{this.doctordata.User.last_name}}
       </ion-col>
-      <!-- <ion-col end>
-        <ion-buttons>
-          <button ion-button color="royal" (click)="presentPopover($event)">
-            <ion-icon ios="ios-more" md="md-more" style="color: whitesmoke;"></ion-icon>
-          </button>
-        </ion-buttons>
-      </ion-col> -->
     </ion-row>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/doctor.png">
-    </ion-thumbnail>
-    <h2>Dr.Marty McFly</h2>
-    <p>Add : viman nagar pune 411111</p>
-    <p>practice Area : viman nagar pune 411111</p>
-    <p>Duty Time : Mon-Sun 10 Am to 08 PM</p>
+    <ion-row class="imges">
+      <ion-thumbnail class="imk">
+        <img src="{{image}}" onError="this.src='assets/imgs/doctor.png'">
+      </ion-thumbnail>
+
+      <ion-thumbnail class="imk" *ngIf="createdCode">
+        <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+      </ion-thumbnail>
+    </ion-row>
   </ion-item>
 
+  <ion-row class="colors">
+    <ion-col col-7 text-center class="bottom">
+      <a (click)="edit()"> Dr.{{ this.doctors.User.first_name}} {{this.doctors.User.last_name}}</a>
+    </ion-col>
+    <ion-col col-5 class="bottom">
+      <a (click)="sharing()">QR-CODE
+      </a>
+    </ion-col>
+  </ion-row>
   <ion-row class="border-bottom">
     <ion-col col-1></ion-col>
     <ion-col col-5 class="border-right">
-      <h2>Education : </h2>
-      <p>MBBS</p>
+      <h2>Date Of Birth:</h2>
+      <p>{{this.doctors.User.date_of_birth}}</p>
     </ion-col>
     <ion-col col-1></ion-col>
     <ion-col col-5>
-      <h2>Experience : </h2>
-      <p>10 Years</p>
+      <h2>sex :</h2>
+      <p>{{this.doctors.User.sex}}</p>
     </ion-col>
   </ion-row>
 
   <ion-row class="border-bottom">
     <ion-col col-1></ion-col>
     <ion-col col-5 class="border-right">
-      <h2>SPECIALITY : </h2>
-      <p>Respirtory Medicine</p>
+      <h2>Contact Number : </h2>
+      <p>{{this.doctors.User.contact_no}}</p>
     </ion-col>
     <ion-col col-1></ion-col>
     <ion-col col-5>
-      <h2>CONSULTANT TYPE: </h2>
-      <p>HOnorary Consultant</p>
+      <h2>Email Address : </h2>
+      <p>{{this.doctors.User.email}}</p>
     </ion-col>
   </ion-row>
 
   <ion-row class="border-bottom">
     <ion-col col-1></ion-col>
-    <ion-col col-11>
-      <h2>BRIEF DESCRIPTION :</h2>
-      <p> New Airport Rd, Pune International Airport Area, Lohgaon, Pune, Maharashtra 411032</p>
+    <ion-col col-5 class="border-right">
+      <h2>Website Url : </h2>
+      <p>{{this.doctors.User.website_url}}</p>
+    </ion-col>
+    <ion-col col-1></ion-col>
+    <ion-col col-5>
+      <h2>Registration Number</h2>
+      <p>{{this.doctors.User.registration_no}}</p>
     </ion-col>
   </ion-row>
 
   <ion-row class="border-bottom">
     <ion-col col-1></ion-col>
-    <ion-col col-11>
-      <h2>AWAARDS & ACHIEVEMENTS :</h2>
-      <p> New Airport Rd, Pune International Airport Area, Lohgaon, Pune, Maharashtra 411032</p>
+    <ion-col col-5 class="border-right">
+      <h2>Medical Council : </h2>
+      <p>{{this.doctors.User.medical_council}}</p>
+    </ion-col>
+    <ion-col col-1></ion-col>
+    <ion-col col-5>
+      <h2>Medical Council Year : </h2>
+      <p>{{this.doctors.User.medical_council_year}}</p>
     </ion-col>
   </ion-row>
 
-  <ion-row class="border-bottom">
-    <ion-col col-1></ion-col>
-    <ion-col col-11>
-      <h2>MEMBERSHIPS & ACCREDITATIONS :</h2>
-      <p> New Airport Rd, Pune International Airport Area, Lohgaon, Pune, Maharashtra 411032</p>
+  <!-- ////////////////////////////////////////////////// -->
+  <ion-row class="back">
+    <h6>Graduation Details</h6>
+  </ion-row>
+  <ion-row class="border-bottom border-top">
+    <ion-col col-4 class="border-right line">
+      <b>Degree Name</b>
+    </ion-col>
+    <ion-col col-4 class="border-right line">
+      <b>College Name</b>
+    </ion-col>
+    <ion-col col-4 class="line">
+      <b>Joining Year</b>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="top border-bottom" *ngFor="let data of under">
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.degree_name}}
+    </ion-col>
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.college_name}}
+    </ion-col>
+    <ion-col col-4>
+      {{data.educationdetails.joining_year}}
+    </ion-col>
+  </ion-row>
+  <!-- ////////////////////////////////////////////////// -->
+
+  <ion-row class="back">
+    <h6>Diploma Details</h6>
+  </ion-row>
+  <ion-row class="border-bottom border-top">
+    <ion-col col-4 class="border-right line">
+      <b>Degree Name</b>
+    </ion-col>
+    <ion-col col-4 class="border-right line">
+      <b>College Name</b>
+    </ion-col>
+    <ion-col col-4 class="line">
+      <b>Joining Year</b>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="top border-bottom" *ngFor="let data of Dip">
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.degree_name}}
+    </ion-col>
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.college_name}}
+    </ion-col>
+    <ion-col col-4>
+      {{data.educationdetails.joining_year}}
+    </ion-col>
+  </ion-row>
+  <!-- ////////////////////////////////////////////////// -->
+
+  <ion-row class="back">
+    <h6>Post-graduation Details</h6>
+  </ion-row>
+  <ion-row class="border-bottom border-top">
+    <ion-col col-4 class="border-right line">
+      <b>Degree Name</b>
+    </ion-col>
+    <ion-col col-4 class="border-right line">
+      <b>College Name</b>
+    </ion-col>
+    <ion-col col-4 class="line">
+      <b>Joining Year</b>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="top border-bottom" *ngFor="let data of post">
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.degree_name}}
+    </ion-col>
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.college_name}}
+    </ion-col>
+    <ion-col col-4>
+      {{data.educationdetails.joining_year}}
+    </ion-col>
+  </ion-row>
+  <!-- ////////////////////////////////////////////////// -->
+  <ion-row class="back">
+    <h6>Additional Qualification Details</h6>
+  </ion-row>
+  <ion-row class="border-bottom border-top">
+    <ion-col col-4 class="border-right line">
+      <b>Degree Name</b>
+    </ion-col>
+    <ion-col col-4 class="border-right line">
+      <b>College Name</b>
+    </ion-col>
+    <ion-col col-4 class="line">
+      <b>Joining Year</b>
+    </ion-col>
+  </ion-row>
+  
+  <ion-row class="top border-bottom" *ngFor="let data of addquli">
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.degree_name}}
+    </ion-col>
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.college_name}}
+    </ion-col>
+    <ion-col col-4>
+      {{data.educationdetails.joining_year}}
+    </ion-col>
+  </ion-row>
+  <!-- /////////////////////////////////////////////////// -->
+  <ion-row class="back">
+    <h6>Fellowship Details</h6>
+  </ion-row>
+  <ion-row class="border-bottom border-top">
+    <ion-col col-4 class="border-right line">
+      <b>Degree Name</b>
+    </ion-col>
+    <ion-col col-4 class="border-right line">
+      <b>College Name</b>
+    </ion-col>
+    <ion-col col-4 class="line">
+      <b>Joining Year</b>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="top border-bottom" *ngFor="let data of fellows">
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.degree_name}}
+    </ion-col>
+    <ion-col col-4 class="border-right">
+      {{data.educationdetails.college_name}}
+    </ion-col>
+    <ion-col col-4>
+      {{data.educationdetails.joining_year}}
+    </ion-col>
+  </ion-row>
+  <!-- ////////////////////////////////////////////////// -->
+
+  <ion-row class="back">
+    <h6>Award And Presentation Details</h6>
+  </ion-row>
+  <ion-row class="border-bottom border-top">
+    <ion-col col-4 class="border-right line">
+      <b>Award Name</b>
+    </ion-col>
+    <ion-col col-4 class="border-right line">
+      <b>Award Place</b>
+    </ion-col>
+    <ion-col col-4 class="line">
+      <b>Award Date</b>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="top border-bottom" *ngFor="let data of awards">
+    <ion-col col-4 class="border-right">
+      {{data.awards_presentations.award_name}}
+    </ion-col>
+    <ion-col col-4 class="border-right">
+      {{data.awards_presentations.award_place}}
+    </ion-col>
+    <ion-col col-4>
+      {{data.awards_presentations.award_date}}
+    </ion-col>
+  </ion-row>
+
+  <!-- ////////////////////////////////////////////////// -->
+
+  <ion-row class="back">
+    <h6>Publication Details</h6>
+  </ion-row>
+  <ion-row class="border-bottom border-top">
+    <ion-col col-4 class="border-right line">
+      <b>Title</b>
+    </ion-col>
+    <ion-col col-4 class="border-right line">
+      <b>Journal</b>
+    </ion-col>
+    <ion-col col-4 class="line">
+      <b>Issue</b>
+    </ion-col>
+  </ion-row>
+  <ion-row class="top border-bottom" *ngFor="let data of publi">
+    <ion-col col-4 class="border-right">
+      {{data.publications.title}}
+    </ion-col>
+    <ion-col col-4 class="border-right">
+      {{data.publications.journal}}
+    </ion-col>
+    <ion-col col-4>
+      {{data.publications.issue}}
     </ion-col>
   </ion-row>
 
@@ -86,17 +286,15 @@
 
 
 <ion-footer>
-    <ion-row class="colors">
-      <ion-col col-6 text-center class="bottom">
-        <a class="bor-right" (click)="edit()">
-          <img src="assets/icon/edit.png" /> Edit
-        </a>
-      </ion-col>
-      <!-- Social sharing search and install files and add into app.module.ts -->
-      <ion-col col-6 text-center class="bottom">
-        <a (click)="sharing()">
-          <img src="assets/icon/share1.png" /> Share
-        </a>
-      </ion-col>
-    </ion-row>
-  </ion-footer>
+  <ion-row class="colors">
+    <ion-col col-6 text-center class="bottom">
+      <a class="bor-right" (click)="edit()">
+        <img src="assets/icon/edit.png" /> Edit
+      </a>
+    </ion-col>
+    <!-- Social sharing search and install files and add into app.module.ts -->
+    <ion-col col-6 text-center class="bottom" (click)="sharing()">
+      <a><img src="assets/icon/share1.png" /> Share</a>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,99 @@
+page-addpatienticcu {
+    .toolbar-background {
+        background: #097a93;
+        color:whitesmoke;
+        }
+      .toolbar-title-md {
+            padding: 0 0px;
+            font-size: 14px;
+            font-weight: 500;
+            color: whitesmoke;
+        }
+        .item-md.item-block .item-inner{border: 0px;}
+    
+        .clear{
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+    
+    .input-hospital{
+        margin: 0px auto;
+        padding: 0px;
+        width: 80%;
+    }
+     
+    .input-hospital input{ 
+        margin: 0px;
+        padding: 0px 0px 0px 40px;
+        height: 52px;
+        text-align: left;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .add-hospital-block{
+        margin: 0px auto;
+        padding: 0px;
+        display: block;
+        width: 80%;
+    }
+    .add-hospital-block ion-input{
+        margin: 0px;
+        padding: 0px 0px 0px 40px;
+        height: 52px;
+        text-align: left;
+        border-bottom: 1px solid #eeeeee;
+    }
+    ion-input {text-align: left;     
+          ::-webkit-input-placeholder {text-align: left; }
+      }
+    .add-hospital-block .space{
+        margin-right: 10px;
+    }
+    .form{
+        margin: 5% 0px 0px 0px;
+    }
+    .button-add{
+        margin: 15% 2% 10px 10%;
+        height: 36px;
+        width: 120px;
+        color:#fff;
+        font-size: 12px;
+        border-radius: 60px !important;
+        background: rgba(10,120,148,1);
+          }
+    .item-leave-height{
+        margin: 5% 0px 0px 0px;
+    }
+
+
+    @media only screen and (max-width: 480px) {
+     .input-hospital input{ 
+         padding-left: 10px;
+     }
+     .add-hospital-block ion-input{
+        padding-left: 4px;   
+     }
+    }
+    .back-button.show-back-button {
+        display: inline-block;
+        color: whitesmoke;
+        // color:red
+    }
+    .err_danger{
+        color: red;
+        text-align: center;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    // ios css
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 15px;
+        font-weight: 500;
+        color:whitesmoke;
+        pointer-events: auto;
+    }
+}

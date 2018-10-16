@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" style="color: #fff;"></ion-icon>
+    </button>
+    <ion-title>IMAGE UPLOAD</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <p>{{imageURI}}</p>
+    <button ion-button color="danger" (click)="getImage()">Get Image</button>
+  </ion-item>
+  <!-- <ion-item>
+    <h4>Image Preview</h4>
+    <img src="{{image}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
+  </ion-item> -->
+  <ion-item>
+    <button ion-button color="secondary" (click)="uploadFile()">Upload</button>
+  </ion-item>
+</ion-content>

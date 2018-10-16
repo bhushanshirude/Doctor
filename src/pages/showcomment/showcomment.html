@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{thread}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h2>{{thread}}</h2>
+
+  <div class="container darker" *ngFor="let data of array">
+    <span class="time-left">{{data.Forumcomment.created | date: "medium"}}</span>
+    <span class="time-right">{{data.User.first_name}}</span>
+    <br>
+    <!-- <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;"> -->
+    <p>{{data.Forumcomment.comment}}</p>
+
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-row class="colors">
+    <ion-col text-center class="bottoms">
+      <a (click)="comment()">
+        <img src="assets/icon/chat.png" /> Comment
+      </a>
+    </ion-col>
+  </ion-row>
+</ion-footer>

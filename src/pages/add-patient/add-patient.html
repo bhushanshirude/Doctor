@@ -1,56 +1,66 @@
 <ion-header>
   <ion-navbar>
-      <button ion-button menuToggle>
-        </button>
-    <ion-title>ADD NEW PATIENT</ion-title>
+    <button ion-button menuToggle>
+    </button>
+    <ion-title>ADD NEW OPD PATIENT</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="outer-content">
-  <form class="form">
+  <form #addform="ngForm" (ngSubmit)="Submit(addform)">
     <ion-list>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="First Name"></ion-input>
+      <ion-item>
+        <ion-label floating>First Name</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="patient_data.FirstName" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="Last Name"></ion-input>
+      <div [hidden]="(!isSubmitted) || (patient_data.FirstName!='')" class="err_danger">
+        Enter Full Name
+      </div>
+
+      <ion-item>
+        <ion-label floating>Last Name</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="patient_data.LastName" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="Diagnosis / Procedure"></ion-input>
+      <div [hidden]="(!isSubmitted) || (patient_data.LastName!='')" class="err_danger">
+        Enter Last Name
+      </div>
+
+      <ion-item>
+        <ion-label floating>Diagnosis / Procedure</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="patient_data.Diagnosis" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="Mobile Number"></ion-input>
+      <div [hidden]="(!isSubmitted) || (patient_data.Diagnosis!='')" class="err_danger">
+        Enter Diagnosis Name
+      </div>
+
+      <ion-item>
+        <ion-label floating>Mobile Number</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="patient_data.MobileNo" [ngModelOptions]="{standalone: true}" minlength="10"
+          maxlength="10"></ion-input>
       </ion-item>
-      <ion-item class="input-hospital">
-        <ion-input type="text" name="" placeholder="Email"></ion-input>
+      <div [hidden]="(!isSubmitted) || (patient_data.MobileNo!='')" class="err_danger">
+        Enter Mobile Number
+      </div>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="text" name="" placeholder="" [(ngModel)]="patient_data.Email" [ngModelOptions]="{standalone: true}"></ion-input>
       </ion-item>
+      <div [hidden]="(!isSubmitted) || (patient_data.Email!='')" class="err_danger">
+        Enter Email Address
+      </div>
 
       <div class="clear"></div>
 
       <ion-row>
         <ion-col col-6>
-          <button class="button-add" (click)="Submit()"> Submit </button>
+          <button class="button-add" type="submit"> Submit </button>
         </ion-col>
         <ion-col col-6>
-          <button class="button-add" (click)="Reset()"> Reset </button>
+          <button clear class="button-add" type="reset" (click)="Reset()"> Reset </button>
         </ion-col>
       </ion-row>
     </ion-list>
   </form>
+  <button (click)="scanCode()" ion-button color="primary">QR-Scanner</button>
 </ion-content>
-
-
-
-<!-- 
-<ion-title style="font-size:10px;">
-  <h6>Hospital Status</h6>
-</ion-title>
-<ion-item>
-  <ion-select multiple="true">
-    <ion-option>General Ward</ion-option>
-    <ion-option>OPD</ion-option>
-    <ion-option>ICU</ion-option>
-    <ion-option>HDU</ion-option>
-    <ion-option>OT</ion-option>
-  </ion-select>
-</ion-item> -->

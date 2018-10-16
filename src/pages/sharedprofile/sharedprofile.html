@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Shared Patient list</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #opdform="ngForm" (ngSubmit)="opd(opdform)" style="margin-top: 3%">
+    <ion-row class="color border-bottom" *ngFor="let data of array">
+      <ion-col col-1 (click)="view_patient(data.hc_users.id,data.hc_users.first_name,data.hc_users.last_name)"></ion-col>
+      <ion-col col-5 (click)="view_patient(data.hc_users.id,data.hc_users.first_name,data.hc_users.last_name)">
+        <h2>{{data.hc_users.first_name}} {{data.hc_users.last_name}}</h2>
+      </ion-col>
+      <ion-col col-1 (click)="view_patient(data.hc_users.id,data.hc_users.first_name,data.hc_users.last_name)"></ion-col>
+      <ion-col col-4 (click)="view_patient(data.hc_users.id,data.hc_users.first_name,data.hc_users.last_name)">
+        <h1>{{data.hc_users.diagnosis_procidure}}</h1>
+      </ion-col>
+      <ion-col col-1></ion-col>
+      <!-- <ion-col col-1 (click)="presentPopover($event,data.hc_users.id)">
+        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      </ion-col> -->
+    </ion-row>
+  </form>
+</ion-content>

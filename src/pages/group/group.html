@@ -8,6 +8,7 @@
       </ion-col>
 
       <ion-col col-1></ion-col>
+
       <ion-col col-8 class="cols myCustomSelect" (click)="click(Invoice)">
         <ion-label>{{this.value}}</ion-label>
       </ion-col>
@@ -20,24 +21,89 @@
       </div>
     </ion-row>
   </ion-navbar>
+  <div style="margin-top: 0%;">
+    <ion-segment [(ngModel)]="tabs">
+      <ion-segment-button *ngFor="let re of cate" (click)="selectTab(re.Forumsubcategory.id)" value="{{re.Forumsubcategory.subcategory_name}}">{{re.Forumsubcategory.subcategory_name}}</ion-segment-button>
+    </ion-segment>
+  </div>
 </ion-header>
 
-<ion-content class="tops" >
-  <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-note item-start>
+        <h2>Threads</h2>
+      </ion-note>
+      <ion-note item-end>
+        <h2 style="margin-left:-15%;">Post</h2>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-row style="margin-top:-3%;" class="border-bottom" *ngFor="let care of categoris" (click)="open(care.Forumthread.id,care.Forumthread.thread_name)">
+    <ion-col col-8>
+      <h6>{{care.Forumthread.thread_name}}</h6>
+    </ion-col>
+    <ion-col col-2></ion-col>
+    <ion-col col-1>
+      <h6 class="badge">{{care.Forumcomment.length}}</h6>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<!-- <ion-content> -->
+<!-- <super-tabs scrollTabs [selectedTabIndex]="selectedTabIndex" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light"
+    badgeColor="light" [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'">
+    <super-tab scrollTabs *ngFor="let re of cate" [root]="tab1Root" [icon]="showIcons? 'heart' : ''" [title]="showTitles? re.Forumsubcategory.subcategory_name : ''"></super-tab>
+  </super-tabs> -->
+<!-- <ion-toolbar> -->
+
+<!-- <ion-content #scroll scrollX="true" scrollY="true" style="height: 50px;">
+          <ion-segment class="SwipedTabs-tabs">
+              <ion-segment-button *ngFor='let tab of tabs ; let i = index ' value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'
+                  [ngStyle]="{'width.px': (this.tabElementWidth_px)}">
+                  {{tab}}
+              </ion-segment-button>
+          </ion-segment>
+          <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.px': (this.tabElementWidth_px)}"></div>
+      </ion-content> -->
+<!-- </ion-content> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
     [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'" *ngIf="value=='Cardiology'">
     <super-tab [root]="tab1Root" [title]="showTitles? 'NEET ' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
     <super-tab [root]="tab2Root" [title]="showTitles? 'DNB' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
     <super-tab [root]="tab3Root" [title]="showTitles? 'FELLOWSHIP' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
     <super-tab [root]="tab4Root" [title]="showTitles? 'CAREER' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
-    <super-tab [root]="tab5Root" [title]="showTitles? 'ASK?' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
-  </super-tabs>
+    <super-tab [root]="tab5Root" [title]="showTitles? 'ASK?' : ''" [icon]="showIcons? 'heart' : ''"></super-tab> 
+  </super-tabs> -->
 
-  <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
+<!-- <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
     [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'" *ngIf="value=='WORLD PG EXAMS FORUM'">
 
     <super-tab [root]="tab6Root" [title]="showTitles? 'Us/Can  ' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
     <super-tab [root]="tab7Root" [title]="showTitles? 'AUS/NZ' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
-    <super-tab [root]="tab8Root" [title]="showTitles? 'AS/A' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
+    <super-tab [root]="tab8Root" [title]="showTitles? 'ASIA' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
     <super-tab [root]="tab9Root" [title]="showTitles? 'EUROPE' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
     <super-tab [root]="tab10Root" [title]="showTitles? 'GULF/AF' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
   </super-tabs>
@@ -50,5 +116,4 @@
     <super-tab [root]="tab13Root" [title]="showTitles? 'UPSC' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
     <super-tab [root]="tab14Root" [title]="showTitles? 'AIMS' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
     <super-tab [root]="tab15Root" [title]="showTitles? 'OTHERS' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
-  </super-tabs>
-</ion-content>
+  </super-tabs> -->

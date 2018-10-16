@@ -1,0 +1,35 @@
+<ion-content class="text">
+  <div class="popup-wrapper">
+
+    <form #sendform="ngForm" (ngSubmit)="send(sendform)">
+
+      <div class="popup-cnt">
+        <ion-row>
+          <ion-col col-9>
+            ADD_Question
+          </ion-col>
+          <ion-col col-2 (click)="dismiss()">
+            <a class="popup-close">
+              <img src="assets/imgs/close-popup.png" />
+            </a>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+        <!-- <ion-label>Diagnosis :</ion-label> -->
+        <ion-textarea placeholder="Enter Question here...!" [(ngModel)]="cust_data.question" [ngModelOptions]="{standalone: true}"></ion-textarea>
+        <div [hidden]="(!isSubmitted) || (cust_data.question!='')" class="err_danger">
+          Enter Question Here
+        </div>
+
+        <!-- <ion-label>Rx :</ion-label> -->
+        <ion-textarea placeholder="Enter Answer...!" [(ngModel)]="cust_data.answer" [ngModelOptions]="{standalone: true}"></ion-textarea>
+        <div [hidden]="(!isSubmitted) || (cust_data.answer!='')" class="err_danger">
+          Enter Answer Here
+        </div>
+        <ion-row text-center>
+          <button ion-button type="submit">Send</button>
+        </ion-row>
+      </div>
+    </form>
+  </div>
+</ion-content>

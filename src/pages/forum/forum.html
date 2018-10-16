@@ -2,17 +2,9 @@
   <div class="popup-wrapper">
     <div class="popup-cnt">
       <ion-list radio-group [(ngModel)]="relationship" class="scroll">
-        <ion-item>
-          <ion-radio value="Cardiology" selected="true" (click)="dismiss('Cardiology')"></ion-radio>
-          <ion-label>Cardiology</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-radio value="WORLD" (click)="dismiss('WORLD PG EXAMS FORUM')"></ion-radio>
-          <ion-label>WORLD PG EXAMS FORUM</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-radio value="INDIA" (click)="dismiss('INDIA PG EXAMS FORUM')"></ion-radio>
-          <ion-label>INDIA PG EXAMS FORUM</ion-label>
+        <ion-item *ngFor="let forum of array">
+          <ion-radio value="Cardiology" (click)="dismiss(forum.Forumcategory.id,forum.Forumcategory.category_name)"></ion-radio>
+          <ion-label>{{forum.Forumcategory.category_name}}</ion-label>
         </ion-item>
       </ion-list>
     </div>

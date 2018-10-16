@@ -8,8 +8,9 @@
       </ion-col>
 
       <ion-col col-1></ion-col>
+
       <ion-col col-8 class="cols myCustomSelect" (click)="click(Invoice)">
-        <ion-label>{{this.value}}</ion-label>
+        <ion-label selected="true">{{this.value}}</ion-label>
       </ion-col>
 
       <div (click)="click(Invoice)">
@@ -17,9 +18,9 @@
           <img class="imgss" src="assets/img/down.png">
         </ion-buttons>
       </div>
-      <ion-col col-1>
+      <ion-col col-1 (click)="Notification()">
         <ion-icon ios="ios-notifications" md="md-notifications" class="notification">
-          <ion-badge id="notifications-badge">5</ion-badge>
+          <ion-badge id="notifications-badge">{{notifiction_count}}</ion-badge>
         </ion-icon>
       </ion-col>
       <div>
@@ -28,15 +29,74 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content class="tops">
   <super-tabs name="doctor" style="height: 100%;color:white;" toolbarColor="light" indicatorColor="light" badgeColor="light"
     [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'">
 
-    <super-tab [root]="tab1Root" [title]="showTitles? 'OPD' : ''" [icon]="showIcons? 'heart' : ''" badge="1"></super-tab>
-    <super-tab [root]="tab2Root" [title]="showTitles? 'ICU' : ''" [icon]="showIcons? 'heart' : ''" badge="2"></super-tab>
-    <super-tab [root]="tab3Root" [title]="showTitles? 'WARD' : ''" [icon]="showIcons? 'heart' : ''" badge="3"></super-tab>
-    <super-tab [root]="tab4Root" [title]="showTitles? 'HDU' : ''" [icon]="showIcons? 'heart' : ''" badge="4"></super-tab>
-    <super-tab [root]="tab5Root" [title]="showTitles? 'OT' : ''" [icon]="showIcons? 'heart' : ''" badge="5"></super-tab>
+    <super-tab [root]="tab0Root" [title]="showTitles? 'All' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
 
+    <div *ngIf="tab_one=='ward'|| tab_two=='ward'|| tab_three=='ward'|| tab_four=='ward'|| tab_five=='ward'">
+      <super-tab [root]="tab3Root" [title]="showTitles? 'WARD' : ''" [icon]="showIcons? 'heart' : ''" badge="{{ward_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='opd' || tab_two=='opd' || tab_three=='opd' || tab_four=='opd' || tab_five=='opd'">
+      <super-tab [root]="tab1Root" [title]="showTitles? 'OPD' : ''" [icon]="showIcons? 'heart' : ''" badge="{{opd_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='icu'|| tab_two=='icu'|| tab_three=='icu'|| tab_four=='icu'|| tab_five=='icu'">
+      <super-tab [root]="tab2Root" [title]="showTitles? 'ICU' : ''" [icon]="showIcons? 'heart' : ''" badge="{{icu_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='hdu'|| tab_two=='hdu'|| tab_three=='hdu'|| tab_four=='hdu'|| tab_five=='hdu'">
+      <super-tab [root]="tab4Root" [title]="showTitles? 'HDU' : ''" [icon]="showIcons? 'heart' : ''" badge="{{hdu_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='ot'|| tab_two=='ot'|| tab_three=='ot'|| tab_four=='ot'|| tab_five=='ot'">
+      <super-tab [root]="tab5Root" [title]="showTitles? 'OT' : ''" [icon]="showIcons? 'heart' : ''" badge="{{ot_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='itu'|| tab_two=='itu'|| tab_three=='itu'|| tab_four=='itu'|| tab_five=='itu'">
+      <super-tab [root]="tab6Root" [title]="showTitles? 'ITU' : ''" [icon]="showIcons? 'heart' : ''" badge="{{itu_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='iccu'|| tab_two=='iccu'|| tab_three=='iccu'|| tab_four=='iccu'|| tab_five=='iccu'">
+      <super-tab [root]="tab7Root" [title]="showTitles? 'ICCU' : ''" [icon]="showIcons? 'heart' : ''" badge="{{iccu_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='gw'|| tab_two=='gw'|| tab_three=='gw'|| tab_four=='gw'|| tab_five=='gw'">
+      <super-tab [root]="tab8Root" [title]="showTitles? 'GW' : ''" [icon]="showIcons? 'heart' : ''" badge="{{gw_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='pw'|| tab_two=='pw'|| tab_three=='pw'|| tab_four=='pw'|| tab_five=='pw'">
+      <super-tab [root]="tab9Root" [title]="showTitles? 'PW' : ''" [icon]="showIcons? 'heart' : ''" badge="{{pw_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='spw'|| tab_two=='spw'|| tab_three=='spw'|| tab_four=='spw'|| tab_five=='spw'">
+      <super-tab [root]="tab10Root" [title]="showTitles? 'SPW' : ''" [icon]="showIcons? 'heart' : ''" badge="{{spw_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='sdicu'|| tab_two=='sdicu'|| tab_three=='sdicu'|| tab_four=='sdicu'|| tab_five=='sdicu'">
+      <super-tab [root]="tab11Root" [title]="showTitles? 'SDICU' : ''" [icon]="showIcons? 'heart' : ''" badge="{{sdicu_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='ref'|| tab_two=='ref'|| tab_three=='ref'|| tab_four=='ref'|| tab_five=='ref'">
+      <super-tab [root]="tab12Root" [title]="showTitles? 'REF' : ''" [icon]="showIcons? 'heart' : ''" badge="{{ref_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='extra'|| tab_two=='extra'|| tab_three=='extra'|| tab_four=='extra'|| tab_five=='extra'">
+      <super-tab [root]="tab13Root" [title]="showTitles? 'EXTRA' : ''" [icon]="showIcons? 'heart' : ''" badge="{{extra_count}}"></super-tab>
+    </div>
+
+    <div *ngIf="tab_one=='er'|| tab_two=='er'|| tab_three=='er'|| tab_four=='er'|| tab_five=='er'">
+      <super-tab [root]="tab14Root" [title]="showTitles? 'ER' : ''" [icon]="showIcons? 'heart' : ''" badge="{{er_count}}"></super-tab>
+    </div>
+
+    <!-- <div *ngIf="get_data_hide()">
+        True
+    </div>
+    <div *ngIf="get_data_hide()=='false'">
+        False
+    </div> -->
   </super-tabs>
 </ion-content>

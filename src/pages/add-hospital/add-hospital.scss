@@ -3,6 +3,9 @@ page-add-hospital{
         background:#097a93;
         }
 
+    .font{
+        font-size: 12px;
+        }
      .toolbar-title-md {
             padding: 0 0px;
             font-size: 15px;
@@ -11,20 +14,25 @@ page-add-hospital{
         }
     .item-md.item-block .item-inner{border: 0px;}
     
-        .clear{
+    .clear{
         margin: 0px;
         padding: 0px;
         width: 100%;
         display: block;
         clear: both;
     }
-    
+
+    .item-md{margin-left: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    }
+
     .input-hospital{
         margin: 0px auto;
         padding: 0px;
         width: 80%;
     }
-     
+
     .input-hospital input{ 
         margin: 0px;
         padding: 0px 0px 0px 40px;
@@ -39,6 +47,7 @@ page-add-hospital{
         display: block;
         width: 80%;
     }
+
     .add-hospital-block ion-input{
         margin: 0px;
         padding: 0px 0px 0px 40px;
@@ -46,9 +55,11 @@ page-add-hospital{
         text-align: left;
         border-bottom: 1px solid #eeeeee;
     }
+
     ion-input {text-align: left;     
           ::-webkit-input-placeholder {text-align: left; }
       }
+
     .add-hospital-block .space{
         margin-right: 10px;
     }
@@ -63,48 +74,17 @@ page-add-hospital{
         font-size: 12px;
         border-radius: 60px !important;
         background: rgba(10,120,148,1);
- }
- .back-button.show-back-button {
-    display: inline-block;
-    color: whitesmoke;
-    // color:red
-}
-
-
-    @media only screen and (max-width: 480px) {
-     .input-hospital input{ 
-         padding-left: 10px;
      }
-     .add-hospital-block ion-input{
-        padding-left: 4px;   
-     }
-    }
-
-    .item-cover {
-        left: 0;
-        top: 0;
-        position: absolute;
-        width: 10%;
-        height: 10%;
-        background: transparent;
-        cursor: pointer;
-    }
-
-    .text-id{
-        margin: 13px 8px 13px 0px;
-        color: #000;
-        cursor: pointer;
-        font-size: 12px;
-        font-weight: 300;
-    }
-
-    // ios css
-    .toolbar-title-ios {
+    .err_danger{
+        color: red;
         text-align: center;
-        font-size: 15px;
-        font-weight: 600;
+        font-size: 12px;
+        margin-top: 5px;
+}
+    .back-button.show-back-button {
+        display: inline-block;
         color: whitesmoke;
-        pointer-events: auto;
-    }
+        // color:red
+}
     
 }

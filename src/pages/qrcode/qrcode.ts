@@ -1,25 +1,22 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
+import { EmergencyPage } from '../emergency/emergency';
 
-/**
- * Generated class for the QrcodePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-qrcode',
   templateUrl: 'qrcode.html',
 })
 export class QrcodePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public appCtrl: App) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QrcodePage');
   }
 
+  emergency() {
+    this.appCtrl.getRootNavs()[0].push(EmergencyPage);
+    // this.navCtrl.push(EmergencyPage)
+  }
 }

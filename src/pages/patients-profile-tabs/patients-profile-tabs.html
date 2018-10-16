@@ -1,30 +1,39 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-    </button>
-    <ion-title> Urmila Prakash Deol</ion-title>
+    <ion-row>
+      <ion-col col-2></ion-col>
+      <ion-col col-8>
+        <ion-title> {{first_name}} {{last}}</ion-title>
+      </ion-col>
+      <ion-col col-2 (click)="Notification()">
+        <ion-icon ios="ios-notifications" md="md-notifications" class="notification">
+          <ion-badge id="notifications-badge">{{notifiction_count}}</ion-badge>
+        </ion-icon>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 
-  <ion-label class="stabel">
+  <div class="stabel">
     <ion-row>
       <ion-col col-1></ion-col>
-      <ion-col col-9>
-        32 Years Female
+      <ion-col col-7>
+        {{patient_age}} Years {{patient_gender}}
       </ion-col>
-      <ion-col col-2>
-        CABG
+      <ion-col col-4>
+        {{diagnosis}}
       </ion-col>
     </ion-row>
-    <ion-row>
+
+    <ion-row style="height: 40px;">
       <ion-col col-1></ion-col>
-      <ion-col col-9>
-        Denanath Hospital
+      <ion-col col-7>
+        {{h_name}}
       </ion-col>
-      <ion-col col-2>
-        Ward
+      <ion-col col-4>
+        {{ward_status}}
       </ion-col>
     </ion-row>
-  </ion-label>
+  </div>
 </ion-header>
 
 
@@ -34,9 +43,9 @@
   <super-tabs name="doctor" style="height: 100%; margin-top: 0%; color:white; font-size: 12px;" toolbarColor="light" toolbarBackground="#b82827"
     indicatorColor="light" badgeColor="light" [config]="{ sideMenu: 'left' }" [toolbarColor]="'#008000'">
     <super-tab [root]="tab1Root" [title]="showTitles? 'PROFILE' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
-    <super-tab [root]="tab2Root" [title]="showTitles? 'LAB' : ''" [icon]="showIcons? 'heart' : ''" badge="1"></super-tab>
-    <super-tab [root]="tab3Root" [title]="showTitles? 'DISCUSS' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
-    <super-tab [root]="tab4Root" [title]="showTitles? 'DRUGS' : ''" [icon]="showIcons? 'heart' : ''" badge="1"></super-tab>
+    <super-tab [root]="tab2Root" [title]="showTitles? 'LAB' : ''" [icon]="showIcons? 'heart' : ''" badge="{{pathlab_reports}}"></super-tab>
+    <!-- <super-tab [root]="tab3Root" [title]="showTitles? 'DISCUSS' : ''" [icon]="showIcons? 'heart' : ''"></super-tab> -->
+    <super-tab [root]="tab4Root" [title]="showTitles? 'DRUGS' : ''" [icon]="showIcons? 'heart' : ''" badge="{{patient_drugs}}"></super-tab>
     <super-tab [root]="tab5Root" [title]="showTitles? 'RECORD' : ''" [icon]="showIcons? 'heart' : ''"></super-tab>
   </super-tabs>
 </ion-content>

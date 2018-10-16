@@ -1,0 +1,36 @@
+<ion-content class="text">
+  <div class="popup-wrapper">
+
+    <form #reportsendform="ngForm" (ngSubmit)="send(reportsendform)">
+
+      <div class="popup-cnt">
+        <ion-row>
+          <ion-col col-9>
+            <a style="font-size:15px;">Report</a>
+          </ion-col>
+          <ion-col col-2 (click)="dismiss()">
+            <a class="popup-close">
+              <img src="assets/imgs/close-popup.png" />
+            </a>
+          </ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+
+        <ion-label >Diagnosis :</ion-label>
+        <ion-textarea placeholder="Enter diagnosis message here...!" [(ngModel)]="report_data.diagnosis" [ngModelOptions]="{standalone: true}"></ion-textarea>
+        <div [hidden]="(!isSubmitted) || (report_data.diagnosis!='')" class="err_danger">
+          Enter Diagnosis Here
+        </div>
+
+        <ion-label >Interpretation :</ion-label>
+        <ion-textarea placeholder="Enter Interpretation message here...!" [(ngModel)]="report_data.interpretation" [ngModelOptions]="{standalone: true}"></ion-textarea>
+        <div [hidden]="(!isSubmitted) || (report_data.interpretation!='')" class="err_danger">
+          Enter Interpretation Here
+        </div>
+        <ion-row text-center>
+          <button ion-button type="submit">Send</button>
+        </ion-row>
+      </div>
+    </form>
+  </div>
+</ion-content>

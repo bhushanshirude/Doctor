@@ -1,0 +1,23 @@
+<ion-content>
+
+  <form #labform="ngForm" (ngSubmit)="submit(labform)">
+
+    <ion-row class="color" *ngFor="let lab of labs">
+      <ion-col col-4>
+        <h2>{{lab.pathlab_reports.investigation_id}}</h2>
+      </ion-col>
+
+      <ion-col col-7>
+        <h1>{{lab.pathlab_reports.report_value}} {{lab.pathlab_reports.test_unit}}</h1>
+        <p>Normal Range {{lab.pathlab_reports.min_range}} to {{lab.pathlab_reports.max_range}} mg/dl</p>
+      </ion-col>
+      <ion-col col-1>
+        <p class="arrow" [innerHTML]="lab.pathlab_reports.arrows"></p>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <ion-fab right bottom class="bottoms" (click)="emergency()">
+    <img class="bott" src="assets/icon/Emergency.png">
+  </ion-fab>
+</ion-content>

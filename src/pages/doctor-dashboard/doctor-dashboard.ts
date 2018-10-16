@@ -3,65 +3,34 @@ import { NavController, NavParams, PopoverController } from 'ionic-angular';
 
 import { App } from 'ionic-angular/components/app/app';
 import { IonicStorageModule, Storage } from '@ionic/storage';
-import { PopoverOptionPage } from '../popover/popover';
-import { PopoverPatients_menu } from '../popover_patients_menu/popoverpatients_menu';
 import { HospitalDashboard } from '../hospital-dashboard/hospital-dashboard';
 import { EmergencyPage } from '../emergency/emergency';
 import { AddPage } from '../add/add';
-
+import { AllServiceProvider } from '../../providers/services';
+import { DrugsPipe } from '../../pipes/search/drugs'
+import { NotificationviewPage } from '../notificationview/notificationview';
 @Component({
   selector: 'page-doctor-dashboard',
   templateUrl: 'doctor-dashboard.html',
 })
 export class DoctorDashboard {
-  showIcons: boolean = true;
-  showTitles: boolean = true;
-  pageTitle: string = 'Partial Home';
-  type = "titles-only";
-  mySelectedIndex: number;
-  public value = null;
-  DrownhospitalPage: any;
-
-  constructor(navParams: NavParams, public appCtrl: App, public navCtrl: NavController,
-    public popoverCtrl: PopoverController, public storage: Storage,
-    public localStorage: IonicStorageModule) {
-    this.showTitles = true;
-    this.showIcons = false;
-    this.pageTitle += ' - Titles only';
-    this.mySelectedIndex = navParams.data.tabIndex || 0;
-    this.value = "Please Select Hospital";
-  }
-
-  presentPopover(event: Event) {
-    let popover = this.popoverCtrl.create(PopoverPatients_menu);
-    popover.present({ ev: event });
-  }
-
-  //Show popover menu
-  optionsPopover(event: Event) {
-    let popover = this.popoverCtrl.create(PopoverOptionPage);
-    popover.present({ ev: event });
-  }
-
-  onSelectChange(selectedValue: any) {
-    // send data one page to another page
-
-    this.navCtrl.setRoot(HospitalDashboard, {
-      item1: selectedValue
-    })
-    this.value = selectedValue;
-  }
-  pressed() {
-    console.log("presses used to the hospital")
-    this.value = "pressed";
-  }
-  active() {
-    console.log("active used to the hospital")
-    this.value = "active";
-  }
-  released() {
-    console.log("released used to the hospital")
-    this.value = "released";
+  pipes: [DrugsPipe];
+  value = '';
+  doctor_id: '';
+  arrays;
+  Api_url = "";
+  message;
+  notifiction_count = 0;
+  noti_count;
+  constructor(navParams: NavParams, public services: AllServiceProvider, public appCtrl: App, public navCtrl: NavController, public popoverCtrl: PopoverController, public storage: Storage, public localStorage: IonicStorageModule) {
+    this.Api_url = this.services.user_api;
+    this.storage.get('Noti_Count').then((val) => {
+      this.notifiction_count = val;
+    });
+    this.storage.get('id').then((val) => {
+      this.doctor_id = val;
+      this.Get_Doctor(val);
+    });
   }
 
   pageHospital() {
@@ -69,25 +38,28 @@ export class DoctorDashboard {
   }
 
   ionViewDidLoad() {
-    console.log("aaaaaaaaaaaaaaaaaa")
+    this.storage.get('id').then((val) => {
+      this.doctor_id = val;
+    })
   }
 
   ionViewWillEnter() {
-    console.log("BBBBBBBBBBBBBBBBBBBB")
-    // this.value ="Sasun Hospital"
+    this.call_notification();
   }
 
   ionViewDidLeave() {
-    console.log("CCCCCCCCCCCCCCCCCCCC")
   }
 
   ionViewWillUnload() {
-    console.log("DDDDDDDDDDDDDDDDDDDDDD")
+  }
+
+  Notification() {
+    this.appCtrl.getRootNavs()[0].push(NotificationviewPage)
+
   }
 
   emergency() {
-    this.appCtrl.getRootNavs()[0].push(EmergencyPage);
-    // this.navCtrl.push(EmergencyPage)
+    this.appCtrl.getRootNavs()[0].push(EmergencyPage); ``
   }
   add() {
     this.appCtrl.getRootNavs()[0].push(AddPage)
@@ -98,5 +70,73 @@ export class DoctorDashboard {
   }
   sea() {
     this.value = 'search !=search';
+  }
+  ngOnInit() {
+    this.storage.get('id').then((val) => {
+      this.doctor_id = val;
+    })
+
+  }
+
+  Get_Doctor(doctor_id) {
+    console.log("Doctor Send:=>" + doctor_id);
+    fetch(this.Api_url + 'users/android_getmydrugs', {
+      method: 'POST',
+      body: JSON.stringify({
+        "Doctor_Id": doctor_id,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Checking", data)
+        if (data.Status == "Success") {
+          this.arrays = data.Results;
+
+          for (let i = 1; i <= data.Results.length; i++) {
+
+            this.arrays = data.Results;
+          }
+        } else if (data.Status == "Failed") {
+        }
+      })
+  }
+
+  call_notification() {
+    fetch(this.Api_url + 'users/android_notifications', {
+      method: 'POST',
+      body: JSON.stringify({
+        "Doctor_Id": this.doctor_id,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.Status == "Success") {
+          this.message = data.Results;
+          this.noti_count = data.Results.length;
+          if (this.notifiction_count == this.noti_count) {
+            console.log('Not New Notification Message');
+            this.notifiction_count = 0;
+
+          } else {
+            this.notifiction_count = this.noti_count - this.notifiction_count;
+            console.log('New Notification Message ' + this.notifiction_count);
+            this.notifiction_count = 1;
+          }
+          this.storage.set('Noti_Count', this.noti_count);
+          this.storage.set('Noti_Messages', this.message);
+
+        } else if (data.Status == "Failed") {
+          console.log("data loading failed")
+        }
+      }).catch((err) => {
+        console.log("server drop not responding =>");
+        return false;
+      });
   }
 }
